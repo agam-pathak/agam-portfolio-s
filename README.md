@@ -81,9 +81,8 @@ This is a static deployment; Vercel will serve files directly.
 ## Live Links
 
 - Portfolio: 'https://agam-portfolio-s.vercel.app'
-- Rahi.AI: `https://rahi-ai.vercel.app`
-- SarthiSync Live: `https://sarthisync-live.vercel.app`
-- SarthiSync Health: `https://sarthisync-live.vercel.app/api/health`
+- Rahi.AI: `https://rahi-ai.vercel.app'
+- SarthiSync Live: `https://sarthisync-live.vercel.app'
 
 ## Content Update Map
 
