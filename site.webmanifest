@@ -1,0 +1,16 @@
+{
+  "name": "Agam Pathak Portfolio",
+  "short_name": "Agam Portfolio",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08111f",
+  "theme_color": "#08111f",
+  "description": "Software Developer portfolio for Agam Pathak.",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
