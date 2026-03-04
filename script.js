@@ -77,6 +77,8 @@ if (introOverlay) {
   const reduceMotion =
     "matchMedia" in window &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const introDuration = reduceMotion ? 340 : 4800;
+  const introHardTimeout = reduceMotion ? 900 : 7000;
   let introDismissed = false;
 
   const dismissIntro = () => {
@@ -103,8 +105,8 @@ if (introOverlay) {
     }
   });
 
-  window.setTimeout(dismissIntro, reduceMotion ? 260 : 2400);
-  window.setTimeout(dismissIntro, 4200);
+  window.setTimeout(dismissIntro, introDuration);
+  window.setTimeout(dismissIntro, introHardTimeout);
 } else {
   document.body.classList.remove("is-preloading");
 }
