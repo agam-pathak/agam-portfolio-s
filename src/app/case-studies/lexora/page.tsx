@@ -143,15 +143,6 @@ export default function LexoraCaseStudy() {
             >
               Open Live App
             </a>
-            <a
-              href="https://github.com/agam-pathak/lexora-ai"
-              className="btn btn-secondary flex items-center gap-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image src="https://skillicons.dev/icons?i=github" alt="GitHub" width={16} height={16} />
-              Code
-            </a>
             <Link href="/#projects" className="btn btn-secondary">
               Back to Projects
             </Link>

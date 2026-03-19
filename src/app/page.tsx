@@ -303,38 +303,25 @@ export default function Home() {
                   </figure>
                 </div>
               </div>
-              <div className="mt-auto">
-                <p className="project-note mb-4 text-sm">
-                  Live URL:{" "}
-                  <a
-                    href="https://lexora-ai-nine.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[--accent]"
-                  >
-                    lexora-ai-nine.vercel.app
-                  </a>
-                </p>
-                <div className="project-actions flex gap-4 pt-4 border-t border-[--outline]">
-                  <a
-                    href="https://lexora-ai-nine.vercel.app"
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Live App
-                  </a>
-                  <Link href="/case-studies/lexora" className="btn btn-secondary">
-                    View Case Study
-                  </Link>
-                </div>
+              <div className="project-actions flex gap-4 pt-4 mt-auto">
+                <a
+                  href="https://lexora-ai-nine.vercel.app"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Live App
+                </a>
+                <Link href="/case-studies/lexora" className="btn btn-secondary">
+                  View Case Study
+                </Link>
               </div>
             </article>
 
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl">SarthiSync Live (TMS)</h3>
+                  <h3 className="font-bold text-xl">SarthiSync (Transportation Management System)</h3>
                   <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">Logistics Operations TMS</span>
                 </div>
 
@@ -387,31 +374,18 @@ export default function Home() {
                   </figure>
                 </div>
               </div>
-              <div className="mt-auto">
-                <p className="project-note mb-4 text-sm">
-                  Live URL:{" "}
-                  <a
-                    href="https://sarthisync-live.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[--accent]"
-                  >
-                    sarthisync-live.vercel.app
-                  </a>
-                </p>
-                <div className="project-actions flex gap-4 pt-4 border-t border-[--outline]">
-                  <a
-                    href="https://sarthisync-live.vercel.app"
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Live App
-                  </a>
-                  <Link href="/case-studies/sarthisync" className="btn btn-secondary">
-                    View Case Study
-                  </Link>
-                </div>
+              <div className="project-actions flex gap-4 pt-4 mt-auto">
+                <a
+                  href="https://sarthisync-live.vercel.app"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Live App
+                </a>
+                <Link href="/case-studies/sarthisync" className="btn btn-secondary">
+                  View Case Study
+                </Link>
               </div>
             </article>
           </div>

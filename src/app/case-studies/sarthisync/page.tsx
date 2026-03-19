@@ -21,7 +21,7 @@ export default function SarthiCaseStudy() {
         <Reveal className="section case-hero">
           <p className="eyebrow">Case Study</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-space">
-            SarthiSync Live (Transportation Management System)
+            SarthiSync (Transportation Management System)
           </h1>
           <p className="case-summary text-lg text-[--muted] max-w-3xl mb-6">
             SarthiSync Live is a full-stack transportation operations demo
@@ -93,47 +93,7 @@ export default function SarthiCaseStudy() {
           </div>
         </Reveal>
 
-        <Reveal className="section mt-16">
-          <div className="section-heading mb-6">
-            <p className="eyebrow">Environment Note</p>
-            <h2 className="text-3xl font-bold font-space">Demo vs production scope</h2>
-          </div>
-          <div className="panel p-6">
-            <ul className="case-list list-disc pl-5 space-y-2 text-[--muted]">
-              <li>
-                Live demo deployment:{" "}
-                <a
-                  href="https://sarthisync-live.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[--accent]"
-                >
-                  https://sarthisync-live.vercel.app
-                </a>
-              </li>
-              <li>
-                API health endpoint:{" "}
-                <a
-                  href="https://sarthisync-live.vercel.app/api/health"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[--accent]"
-                >
-                  /api/health
-                </a>
-              </li>
-              <li>
-                Current deployment is intentionally demo-grade for portfolio
-                review; serverless file storage is ephemeral.
-              </li>
-              <li>
-                Planned production hardening includes: managed database migration,
-                password hashing, real OTP provider integration, secure POD file
-                uploads, and role-based access.
-              </li>
-            </ul>
-          </div>
-        </Reveal>
+
 
         <Reveal className="section mt-16">
           <div className="section-heading mb-6">
