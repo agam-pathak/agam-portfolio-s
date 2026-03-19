@@ -6,11 +6,11 @@ import Link from "next/link";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "SmartDoc AI Case Study | Agam Pathak",
-  description: "Case study for SmartDoc AI by Agam Pathak: architecture, features, and delivery outcomes for an AI document intelligence workspace.",
+  title: "Lexora AI Case Study | Agam Pathak",
+  description: "Case study for Lexora AI by Agam Pathak: architecture, features, and delivery outcomes for an AI document intelligence workspace.",
 };
 
-export default function SmartDocCaseStudy() {
+export default function LexoraCaseStudy() {
   return (
     <>
       <a className="skip-link" href="#main-content">
@@ -22,10 +22,10 @@ export default function SmartDocCaseStudy() {
         <Reveal className="section case-hero">
           <p className="eyebrow">Case Study</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 font-space">
-            SmartDoc AI (Document Intelligence)
+            Lexora AI (Document Intelligence)
           </h1>
           <p className="case-summary text-lg text-[--muted] max-w-3xl mb-6">
-            SmartDoc AI is a premium Next.js 16 document intelligence workspace built around a retrieval-augmented generation (RAG) pipeline for PDFs. It features a Perplexity-like dual-pane chat interface with source citations, agentic thinking steps, and dynamic follow-up suggestions in a sleek dark theme.
+            Lexora AI is a premium Next.js 16 document intelligence workspace built around a retrieval-augmented generation (RAG) pipeline for PDFs. It features a Perplexity-like dual-pane chat interface with source citations, agentic thinking steps, and dynamic follow-up suggestions in a sleek dark theme.
           </p>
           <div className="chip-row flex flex-wrap gap-3">
             <span className="chip">Next.js 16</span>
@@ -47,7 +47,7 @@ export default function SmartDocCaseStudy() {
             <ul className="case-list list-disc pl-5 space-y-2 text-[--muted]">
               <li>Developed a complete RAG pipeline connecting PDF text extraction (`pdf-parse`) to an embedded vector index.</li>
               <li>Engineered a premium UI providing a Perplexity-grade UX with source cards and "thinking" agentic steps.</li>
-              <li>Implemented local zero-dependency vector storage under `.smartdoc/` with a fallback mechanism for hashed embeddings.</li>
+              <li>Implemented local zero-dependency vector storage under `.lexora/` with a fallback mechanism for hashed embeddings.</li>
               <li>Designed highly robust document parsers and a secure local auth system using signed `httpOnly` sessions.</li>
             </ul>
           </div>
@@ -119,16 +119,16 @@ export default function SmartDocCaseStudy() {
           <div className="case-image-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
               <img
-                src="/assets/screenshots/smartdoc-dashboard-desktop.png"
-                alt="SmartDoc AI dashboard desktop screenshot"
+                src="/assets/screenshots/lexora-dashboard-desktop.png"
+                alt="Lexora AI dashboard desktop screenshot"
                 loading="lazy"
                 className="w-full h-auto"
               />
             </div>
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
               <img
-                src="/assets/screenshots/smartdoc-dashboard-mobile.png"
-                alt="SmartDoc AI chat mobile screenshot"
+                src="/assets/screenshots/lexora-dashboard-mobile.png"
+                alt="Lexora AI chat mobile screenshot"
                 loading="lazy"
                 className="w-full h-auto"
               />
@@ -144,7 +144,7 @@ export default function SmartDocCaseStudy() {
               Open Live App
             </a>
             <a
-              href="https://github.com/agam-pathak/smartdoc-ai"
+              href="https://github.com/agam-pathak/lexora-ai"
               className="btn btn-secondary flex items-center gap-2"
               target="_blank"
               rel="noopener noreferrer"

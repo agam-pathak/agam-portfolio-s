@@ -254,14 +254,14 @@ export default function Home() {
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl">SmartDoc AI</h3>
+                  <h3 className="font-bold text-xl">Lexora AI</h3>
                   <span className="pill pill-live hover:-translate-y-1 hover:scale-105 transition-transform">Live on Vercel</span>
                 </div>
 
                 <div className="project-tech-icons mb-3">
                   <img
                     src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind,vercel"
-                    alt="SmartDoc AI Stack"
+                    alt="Lexora AI Stack"
                     className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
                     loading="lazy"
                   />
@@ -287,16 +287,16 @@ export default function Home() {
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
                   <figure className="proof-shot proof-shot-desktop">
                     <img
-                      src="/assets/screenshots/smartdoc-dashboard-desktop.png"
-                      alt="SmartDoc AI dashboard desktop"
+                      src="/assets/screenshots/lexora-dashboard-desktop.png"
+                      alt="Lexora AI dashboard desktop"
                       loading="lazy"
                     />
                     <figcaption>Workspace (desktop)</figcaption>
                   </figure>
                   <figure className="proof-shot proof-shot-mobile">
                     <img
-                      src="/assets/screenshots/smartdoc-dashboard-mobile.png"
-                      alt="SmartDoc AI chat mobile"
+                      src="/assets/screenshots/lexora-dashboard-mobile.png"
+                      alt="Lexora AI chat mobile"
                       loading="lazy"
                     />
                     <figcaption>AI Chat (mobile)</figcaption>
@@ -325,7 +325,7 @@ export default function Home() {
                     Open Live App
                   </a>
                   <a
-                    href="https://github.com/agam-pathak/smartdoc-ai"
+                    href="https://github.com/agam-pathak/lexora-ai"
                     className="btn btn-secondary flex items-center gap-2"
                     target="_blank"
                     rel="noopener noreferrer"
