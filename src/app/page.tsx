@@ -255,12 +255,12 @@ export default function Home() {
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <h3 className="font-bold text-xl">SmartDoc AI</h3>
-                  <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">Document Intelligence</span>
+                  <span className="pill pill-live hover:-translate-y-1 hover:scale-105 transition-transform">Live on Vercel</span>
                 </div>
 
                 <div className="project-tech-icons mb-3">
                   <img
-                    src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind"
+                    src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind,vercel"
                     alt="SmartDoc AI Stack"
                     className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
                     loading="lazy"
@@ -268,7 +268,7 @@ export default function Home() {
                 </div>
 
                 <p className="stack text-sm mb-4">
-                  Next.js 16, TypeScript, React, Tailwind CSS, Groq API, react-pdf
+                  Next.js 16, TypeScript, React, Tailwind CSS, Groq AI, Vector Ops
                 </p>
                 <ul className="list-disc pl-5 mb-4 space-y-2 opacity-80">
                   <li>
@@ -303,18 +303,37 @@ export default function Home() {
                   </figure>
                 </div>
               </div>
-              <div className="project-actions mt-auto flex gap-4 pt-4 border-t border-[--outline]">
-                <a
-                  href="https://github.com/agam-pathak"
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View on GitHub
-                </a>
-                <Link href="/case-studies/smartdoc" className="btn btn-secondary">
-                  View Case Study
-                </Link>
+              <div className="mt-auto">
+                <p className="project-note mb-4 text-sm">
+                  Live URL:{" "}
+                  <a
+                    href="https://smartdoc-ai-psi.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[--accent]"
+                  >
+                    smartdoc-ai-psi.vercel.app
+                  </a>
+                </p>
+                <div className="project-actions flex gap-4 pt-4 border-t border-[--outline]">
+                  <a
+                    href="https://smartdoc-ai-psi.vercel.app"
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Live App
+                  </a>
+                  <a
+                    href="https://github.com/agam-pathak/smartdoc-ai"
+                    className="btn btn-secondary flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src="https://skillicons.dev/icons?i=github" alt="GitHub" width={16} height={16} />
+                    Code
+                  </a>
+                </div>
               </div>
             </article>
 

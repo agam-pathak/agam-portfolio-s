@@ -16,7 +16,7 @@ export default function SmartDocCaseStudy() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <CaseStudyHeader liveUrl="https://github.com/agam-pathak" />
+      <CaseStudyHeader liveUrl="https://smartdoc-ai-psi.vercel.app" />
 
       <main id="main-content" className="case-main max-w-[var(--max-width)] mx-auto px-5 py-10 pb-20">
         <Reveal className="section case-hero">
@@ -34,6 +34,7 @@ export default function SmartDocCaseStudy() {
             <span className="chip">Groq API</span>
             <span className="chip">Llama-3.1</span>
             <span className="chip">react-pdf</span>
+            <span className="chip">Vercel</span>
           </div>
         </Reveal>
 
@@ -135,12 +136,21 @@ export default function SmartDocCaseStudy() {
           </div>
           <div className="case-actions mt-10 flex gap-4">
             <a
-              href="https://github.com/agam-pathak"
+              href="https://smartdoc-ai-psi.vercel.app"
               className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
             >
-              View on GitHub
+              Open Live App
+            </a>
+            <a
+              href="https://github.com/agam-pathak/smartdoc-ai"
+              className="btn btn-secondary flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image src="https://skillicons.dev/icons?i=github" alt="GitHub" width={16} height={16} />
+              Code
             </a>
             <Link href="/#projects" className="btn btn-secondary">
               Back to Projects
