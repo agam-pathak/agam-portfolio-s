@@ -1,99 +1,36 @@
-# Agam Pathak Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Clean static portfolio built with plain HTML, CSS, and JavaScript.
+## Getting Started
 
-## Tech
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-
-## Project Structure
-
-```text
-agam-portfolio's/
-├─ index.html
-├─ style.css
-├─ script.js
-├─ resume.pdf
-├─ favicon.svg
-├─ og-image.svg
-├─ robots.txt
-├─ site.webmanifest
-├─ .nojekyll
-├─ profile-optimized.jpg
-├─ assets/
-│  └─ screenshots/
-│     ├─ rahi-planner-desktop.jpg
-│     ├─ rahi-chat-mobile.jpg
-│     ├─ sarthi-dashboard-desktop.png
-│     └─ sarthi-dashboard-mobile.png
-├─ case-studies/
-│  ├─ rahi-ai.html
-│  └─ sarthisync.html
-└─ projects/
-   └─ sarthisync.html
-```
-
-## Environment Structure
-
-No runtime `.env` file is required for this portfolio.
-
-- Build step: none
-- Server requirement: none (static site)
-- Required environment variables: none
-
-Only third-party endpoint used:
-
-- Contact form POST: `https://formsubmit.co/ajax/agamworkspace@gmail.com`  
-  If needed, update this URL in `index.html`.
-
-## Local Preview
-
-Option 1:
-
-- Open `index.html` directly in a browser.
-
-Option 2 (recommended):
+First, run the development server:
 
 ```bash
-npx serve .
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-or
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```bash
-npx http-server .
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Deploy On Vercel
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Project settings:
+## Learn More
 
-- Framework Preset: `Other`
-- Root Directory: `agam-portfolio's`
-- Build Command: empty
-- Output Directory: empty
-- Install Command: empty
+To learn more about Next.js, take a look at the following resources:
 
-This is a static deployment; Vercel will serve files directly.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Live Links
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- Portfolio: (your Vercel domain)
-- Rahi.AI: `https://rahi-ai.vercel.app`
-- SarthiSync Live: `https://sarthisync-live.vercel.app`
-- SarthiSync Health: `https://sarthisync-live.vercel.app/api/health`
+## Deploy on Vercel
 
-## Content Update Map
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- Main content + project cards: `index.html`
-- Visual design + theme system: `style.css`
-- Interactions (navigation, reveal, contact, theme toggle): `script.js`
-- Case studies:
-  - `case-studies/rahi-ai.html`
-  - `case-studies/sarthisync.html`
-
-## Notes
-
-- Repository was cleaned by removing unused/duplicate image assets and legacy source files not referenced by the portfolio pages.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -84,16 +84,22 @@
       ]
     }
   </script>
+  <style>
+    .skills-icons, .project-tech-icons {
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skills-icons img { height: 40px; }
+    .project-tech-icons img { height: 32px; opacity: 0.9; }
+  </style>
 </head>
 <body class="is-preloading">
   <noscript>
     <style>
-      #lux-intro {
-        display: none !important;
-      }
-      body {
-        overflow: auto !important;
-      }
+      #lux-intro { display: none !important; }
+      body { overflow: auto !important; }
     </style>
   </noscript>
 
@@ -222,27 +228,50 @@
       <div class="skills-grid">
         <article class="card">
           <h3>Programming</h3>
+          <div class="skills-icons">
+            <img src="https://skillicons.dev/icons?i=c,cpp,java,py" alt="Programming Skills" />
+          </div>
           <p>C, C++, Java, Python</p>
         </article>
+
         <article class="card">
           <h3>Frontend</h3>
-          <p>HTML, CSS, JavaScript, React</p>
+          <div class="skills-icons">
+            <img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind" alt="Frontend Skills" />
+          </div>
+          <p>HTML, CSS, JavaScript, React, Next.js, Tailwind</p>
         </article>
+
         <article class="card">
           <h3>Backend</h3>
-          <p>Node.js</p>
+          <div class="skills-icons">
+            <img src="https://skillicons.dev/icons?i=nodejs,express" alt="Backend Skills" />
+          </div>
+          <p>Node.js, Express</p>
         </article>
+
         <article class="card">
           <h3>Database</h3>
-          <p>SQL</p>
+          <div class="skills-icons">
+            <img src="https://skillicons.dev/icons?i=mysql,postgres,supabase" alt="Database Skills" />
+          </div>
+          <p>SQL, PostgreSQL, Supabase</p>
         </article>
+
         <article class="card">
           <h3>Tools</h3>
-          <p>Git, GitHub, VS Code</p>
+          <div class="skills-icons">
+            <img src="https://skillicons.dev/icons?i=git,github,vscode,vercel,postman" alt="Tools" />
+          </div>
+          <p>Git, GitHub, VS Code, Vercel</p>
         </article>
+
         <article class="card">
           <h3>Core CS</h3>
-          <p>Data Structures, Algorithms, Problem Solving, Software Development</p>
+          <div class="skills-icons">
+            <img src="https://skillicons.dev/icons?i=linux,md" alt="Core CS Skills" />
+          </div>
+          <p>Data Structures, Algorithms, Problem Solving</p>
         </article>
       </div>
     </section>
@@ -258,8 +287,13 @@
             <h3>Rahi.AI (Tourist Management System)</h3>
             <span class="pill">AI Travel Platform</span>
           </div>
+
+          <div class="project-tech-icons">
+            <img src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind,supabase,workers" alt="Rahi.AI Stack" />
+          </div>
+
           <p class="stack">
-            Next.js 16, TypeScript, React, Tailwind CSS, Supabase, Groq API, Mapbox, Stripe, Razorpay UPI
+            Next.js 15, TypeScript, React, Tailwind CSS, Supabase, Groq API, Mapbox, Stripe
           </p>
           <ul>
             <li>Built an AI-powered tourist planning platform with day-wise itineraries and budget tracking.</li>
@@ -269,37 +303,17 @@
           </ul>
           <div class="proof-grid">
             <figure class="proof-shot proof-shot-desktop">
-              <img
-                src="assets/screenshots/rahi-planner-desktop.jpg"
-                alt="Rahi.AI planner desktop interface screenshot"
-                loading="lazy"
-              />
+              <img src="assets/screenshots/rahi-planner-desktop.jpg" alt="Rahi.AI planner desktop interface" loading="lazy" />
               <figcaption>Planner workspace (desktop)</figcaption>
             </figure>
             <figure class="proof-shot proof-shot-mobile">
-              <img
-                src="assets/screenshots/rahi-chat-mobile.jpg"
-                alt="Rahi.AI chat interface screenshot on mobile view"
-                loading="lazy"
-              />
+              <img src="assets/screenshots/rahi-chat-mobile.jpg" alt="Rahi.AI chat interface on mobile" loading="lazy" />
               <figcaption>AI chat flow (mobile)</figcaption>
             </figure>
           </div>
           <div class="project-actions">
-            <a
-              href="https://rahi-ai.vercel.app"
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Live App
-            </a>
-            <a
-              href="case-studies/rahi-ai.html"
-              class="btn btn-secondary"
-            >
-              View Case Study
-            </a>
+            <a href="https://rahi-ai.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Live App</a>
+            <a href="case-studies/rahi-ai.html" class="btn btn-secondary">View Case Study</a>
           </div>
         </article>
 
@@ -308,52 +322,35 @@
             <h3>SarthiSync Live (Transportation Management System)</h3>
             <span class="pill pill-live">Live on Vercel</span>
           </div>
+
+          <div class="project-tech-icons">
+            <img src="https://skillicons.dev/icons?i=nodejs,js,bootstrap,vercel" alt="SarthiSync Stack" />
+          </div>
+
           <p class="stack">Node.js API, JavaScript, Bootstrap, Leaflet, Chart.js, Cookie Session Auth</p>
           <ul>
             <li>Built live assignment operations with vehicle, driver, route, and dispatch tracking.</li>
             <li>Implemented map playback, AI dispatch copilot, and operational analytics.</li>
-            <li>Added real-world delivery workflow: consignments, OTP checks, ePOD capture, invoice generation, and exception logging.</li>
-            <li>Deployed publicly on Vercel with serverless-compatible routing and signed session cookies.</li>
+            <li>Added real-world delivery workflow: consignments, OTP checks, ePOD capture, and invoice generation.</li>
+            <li>Deployed publicly on Vercel with serverless-compatible routing.</li>
           </ul>
           <div class="proof-grid">
             <figure class="proof-shot proof-shot-desktop">
-              <img
-                src="assets/screenshots/sarthi-dashboard-desktop.png"
-                alt="SarthiSync live operations dashboard screenshot in desktop layout"
-                loading="lazy"
-              />
+              <img src="assets/screenshots/sarthi-dashboard-desktop.png" alt="SarthiSync dashboard desktop" loading="lazy" />
               <figcaption>Operations console (desktop)</figcaption>
             </figure>
             <figure class="proof-shot proof-shot-mobile">
-              <img
-                src="assets/screenshots/sarthi-dashboard-mobile.png"
-                alt="SarthiSync live operations dashboard screenshot in mobile layout"
-                loading="lazy"
-              />
+              <img src="assets/screenshots/sarthi-dashboard-mobile.png" alt="SarthiSync dashboard mobile" loading="lazy" />
               <figcaption>Operations view (mobile)</figcaption>
             </figure>
           </div>
           <p class="project-note">
             Live URL:
             <a href="https://sarthisync-live.vercel.app" target="_blank" rel="noopener noreferrer">sarthisync-live.vercel.app</a>
-            <br />
-            Demo note: Current deployment is portfolio/demo grade because data persistence is ephemeral on serverless storage.
           </p>
           <div class="project-actions">
-            <a
-              href="https://sarthisync-live.vercel.app"
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Live App
-            </a>
-            <a
-              href="case-studies/sarthisync.html"
-              class="btn btn-secondary"
-            >
-              View Case Study
-            </a>
+            <a href="https://sarthisync-live.vercel.app" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Open Live App</a>
+            <a href="case-studies/sarthisync.html" class="btn btn-secondary">View Case Study</a>
           </div>
         </article>
       </div>

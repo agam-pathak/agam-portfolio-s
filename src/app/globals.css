@@ -1,3 +1,4 @@
+@import "tailwindcss";
 :root {
   --bg: #08111f;
   --bg-soft: #101b2f;
@@ -1161,4 +1162,39 @@ button:focus-visible {
   .lux-hint {
     animation: none !important;
   }
+}
+
+/* Styling for the new icons */
+.skills-icons {
+  margin-bottom: 15px; /* Space between icons and the text below */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.skills-icons img {
+  height: 45px; /* Adjust size to your preference */
+  transition: transform 0.3s ease;
+}
+
+/* Optional: Slight pop effect when you hover over a card */
+.card:hover .skills-icons img {
+  transform: translateY(-5px);
+}
+
+.project-tech-icons {
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.project-tech-icons img {
+  height: 35px; /* Slightly smaller than main skills for hierarchy */
+  width: auto;
+  border-radius: 4px;
+}
+
+.stack {
+  margin-top: 0.25rem !important; /* Tightens the gap between icons and text */
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
