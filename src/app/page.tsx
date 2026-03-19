@@ -324,6 +324,9 @@ export default function Home() {
                   >
                     Open Live App
                   </a>
+                  <Link href="/case-studies/lexora" className="btn btn-secondary">
+                    View Case Study
+                  </Link>
                   <a
                     href="https://github.com/agam-pathak/lexora-ai"
                     className="btn btn-secondary flex items-center gap-2"
