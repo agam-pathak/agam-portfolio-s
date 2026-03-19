@@ -16,7 +16,7 @@ export default function LexoraCaseStudy() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <CaseStudyHeader liveUrl="https://smartdoc-ai-psi.vercel.app" />
+      <CaseStudyHeader liveUrl="https://lexora-ai-nine.vercel.app" />
 
       <main id="main-content" className="case-main max-w-[var(--max-width)] mx-auto px-5 py-10 pb-20">
         <Reveal className="section case-hero">
@@ -136,7 +136,7 @@ export default function LexoraCaseStudy() {
           </div>
           <div className="case-actions mt-10 flex gap-4">
             <a
-              href="https://smartdoc-ai-psi.vercel.app"
+              href="https://lexora-ai-nine.vercel.app"
               className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"

@@ -307,17 +307,17 @@ export default function Home() {
                 <p className="project-note mb-4 text-sm">
                   Live URL:{" "}
                   <a
-                    href="https://smartdoc-ai-psi.vercel.app"
+                    href="https://lexora-ai-nine.vercel.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[--accent]"
                   >
-                    smartdoc-ai-psi.vercel.app
+                    lexora-ai-nine.vercel.app
                   </a>
                 </p>
                 <div className="project-actions flex gap-4 pt-4 border-t border-[--outline]">
                   <a
-                    href="https://smartdoc-ai-psi.vercel.app"
+                    href="https://lexora-ai-nine.vercel.app"
                     className="btn btn-primary"
                     target="_blank"
                     rel="noopener noreferrer"
