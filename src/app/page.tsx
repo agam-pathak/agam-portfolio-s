@@ -254,7 +254,7 @@ export default function Home() {
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl">Lexora AI</h3>
+                  <h3 className="font-bold text-xl">Lexora AI (Document Intelligence System)</h3>
                   <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">AI Document Intelligence</span>
                 </div>
 
