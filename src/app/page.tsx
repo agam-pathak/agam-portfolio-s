@@ -254,6 +254,73 @@ export default function Home() {
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
+                  <h3 className="font-bold text-xl">SmartDoc AI</h3>
+                  <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">Document Intelligence</span>
+                </div>
+
+                <div className="project-tech-icons mb-3">
+                  <img
+                    src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind"
+                    alt="SmartDoc AI Stack"
+                    className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
+                    loading="lazy"
+                  />
+                </div>
+
+                <p className="stack text-sm mb-4">
+                  Next.js 16, TypeScript, React, Tailwind CSS, Groq API, react-pdf
+                </p>
+                <ul className="list-disc pl-5 mb-4 space-y-2 opacity-80">
+                  <li>
+                    Built a premium document intelligence workspace with a Perplexity-like dual-pane chat interface.
+                  </li>
+                  <li>
+                    Engineered a complete RAG pipeline connecting PDF text extraction to a localized vector index.
+                  </li>
+                  <li>
+                    Implemented local zero-dependency vector storage with a hashed embeddings fallback mechanism.
+                  </li>
+                  <li>
+                    Designed highly robust document parsers and a secure local auth system.
+                  </li>
+                </ul>
+                <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
+                  <figure className="proof-shot proof-shot-desktop">
+                    <img
+                      src="/assets/screenshots/smartdoc-dashboard-desktop.png"
+                      alt="SmartDoc AI dashboard desktop"
+                      loading="lazy"
+                    />
+                    <figcaption>Workspace (desktop)</figcaption>
+                  </figure>
+                  <figure className="proof-shot proof-shot-mobile">
+                    <img
+                      src="/assets/screenshots/smartdoc-dashboard-mobile.png"
+                      alt="SmartDoc AI chat mobile"
+                      loading="lazy"
+                    />
+                    <figcaption>AI Chat (mobile)</figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div className="project-actions mt-auto flex gap-4 pt-4 border-t border-[--outline]">
+                <a
+                  href="https://github.com/agam-pathak"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on GitHub
+                </a>
+                <Link href="/case-studies/smartdoc" className="btn btn-secondary">
+                  View Case Study
+                </Link>
+              </div>
+            </article>
+
+            <article className="project-card flex flex-col justify-between">
+              <div>
+                <div className="project-head flex justify-between items-start mb-4">
                   <h3 className="font-bold text-xl">SarthiSync Live (TMS)</h3>
                   <span className="pill pill-live hover:-translate-y-1 hover:scale-105 transition-transform">Live on Vercel</span>
                 </div>
