@@ -255,7 +255,7 @@ export default function Home() {
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <h3 className="font-bold text-xl">Lexora AI</h3>
-                  <span className="pill pill-live hover:-translate-y-1 hover:scale-105 transition-transform">Live on Vercel</span>
+                  <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">AI Document Intelligence</span>
                 </div>
 
                 <div className="project-tech-icons mb-3">
@@ -327,15 +327,6 @@ export default function Home() {
                   <Link href="/case-studies/lexora" className="btn btn-secondary">
                     View Case Study
                   </Link>
-                  <a
-                    href="https://github.com/agam-pathak/lexora-ai"
-                    className="btn btn-secondary flex items-center gap-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image src="https://skillicons.dev/icons?i=github" alt="GitHub" width={16} height={16} />
-                    Code
-                  </a>
                 </div>
               </div>
             </article>
@@ -344,7 +335,7 @@ export default function Home() {
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <h3 className="font-bold text-xl">SarthiSync Live (TMS)</h3>
-                  <span className="pill pill-live hover:-translate-y-1 hover:scale-105 transition-transform">Live on Vercel</span>
+                  <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">Logistics Operations TMS</span>
                 </div>
 
                 <div className="project-tech-icons mb-3">
