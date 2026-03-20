@@ -1,18 +1,17 @@
-<svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
   <defs>
-    <linearGradient id="rahiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f59e0b" />
-      <stop offset="100%" stop-color="#ef4444" />
+    <linearGradient id="g" x1="24" y1="24" x2="104" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14b8a6" />
+      <stop offset="1" stop-color="#38bdf8" />
     </linearGradient>
   </defs>
-
-  <!-- Mountain Peak / Apex -->
-  <path d="M50 20 L80 80 H20 Z" fill="url(#rahiGrad)" fill-opacity="0.1" stroke="url(#rahiGrad)" stroke-width="6" stroke-linejoin="round" />
-  
-  <!-- Rising Sun -->
-  <circle cx="50" cy="40" r="12" fill="#f59e0b" filter="drop-shadow(0 0 4px #fbbf24)" />
-
-  <!-- Planning Lines -->
-  <path d="M40 70 H60" stroke="#ef4444" stroke-width="4" stroke-linecap="round" />
-  <path d="M35 60 H65" stroke="#ef4444" stroke-width="3" stroke-linecap="round" />
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#0b0d12" />
+  <rect x="8.5" y="8.5" width="111" height="111" rx="27.5" stroke="#94a3b8" stroke-opacity="0.25" />
+  <path
+    d="M46 92V36h26c12 0 22 10 22 22s-10 22-22 22H46m28 0 20 20"
+    stroke="url(#g)"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 </svg>
