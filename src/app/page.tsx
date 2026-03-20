@@ -184,7 +184,10 @@ export default function Home() {
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-bold text-xl">Rahi.AI (Tourist Management System)</h3>
+                  <div className="flex items-center gap-3">
+                    <img src="/assets/logos/rahi-logo.svg" alt="Rahi.AI" width="40" height="40" className="p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg" />
+                    <h3 className="font-bold text-xl">Rahi.AI (Travel Orchestrator)</h3>
+                  </div>
                     <div className="flex items-center gap-2 text-xs text-[--accent] opacity-90">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
@@ -265,7 +268,10 @@ export default function Home() {
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-bold text-xl">Lexora AI (Document Intelligence System)</h3>
+                  <div className="flex items-center gap-3">
+                    <img src="/assets/logos/lexora-logo.svg" alt="Lexora AI" width="40" height="40" className="p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg" />
+                    <h3 className="font-bold text-xl">Lexora AI (Doc Intelligence)</h3>
+                  </div>
                     <div className="flex items-center gap-2 text-xs text-[--accent] opacity-90">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
@@ -341,7 +347,10 @@ export default function Home() {
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-bold text-xl">SarthiSync (Transportation Management System)</h3>
+                  <div className="flex items-center gap-3">
+                    <img src="/assets/logos/sarthi-logo.svg" alt="SarthiSync" width="40" height="40" className="p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg" />
+                    <h3 className="font-bold text-xl">SarthiSync (Fleet Ops TMS)</h3>
+                  </div>
                     <div className="flex items-center gap-2 text-xs text-orange-400 opacity-90">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>

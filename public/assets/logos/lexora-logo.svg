@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Document Shell -->
+  <path d="M30 20 H65 L75 30 V80 H30 Z" stroke="url(#lexGrad)" stroke-width="6" stroke-linejoin="round" />
+  
+  <!-- Neural Spark / Intelligence -->
+  <path d="M50 40 L60 50 L50 60 L40 50 Z" fill="url(#lexGrad)" />
+  <circle cx="50" cy="50" r="12" stroke="white" stroke-width="2" stroke-dasharray="2 4" />
+
+  <!-- Data Flow -->
+  <path d="M20 70 H80" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4 4" />
+</svg>
