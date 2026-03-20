@@ -7,6 +7,14 @@ export function IntroAnimation() {
   const [isLeaving, setIsLeaving] = useState(false);
 
   useEffect(() => {
+    // Check if intro has already played in this session
+    const hasPlayed = sessionStorage.getItem("lux-intro-played");
+    if (hasPlayed) {
+      setIsVisible(false);
+      document.body.classList.remove("is-preloading");
+      return;
+    }
+
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const duration = reduceMotion ? 340 : 4800;
     const hardTimeout = reduceMotion ? 900 : 7000;
@@ -18,6 +26,7 @@ export function IntroAnimation() {
       dismissed = true;
       setIsLeaving(true);
       document.body.classList.remove("is-preloading");
+      sessionStorage.setItem("lux-intro-played", "true");
       
       setTimeout(() => {
         setIsVisible(false);

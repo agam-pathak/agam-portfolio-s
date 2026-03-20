@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { IntroAnimation } from "@/components/IntroAnimation";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
+import { Counter } from "@/components/Counter";
 
 export default function Home() {
   return (
@@ -62,15 +63,15 @@ export default function Home() {
             </div>
             <div className="stats-grid mt-6">
               <article className="stat p-4 text-center">
-                <h3>2</h3>
+                <Counter value={2} suffix="" />
                 <p>Flagship systems built and led</p>
               </article>
               <article className="stat p-4 text-center">
-                <h3>8+</h3>
+                <Counter value={8} suffix="+" />
                 <p>Production-grade flows in Rahi.AI</p>
               </article>
               <article className="stat p-4 text-center">
-                <h3>2</h3>
+                <Counter value={3} suffix="" />
                 <p>Live deployed products</p>
               </article>
             </div>
@@ -182,7 +183,16 @@ export default function Home() {
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl">Rahi.AI (Tourist Management System)</h3>
+                  <div className="flex flex-col gap-1">
+                    <h3 className="font-bold text-xl">Rahi.AI (Tourist Management System)</h3>
+                    <div className="flex items-center gap-2 text-xs text-[--accent] opacity-90">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[--accent]"></span>
+                      </span>
+                      Production Ready: Vercel Edge
+                    </div>
+                  </div>
                   <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">AI Travel Platform</span>
                 </div>
 
@@ -196,7 +206,7 @@ export default function Home() {
                 </div>
 
                 <p className="stack text-sm mb-4">
-                  Next.js 15, TypeScript, React, Tailwind CSS, Supabase, Groq API,
+                  Next.js 16, TypeScript, React, Tailwind CSS, Supabase, Groq API,
                   Mapbox, Stripe
                 </p>
                 <ul className="list-disc pl-5 mb-4 space-y-2 opacity-80">
@@ -254,7 +264,16 @@ export default function Home() {
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl">Lexora AI (Document Intelligence System)</h3>
+                  <div className="flex flex-col gap-1">
+                    <h3 className="font-bold text-xl">Lexora AI (Document Intelligence System)</h3>
+                    <div className="flex items-center gap-2 text-xs text-[--accent] opacity-90">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[--accent]"></span>
+                      </span>
+                      Optimized: RAG Ops
+                    </div>
+                  </div>
                   <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">AI Document Intelligence</span>
                 </div>
 
@@ -321,7 +340,16 @@ export default function Home() {
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
-                  <h3 className="font-bold text-xl">SarthiSync (Transportation Management System)</h3>
+                  <div className="flex flex-col gap-1">
+                    <h3 className="font-bold text-xl">SarthiSync (Transportation Management System)</h3>
+                    <div className="flex items-center gap-2 text-xs text-orange-400 opacity-90">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-400"></span>
+                      </span>
+                      Operational: Fleet TMS
+                    </div>
+                  </div>
                   <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">Logistics Operations TMS</span>
                 </div>
 
