@@ -39,6 +39,11 @@ export const metadata: Metadata = {
       "Software developer portfolio showcasing Rahi.AI and SarthiSync case studies, architecture, and outcomes.",
     images: ["/og-image.svg"],
   },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
