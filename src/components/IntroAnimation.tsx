@@ -66,7 +66,11 @@ export function IntroAnimation() {
       </div>
       <div className="lux-shell">
         <p className="lux-kicker">Curated Portfolio Experience</p>
-        <div className="lux-mark" aria-hidden="true">AP</div>
+        <img 
+          src="/favicon.svg" 
+          alt="AP Mission Control Logo" 
+          className="lux-mark w-20 h-20 p-2 mx-auto rounded-[2rem] border-2 border-white/10 bg-white/5 backdrop-blur-3xl shadow-2xl ring-1 ring-cyan-400/20" 
+        />
         <h2 className="lux-title">Crafted With Precision</h2>
         <p className="lux-subtitle">Loading selected projects, case studies, and impact highlights.</p>
         <div className="lux-progress" aria-hidden="true">

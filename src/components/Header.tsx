@@ -16,11 +16,13 @@ export function Header() {
   return (
     <header className="site-header" id="top">
       <div className="header-inner">
-        <Link href="/#top" className="brand">
-          <span className="brand-mark" aria-hidden="true">
-            AP
-          </span>
-          <span className="brand-text">Agam Pathak</span>
+        <Link href="/#top" className="brand flex items-center gap-3">
+          <img 
+            src="/favicon.svg" 
+            alt="Agam Pathak Logo" 
+            className="brand-mark w-10 h-10 p-1 rounded-lg border border-white/10 bg-white/5 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/10" 
+          />
+          <span className="brand-text font-bold text-lg tracking-tight">Agam Pathak</span>
         </Link>
 
         <button
