@@ -37,10 +37,10 @@ export default function Home() {
               project outcomes.
             </p>
             <div className="hero-actions my-6">
-              <Link href="#projects" className="btn btn-primary">
+              <Link href="#projects" className="btn btn-primary" data-cursor="pointer">
                 View Projects
               </Link>
-              <a href="/resume.pdf" download className="btn btn-secondary">
+              <a href="/resume.pdf" download className="btn btn-secondary" data-cursor="pointer">
                 Download Resume
               </a>
             </div>
@@ -98,6 +98,45 @@ export default function Home() {
               Currently pursuing my B.Tech at CCU Campus (SCRIET), I spend my days orchestrating AI workflows and leading teams to deliver 
               high-performance solutions that solve real-world problems.
             </p>
+          </div>
+        </Reveal>
+
+        <Reveal className="section" id="journey">
+          <div className="section-heading mb-10">
+            <p className="eyebrow">The Journey</p>
+            <h2 className="text-3xl font-bold font-space">Production Proof of Work</h2>
+          </div>
+          
+          <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12 pb-8">
+            <div className="relative pl-8">
+              <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[--accent] ring-4 ring-[--accent]/20 shadow-[0_0_15px_rgba(102,246,202,0.5)]" />
+              <p className="text-sm font-bold text-[--accent] uppercase tracking-widest mb-1">Today & Beyond</p>
+              <h3 className="text-xl font-bold mb-2">Production AI & Scalable Systems</h3>
+              <p className="text-[--muted] max-w-2xl leading-relaxed">
+                Focused on orchestrating Agentic AI workflows (Lexora, Rahi.AI) and optimizing 
+                distributed system latency. Leading project teams to deliver high-fidelity, production-grade applications.
+              </p>
+            </div>
+
+            <div className="relative pl-8">
+              <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-white/30" />
+              <p className="text-sm font-bold opacity-60 uppercase tracking-widest mb-1">Early 2024</p>
+              <h3 className="text-xl font-bold mb-2">Operations Mastery (SarthiSync)</h3>
+              <p className="text-[--muted] max-w-2xl leading-relaxed">
+                Shipped an operational Transportation Management System (TMS) with live dispatch tracking and 
+                logistics logic, proving the ability to handle real-world business complexity.
+              </p>
+            </div>
+
+            <div className="relative pl-8">
+              <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-white/30" />
+              <p className="text-sm font-bold opacity-60 uppercase tracking-widest mb-1">Late 2023</p>
+              <h3 className="text-xl font-bold mb-2">Engineering Foundation</h3>
+              <p className="text-[--muted] max-w-2xl leading-relaxed">
+              Started Bachelor of Technology (B.Tech) in Computer Science Engineering at 
+              <strong> SCRIET, Chaudhary Charan Singh University </strong>. Diving deep into C++, Java, and Algorithmic foundations.
+              </p>
+            </div>
           </div>
         </Reveal>
 
@@ -161,7 +200,7 @@ export default function Home() {
             <h2>Real systems built in team settings</h2>
           </div>
           <div className="projects-grid">
-            <article className="project-card flex flex-col justify-between">
+            <article className="project-card flex flex-col justify-between" data-cursor="view">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -249,7 +288,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="project-card flex flex-col justify-between">
+            <article className="project-card flex flex-col justify-between" data-cursor="view">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -332,7 +371,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="project-card flex flex-col justify-between">
+            <article className="project-card flex flex-col justify-between" data-cursor="view">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -421,23 +460,6 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal className="section" id="education">
-          <div className="section-heading mb-6">
-            <p className="eyebrow">Education</p>
-            <h2>Academic foundation</h2>
-          </div>
-          <div className="timeline">
-            <article className="timeline-item">
-              <h3 className="font-bold text-lg mb-2">Bachelor of Technology (B.Tech), Computer Science Engineering</h3>
-              <p>Chaudhary Charan Singh University Campus (SCRIET), Meerut</p>
-              <span className="text-sm opacity-60">2023 to 2027</span>
-            </article>
-            <article className="timeline-item">
-              <h3 className="font-bold text-lg mb-2">Secondary &amp; Senior Secondary Education</h3>
-              <p>St. Francis Academy, Anepur, Auraiya</p>
-            </article>
-          </div>
-        </Reveal>
 
         <Reveal className="section">
           <div className="section-heading mb-6">
