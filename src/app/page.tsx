@@ -223,7 +223,7 @@ export default function Home() {
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Desktop interface</div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile overflow-hidden border border-white/10 rounded-xl relative aspect-[4/5]">
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5]">
                     <Image
                       src="/assets/screenshots/rahi-chat-mobile.jpg"
                       alt="Rahi.AI chat interface on mobile"
@@ -306,7 +306,7 @@ export default function Home() {
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Desktop workspace</div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile overflow-hidden border border-white/10 rounded-xl relative aspect-[4/5]">
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5]">
                     <Image
                       src="/assets/screenshots/lexora-dashboard-mobile.png"
                       alt="Lexora AI chat mobile"
@@ -393,7 +393,7 @@ export default function Home() {
                     />
                     <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Fleet Map interface</div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile overflow-hidden border border-white/10 rounded-xl relative aspect-[4/5]">
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5]">
                     <Image
                       src="/assets/screenshots/sarthi-dashboard-mobile.png"
                       alt="SarthiSync dashboard mobile"

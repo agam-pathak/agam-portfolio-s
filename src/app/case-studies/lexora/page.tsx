@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from 'next';
+import { MermaidDiagram } from "@/components/MermaidDiagram";
 
 export const metadata: Metadata = {
   title: "Lexora AI Case Study | Agam Pathak",
@@ -54,36 +55,35 @@ export default function LexoraCaseStudy() {
         </Reveal>
 
         <Reveal className="section mt-16">
-          <div className="section-heading mb-6">
-            <p className="eyebrow">Architecture</p>
-            <h2 className="text-3xl font-bold font-space">System snapshot</h2>
+          <div className="section-heading mb-8">
+            <p className="eyebrow">Architecture Visualizer</p>
+            <h2 className="text-3xl font-bold font-space">The RAG Lifecycle</h2>
           </div>
-          <div className="case-grid grid grid-cols-1 md:grid-cols-2 gap-6">
-            <article className="card p-6">
-              <h3 className="text-xl font-bold mb-2">Frontend Layer</h3>
-              <p className="text-[--muted]">
-                Next.js App Router, React 19, and Tailwind CSS. Features an interactive dual-panel viewer with `react-pdf`.
-              </p>
-            </article>
-            <article className="card p-6">
-              <h3 className="text-xl font-bold mb-2">AI Engine</h3>
-              <p className="text-[--muted]">
-                Powered by Groq's high-speed inference running `llama-3.1-8b-instant` mapped strictly to retrieved contexts.
-              </p>
-            </article>
-            <article className="card p-6">
-              <h3 className="text-xl font-bold mb-2">Local Vector Index</h3>
-              <p className="text-[--muted]">
-                Custom chunk-and-embed pipeline with a local filesystem vector store, completely independent of heavy managed DBs.
-              </p>
-            </article>
-            <article className="card p-6">
-              <h3 className="text-xl font-bold mb-2">Auth & Workspaces</h3>
-              <p className="text-[--muted]">
-                Per-user secure directory allocation, storing personal conversations and indexed document schemas safely over HTTP cookies.
-              </p>
-            </article>
-          </div>
+          <p className="text-[--muted] mb-8 max-w-2xl leading-relaxed">
+            Lexora follows a zero-dependency retrieval architecture. Unlike standard RAG implementations that rely on managed vector databases, Lexora maintains a <strong>local-first vector store</strong> optimized for session-specific document intelligence.
+          </p>
+          <MermaidDiagram chart={`
+graph LR
+    PDF[PDF Upload]
+    Parse[pdf-parse Extraction]
+    Chunk[Semantic Chunking]
+    Embed[Groq/Hashed Embeddings]
+    Vector[(Local Vector Index)]
+    Query[User Query]
+    Search[Semantic Search]
+    LLM[Llama-3.1 LLM]
+    UI[Cited Response UI]
+
+    PDF --> Parse
+    Parse --> Chunk
+    Chunk --> Embed
+    Embed --> Vector
+    Query --> Search
+    Vector --> Search
+    Search -- "Top-k Context" --> LLM
+    Query --> LLM
+    LLM --> UI
+          `} />
         </Reveal>
 
         <Reveal className="section mt-16">

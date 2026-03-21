@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from 'next';
+import { MermaidDiagram } from "@/components/MermaidDiagram";
 
 export const metadata: Metadata = {
   title: "Rahi.AI Case Study | Agam Pathak",
@@ -89,6 +90,33 @@ export default function RahiCaseStudy() {
               </p>
             </article>
           </div>
+        </Reveal>
+
+        <Reveal className="section mt-16">
+          <div className="section-heading mb-8">
+            <p className="eyebrow">Architecture Visualizer</p>
+            <h2 className="text-3xl font-bold font-space">The Travel Orchestration Engine</h2>
+          </div>
+          <p className="text-[--muted] mb-8 max-w-2xl leading-relaxed">
+            Rahi.AI operates as a decentralized travel orchestrator. It uses a <strong>Vercel Edge</strong> runtime to route prompt-engineered trip requests to <strong>Groq</strong> for sub-second responses, while <strong>Supabase</strong> maintains real-time sync for collaborative trip pages.
+          </p>
+          <MermaidDiagram chart={`
+graph TD
+    User([User Client])
+    Edge[Next.js Edge Runtime]
+    Groq[Groq AI Agent]
+    DB[(Supabase DB)]
+    Auth[Supabase Auth]
+    Map[Mapbox Tiles]
+
+    User -- "Prompt & Session" --> Edge
+    Edge -- "Auth Check" --> Auth
+    Edge -- "Context Injection" --> Groq
+    Groq -- "JSON Itinerary" --> Edge
+    Edge -- "Stream Response" --> User
+    Edge -- "State Persistence" --> DB
+    User -- "Render Overlay" --> Map
+          `} />
         </Reveal>
 
         <Reveal className="section mt-16">

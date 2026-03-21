@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PageTransition } from "@/components/PageTransition";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -57,7 +58,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>
