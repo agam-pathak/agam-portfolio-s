@@ -47,9 +47,9 @@ export default function Home() {
                 </Link>
               </Magnetic>
               <Magnetic>
-                <a href="/resume.pdf" download className="btn btn-secondary" data-cursor="pointer">
-                  Download Resume
-                </a>
+                <Link href="/resume" className="btn btn-secondary" data-cursor="pointer">
+                  View Modern Resume
+                </Link>
               </Magnetic>
             </div>
             <div className="meta-row">
