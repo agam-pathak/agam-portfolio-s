@@ -44,7 +44,7 @@ export function Magnetic({ children, strength = 0.35 }: MagneticProps) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      transition={{ type: "spring", stiffness: 350, damping: 20, mass: 0.1 }}
     >
       {React.cloneElement(children, {
         "data-magnetic": "true", // Tell the cursor we are magnetic
