@@ -7,7 +7,9 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Counter } from "@/components/Counter";
 import { MouseTracker } from "@/components/MouseTracker";
-import { Github, Mail, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Mail, Twitter, ExternalLink, ArrowRight } from "lucide-react";
+import { Magnetic } from "@/components/Magnetic";
 
 export default function Home() {
   return (
@@ -37,12 +39,16 @@ export default function Home() {
               project outcomes.
             </p>
             <div className="hero-actions my-6">
-              <Link href="#projects" className="btn btn-primary" data-cursor="pointer">
-                View Projects
-              </Link>
-              <a href="/resume.pdf" download className="btn btn-secondary" data-cursor="pointer">
-                Download Resume
-              </a>
+              <Magnetic>
+                <Link href="#projects" className="btn btn-primary" data-cursor="pointer">
+                  View Projects
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <a href="/resume.pdf" download className="btn btn-secondary" data-cursor="pointer">
+                  Download Resume
+                </a>
+              </Magnetic>
             </div>
             <div className="meta-row">
               <span className="mr-4">Meerut, India</span>
@@ -109,7 +115,12 @@ export default function Home() {
           
           <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12 pb-8">
             <div className="relative pl-8">
-              <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[--accent] ring-4 ring-[--accent]/20 shadow-[0_0_15px_rgba(102,246,202,0.5)]" />
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-[--accent] ring-4 ring-[--accent]/20 shadow-[0_0_15px_rgba(102,246,202,0.5)]" 
+              />
               <p className="text-sm font-bold text-[--accent] uppercase tracking-widest mb-1">Today & Beyond</p>
               <h3 className="text-xl font-bold mb-2">Production AI & Scalable Systems</h3>
               <p className="text-[--muted] max-w-2xl leading-relaxed">
@@ -119,7 +130,13 @@ export default function Home() {
             </div>
 
             <div className="relative pl-8">
-              <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-white/30" />
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-white/30" 
+              />
               <p className="text-sm font-bold opacity-60 uppercase tracking-widest mb-1">Early 2024</p>
               <h3 className="text-xl font-bold mb-2">Operations Mastery (SarthiSync)</h3>
               <p className="text-[--muted] max-w-2xl leading-relaxed">
@@ -129,7 +146,13 @@ export default function Home() {
             </div>
 
             <div className="relative pl-8">
-              <div className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-white/30" />
+              <motion.div 
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="absolute -left-[5px] top-1 w-2.5 h-2.5 rounded-full bg-white/30" 
+              />
               <p className="text-sm font-bold opacity-60 uppercase tracking-widest mb-1">Late 2023</p>
               <h3 className="text-xl font-bold mb-2">Engineering Foundation</h3>
               <p className="text-[--muted] max-w-2xl leading-relaxed">
@@ -253,38 +276,50 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10]">
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
                     <Image
                       src="/assets/screenshots/rahi-planner-desktop.jpg"
                       alt="Rahi.AI planner desktop interface"
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Desktop interface</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> Interactive Planner
+                      </p>
+                    </div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile aspect-[4/5]">
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
                     <Image
                       src="/assets/screenshots/rahi-chat-mobile.jpg"
                       alt="Rahi.AI chat interface on mobile"
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Mobile chat flow</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> AI Travel Buddy
+                      </p>
+                    </div>
                   </figure>
                 </div>
               </div>
               <div className="project-actions mt-auto flex gap-4 pt-4 border-t border-[--outline]">
-                <a
-                  href="https://rahi-ai.vercel.app"
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open Live App
-                </a>
-                <Link href="/case-studies/rahi-ai" className="btn btn-secondary">
-                  View Case Study
-                </Link>
+                <Magnetic>
+                  <a
+                    href="https://rahi-ai.vercel.app"
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Live App
+                  </a>
+                </Magnetic>
+                <Magnetic>
+                  <Link href="/case-studies/rahi-ai" className="btn btn-secondary">
+                    View Case Study
+                  </Link>
+                </Magnetic>
               </div>
             </article>
 
@@ -336,38 +371,50 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10]">
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
                     <Image
                       src="/assets/screenshots/lexora-dashboard-desktop.png"
                       alt="Lexora AI dashboard desktop"
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Desktop workspace</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> RAG Workspace
+                      </p>
+                    </div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile aspect-[4/5]">
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
                     <Image
                       src="/assets/screenshots/lexora-dashboard-mobile.png"
                       alt="Lexora AI chat mobile"
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Mobile chat</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> Dual-pane Chat
+                      </p>
+                    </div>
                   </figure>
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <a
-                  href="https://lexora-ai-nine.vercel.app"
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open Live App
-                </a>
-                <Link href="/case-studies/lexora" className="btn btn-secondary">
-                  View Case Study
-                </Link>
+                <Magnetic>
+                  <a
+                    href="https://lexora-ai-nine.vercel.app"
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Live App
+                  </a>
+                </Magnetic>
+                <Magnetic>
+                  <Link href="/case-studies/lexora" className="btn btn-secondary">
+                    View Case Study
+                  </Link>
+                </Magnetic>
               </div>
             </article>
 
@@ -423,38 +470,50 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10]">
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
                     <Image
                       src="/assets/screenshots/sarthi-dashboard-desktop.png"
                       alt="SarthiSync dashboard desktop"
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Fleet Map interface</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> Fleet Dashboard
+                      </p>
+                    </div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile aspect-[4/5]">
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
                     <Image
                       src="/assets/screenshots/sarthi-dashboard-mobile.png"
                       alt="SarthiSync dashboard mobile"
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Mobile view</div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> Mobile Ops
+                      </p>
+                    </div>
                   </figure>
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <a
-                  href="https://sarthisync-live.vercel.app"
-                  className="btn btn-primary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open Live App
-                </a>
-                <Link href="/case-studies/sarthisync" className="btn btn-secondary">
-                  View Case Study
-                </Link>
+                <Magnetic>
+                  <a
+                    href="https://sarthisync-live.vercel.app"
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Live App
+                  </a>
+                </Magnetic>
+                <Magnetic>
+                  <Link href="/case-studies/sarthisync" className="btn btn-secondary">
+                    View Case Study
+                  </Link>
+                </Magnetic>
               </div>
             </article>
           </div>

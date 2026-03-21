@@ -4,6 +4,8 @@ import { Reveal } from "@/components/Reveal";
 import Link from "next/link";
 import type { Metadata } from 'next';
 
+import { MermaidDiagram } from "@/components/MermaidDiagram";
+
 export const metadata: Metadata = {
   title: "SarthiSync Case Study | Agam Pathak",
   description: "Case study for SarthiSync by Agam Pathak: transportation system modules, workflow, and implementation details.",
@@ -54,6 +56,35 @@ export default function SarthiCaseStudy() {
               <li>Added operationally useful flows: consignment intake, pickup/drop OTP verification, ePOD capture, invoice generation, and exception tracking.</li>
             </ul>
           </div>
+        </Reveal>
+
+        <Reveal className="section mt-16">
+          <div className="section-heading mb-8">
+            <p className="eyebrow">Architecture Visualizer</p>
+            <h2 className="text-3xl font-bold font-space">Operational Logic Flow</h2>
+          </div>
+          <p className="text-[--muted] mb-8 max-w-2xl leading-relaxed">
+            SarthiSync connects business intake to field execution. The <strong>Dispatch Copilot</strong> ranks vehicle availability against route constraints, while the <strong>Delivery Assurance</strong> loop secures the chain of custody via dual-OTP verification.
+          </p>
+          <MermaidDiagram chart={`
+graph TD
+    Intake[Consignment Intake]
+    Copilot[AI Dispatch Copilot]
+    Assign[Vehicle/Driver Assignment]
+    Live[Live Fleet Tracking]
+    OTP1[Pickup OTP Verification]
+    OTP2[Drop-off OTP Verification]
+    EPOD[ePOD Capture]
+    Billing[Invoice Generation]
+
+    Intake --> Copilot
+    Copilot -- "Recommendation" --> Assign
+    Assign --> Live
+    Live --> OTP1
+    OTP1 --> OTP2
+    OTP2 --> EPOD
+    EPOD --> Billing
+          `} />
         </Reveal>
 
         <Reveal className="section mt-16">
