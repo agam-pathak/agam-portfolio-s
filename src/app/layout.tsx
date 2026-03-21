@@ -20,23 +20,25 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Agam Pathak | Software Developer Portfolio",
+  title: "Agam Pathak | Full-Stack Software Developer & Team Lead",
   description:
-    "Software developer portfolio showcasing Rahi.AI and SarthiSync case studies, architecture, and outcomes.",
+    "Agam Pathak is a software engineer specializing in building practical, full-stack AI applications like Rahi.AI and Lexora with clean architecture and localized intelligence.",
+  keywords: ["Agam Pathak", "Software Developer", "Full Stack Engineer", "Next.js Developer", "AI Applications", "Rahi.AI", "SarthiSync", "Computer Science Meerut"],
+  authors: [{ name: "Agam Pathak" }],
   openGraph: {
-    title: "Agam Pathak | Software Developer Portfolio",
+    title: "Agam Pathak | Full-Stack Software Developer & Team Lead",
     description:
-      "B.Tech CSE student building practical full-stack applications with clean code and strong problem-solving.",
-    url: "/",
+      "B.Tech CSE student building high-impact full-stack applications with localized AI, clean code, and team-centric leadership.",
+    url: "https://agam-pathak.com", // Assuming this will be the URL
     siteName: "Agam Pathak Portfolio",
     images: [{ url: "/og-image.svg" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agam Pathak | Software Developer Portfolio",
+    title: "Agam Pathak | Full-Stack Software Developer & Team Lead",
     description:
-      "Software developer portfolio showcasing Rahi.AI and SarthiSync case studies, architecture, and outcomes.",
+      "Detailed portfolio showcasing AI travel orchestration, document intelligence, and fleet operations systems.",
     images: ["/og-image.svg"],
   },
   icons: {

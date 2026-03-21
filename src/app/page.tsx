@@ -6,11 +6,14 @@ import { IntroAnimation } from "@/components/IntroAnimation";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Counter } from "@/components/Counter";
+import { MouseTracker } from "@/components/MouseTracker";
+import { Github, Mail, Twitter } from "lucide-react";
 
 export default function Home() {
   return (
     <>
       <IntroAnimation />
+      <MouseTracker />
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
@@ -53,12 +56,15 @@ export default function Home() {
           </Reveal>
 
           <Reveal className="hero-media">
-            <div className="profile-frame max-w-sm mx-auto">
-              <img
+            <div className="profile-frame max-w-sm mx-auto relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[--accent] to-transparent opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none" />
+              <Image
                 src="/profile-optimized.jpg"
                 alt="Portrait of Agam Pathak"
-                loading="eager"
-                decoding="async"
+                width={400}
+                height={500}
+                priority
+                className="w-full h-auto object-cover"
               />
             </div>
             <div className="stats-grid mt-6">
@@ -81,95 +87,70 @@ export default function Home() {
         <Reveal className="section" id="about">
           <div className="section-heading mb-6">
             <p className="eyebrow">About</p>
-            <h2>Problem-solving with a product mindset</h2>
+            <h2>Architecting products, not just code.</h2>
           </div>
-          <div className="panel p-6">
-            <p className="text-lg">
-              Motivated and detail-oriented Computer Science Engineering
-              undergraduate with a strong foundation in software development, data
-              structures, and web technologies. Experienced in full-stack academic
-              projects, task coordination, and team leadership. Passionate about
-              scalable software, clean code, and continuous learning.
+          <div className="panel p-8">
+            <p className="text-xl mb-4 leading-relaxed font-medium">
+              I’m a developer who bridges the gap between complex engineering and user-friendly products.
+            </p>
+            <p className="text-lg leading-relaxed opacity-90">
+              Beyond the code, I focus on the "why"—understanding user bottlenecks, lead-time optimization, and shipping reliable systems. 
+              Currently pursuing my B.Tech at CCU Campus (SCRIET), I spend my days orchestrating AI workflows and leading teams to deliver 
+              high-performance solutions that solve real-world problems.
             </p>
           </div>
         </Reveal>
 
         <Reveal className="section" id="skills">
-          <div className="section-heading mb-6">
+          <div className="section-heading mb-8">
             <p className="eyebrow">Technical Skills</p>
-            <h2>Tools and technologies I use</h2>
+            <h2 className="text-3xl font-bold font-space">Tools and technologies I use</h2>
           </div>
-          <div className="skills-grid">
-            <article className="card">
-              <h3 className="font-bold mb-3">Programming</h3>
-              <div className="skills-icons flex flex-wrap gap-2 mb-2">
-                <img
-                  src="https://skillicons.dev/icons?i=c,cpp,java,py"
-                  alt="Programming Skills"
-                  className="h-10 hover:-translate-y-1 hover:scale-105 transition-transform"
-                />
+          <div className="skills-grid gap-4">
+            <article className="card p-6 border-l-4 border-l-[--accent]">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="p-2 rounded-lg bg-[--accent]/10 text-[--accent]"><Github size={20} /></span>
+                <h3 className="font-bold text-lg">Core Ecosystem</h3>
               </div>
-              <p>C, C++, Java, Python</p>
+              <div className="skills-icons flex flex-wrap gap-2 mb-4">
+                <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,nodejs" alt="Core Skills" className="h-9" />
+              </div>
+              <p className="text-sm text-[--muted]">My primary toolkit for building high-performance, full-stack applications with localized intelligence.</p>
             </article>
 
-            <article className="card">
-              <h3 className="font-bold mb-3">Frontend</h3>
-              <div className="skills-icons flex flex-wrap gap-2 mb-2">
-                <img
-                  src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind"
-                  alt="Frontend Skills"
-                  className="h-10 hover:-translate-y-1 hover:scale-105 transition-transform"
-                />
+            <article className="card p-6 border-l-4 border-l-blue-400">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="p-2 rounded-lg bg-blue-400/10 text-blue-400"><Mail size={20} /></span>
+                <h3 className="font-bold text-lg">Languages & Foundations</h3>
               </div>
-              <p>HTML, CSS, JavaScript, React, Next.js, Tailwind</p>
+              <div className="skills-icons flex flex-wrap gap-2 mb-4">
+                <img src="https://skillicons.dev/icons?i=cpp,java,py,js,html,css" alt="Languages" className="h-9" />
+              </div>
+              <p className="text-sm text-[--muted]">Deeply rooted in C++, Java, and Python for algorithm-heavy tasks and core engineering logic.</p>
             </article>
 
-            <article className="card">
-              <h3 className="font-bold mb-3">Backend</h3>
-              <div className="skills-icons flex flex-wrap gap-2 mb-2">
-                <img
-                  src="https://skillicons.dev/icons?i=nodejs,express"
-                  alt="Backend Skills"
-                  className="h-10 hover:-translate-y-1 hover:scale-105 transition-transform"
-                />
+            <article className="card p-6 border-l-4 border-l-purple-400">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="p-2 rounded-lg bg-purple-400/10 text-purple-400"><Github size={20} /></span>
+                <h3 className="font-bold text-lg">Infrastructure & Data</h3>
               </div>
-              <p>Node.js, Express</p>
+              <div className="skills-icons flex flex-wrap gap-2 mb-4">
+                <img src="https://skillicons.dev/icons?i=postgres,mysql,prisma,vercel,git,linux" alt="Infra Skills" className="h-9" />
+              </div>
+              <p className="text-sm text-[--muted]">Experienced in RDBMS management, edge deployments, and version control workflows.</p>
             </article>
 
-            <article className="card">
-              <h3 className="font-bold mb-3">Database</h3>
-              <div className="skills-icons flex flex-wrap gap-2 mb-2">
-                <img
-                  src="https://skillicons.dev/icons?i=mysql,postgres,supabase"
-                  alt="Database Skills"
-                  className="h-10 hover:-translate-y-1 hover:scale-105 transition-transform"
-                />
+            <article className="card p-6 border-l-4 border-l-orange-400">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="p-2 rounded-lg bg-orange-400/10 text-orange-400"><Twitter size={20} /></span>
+                <h3 className="font-bold text-lg">Currently Optimizing</h3>
               </div>
-              <p>SQL, PostgreSQL, Supabase</p>
-            </article>
-
-            <article className="card">
-              <h3 className="font-bold mb-3">Tools</h3>
-              <div className="skills-icons flex flex-wrap gap-2 mb-2">
-                <img
-                  src="https://skillicons.dev/icons?i=git,github,vscode,vercel,postman"
-                  alt="Tools"
-                  className="h-10 hover:-translate-y-1 hover:scale-105 transition-transform"
-                />
+              <p className="text-sm text-[--muted] mb-3">Focused on deepening expertise in:</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="pill text-[10px] bg-orange-400/10 border-orange-400/20 text-orange-400">RAG Architectures</span>
+                <span className="pill text-[10px] bg-orange-400/10 border-orange-400/20 text-orange-400">Edge Runtime Ops</span>
+                <span className="pill text-[10px] bg-orange-400/10 border-orange-400/20 text-orange-400">Fleet Logistics AI</span>
               </div>
-              <p>Git, GitHub, VS Code, Vercel</p>
-            </article>
-
-            <article className="card">
-              <h3 className="font-bold mb-3">Core CS</h3>
-              <div className="skills-icons flex flex-wrap gap-2 mb-2">
-                <img
-                  src="https://skillicons.dev/icons?i=linux,md"
-                  alt="Core CS Skills"
-                  className="h-10 hover:-translate-y-1 hover:scale-105 transition-transform"
-                />
-              </div>
-              <p>Data Structures, Algorithms, Problem Solving</p>
             </article>
           </div>
         </Reveal>
@@ -185,7 +166,9 @@ export default function Home() {
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-3">
-                    <img src="/assets/logos/rahi-logo.svg" alt="Rahi.AI" width="40" height="40" className="p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg" />
+                    <div className="relative w-10 h-10 p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center">
+                      <Image src="/assets/logos/rahi-logo.svg" alt="Rahi.AI" fill className="p-1 object-contain" />
+                    </div>
                     <h3 className="font-bold text-xl">Rahi.AI (Travel Orchestrator)</h3>
                   </div>
                     <div className="flex items-center gap-2 text-xs text-[--accent] opacity-90">
@@ -231,21 +214,23 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop">
-                    <img
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10]">
+                    <Image
                       src="/assets/screenshots/rahi-planner-desktop.jpg"
                       alt="Rahi.AI planner desktop interface"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <figcaption>Planner workspace (desktop)</figcaption>
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Desktop interface</div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile">
-                    <img
+                  <figure className="proof-shot proof-shot-mobile overflow-hidden border border-white/10 rounded-xl relative aspect-[4/5]">
+                    <Image
                       src="/assets/screenshots/rahi-chat-mobile.jpg"
                       alt="Rahi.AI chat interface on mobile"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <figcaption>AI chat flow (mobile)</figcaption>
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Mobile chat flow</div>
                   </figure>
                 </div>
               </div>
@@ -269,7 +254,9 @@ export default function Home() {
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-3">
-                    <img src="/assets/logos/lexora-logo.svg" alt="Lexora AI" width="40" height="40" className="p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg" />
+                    <div className="relative w-10 h-10 p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center">
+                      <Image src="/assets/logos/lexora-logo.svg" alt="Lexora AI" fill className="p-1 object-contain" />
+                    </div>
                     <h3 className="font-bold text-xl">Lexora AI (Doc Intelligence)</h3>
                   </div>
                     <div className="flex items-center gap-2 text-xs text-[--accent] opacity-90">
@@ -310,21 +297,23 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop">
-                    <img
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10]">
+                    <Image
                       src="/assets/screenshots/lexora-dashboard-desktop.png"
                       alt="Lexora AI dashboard desktop"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <figcaption>Workspace (desktop)</figcaption>
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Desktop workspace</div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile">
-                    <img
+                  <figure className="proof-shot proof-shot-mobile overflow-hidden border border-white/10 rounded-xl relative aspect-[4/5]">
+                    <Image
                       src="/assets/screenshots/lexora-dashboard-mobile.png"
                       alt="Lexora AI chat mobile"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <figcaption>AI Chat (mobile)</figcaption>
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Mobile chat</div>
                   </figure>
                 </div>
               </div>
@@ -348,7 +337,9 @@ export default function Home() {
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-3">
-                    <img src="/assets/logos/sarthi-logo.svg" alt="SarthiSync" width="40" height="40" className="p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg" />
+                    <div className="relative w-10 h-10 p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center">
+                      <Image src="/assets/logos/sarthi-logo.svg" alt="SarthiSync" fill className="p-1 object-contain" />
+                    </div>
                     <h3 className="font-bold text-xl">SarthiSync (Fleet Ops TMS)</h3>
                   </div>
                     <div className="flex items-center gap-2 text-xs text-orange-400 opacity-90">
@@ -393,21 +384,23 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop">
-                    <img
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10]">
+                    <Image
                       src="/assets/screenshots/sarthi-dashboard-desktop.png"
                       alt="SarthiSync dashboard desktop"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <figcaption>Operations (desktop)</figcaption>
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Fleet Map interface</div>
                   </figure>
-                  <figure className="proof-shot proof-shot-mobile">
-                    <img
+                  <figure className="proof-shot proof-shot-mobile overflow-hidden border border-white/10 rounded-xl relative aspect-[4/5]">
+                    <Image
                       src="/assets/screenshots/sarthi-dashboard-mobile.png"
                       alt="SarthiSync dashboard mobile"
-                      loading="lazy"
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <figcaption>Operations (mobile)</figcaption>
+                    <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/60 backdrop-blur-md text-[10px] text-white/80">Mobile view</div>
                   </figure>
                 </div>
               </div>
