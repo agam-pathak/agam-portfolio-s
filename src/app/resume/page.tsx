@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Globe, Award, Database, Cpu, Layout, Code2, Briefcase, GraduationCap, ArrowUpRight, Zap, Target, Star } from "lucide-react";
+import { Download, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Globe, Award, Database, Cpu, Layout, Code2, Briefcase, GraduationCap, ArrowUpRight, Zap, Target, Star, BrainCircuit } from "lucide-react";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
@@ -14,80 +14,81 @@ export default function ResumePage() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-[#1a1a1a] selection:bg-[--accent] selection:text-black p-4 md:p-12 font-sans transition-colors duration-500 overflow-x-hidden">
-      {/* Dynamic Background Elements (Digital Only) */}
+    <div className="min-h-screen bg-[#f1f3f6] text-[#1a202c] selection:bg-[--accent] selection:text-black p-4 md:p-12 font-sans transition-colors duration-500 overflow-x-hidden relative">
+      {/* Dynamic Background Visuals */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden print:hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[--accent] opacity-[0.03] blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-400 opacity-[0.03] blur-[120px] rounded-full" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] brightness-100 contrast-150" />
+        <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-gradient-to-br from-indigo-500/10 to-transparent blur-[140px] rounded-full" />
+        <div className="absolute bottom-[-5%] right-[-5%] w-[45%] h-[45%] bg-gradient-to-tl from-[--accent]/10 to-transparent blur-[140px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
       </div>
 
-      {/* Action Bar (Hidden on Print) */}
-      <div className="max-w-[1050px] mx-auto mb-10 flex flex-col sm:flex-row justify-between items-center print:hidden bg-white/70 backdrop-blur-2xl p-4 rounded-2xl border border-white shadow-[0_4px_30px_rgba(0,0,0,0.03)] gap-4 sticky top-6 z-50">
-        <Link href="/" className="group text-xs font-bold uppercase tracking-[2px] text-zinc-500 hover:text-black flex items-center gap-2 transition-all">
-          <span className="w-8 h-8 rounded-full bg-zinc-50 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all text-sm">←</span>
-          Portfolio
+      {/* Action Bar */}
+      <div className="max-w-[1100px] mx-auto mb-10 flex flex-col sm:flex-row justify-between items-center print:hidden bg-white/60 backdrop-blur-3xl p-4 rounded-[2rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] gap-4 sticky top-6 z-50">
+        <Link href="/" className="group text-xs font-black uppercase tracking-[2px] text-indigo-600/70 hover:text-indigo-600 flex items-center gap-3 transition-all">
+          <span className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm shadow-sm shadow-indigo-100">←</span>
+          Return to Hub
         </Link>
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <Magnetic>
             <button 
               onClick={handlePrint}
-              className="bg-black text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-[2px] flex items-center gap-2.5 transition-all shadow-xl shadow-black/10 active:scale-95 hover:bg-zinc-800"
+              className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-[2px] flex items-center gap-3 transition-all shadow-xl shadow-indigo-200 active:scale-95 hover:brightness-110"
             >
-              <Download size={14} /> Generate PDF
+              <Download size={14} /> Download CV
             </button>
           </Magnetic>
         </div>
       </div>
 
       {/* Main Resume Container */}
-      <main className="max-w-[1050px] mx-auto bg-white print:p-0 shadow-[0_40px_100px_rgba(0,0,0,0.04)] print:shadow-none p-10 md:p-20 border border-zinc-100 print:border-none rounded-[3rem] print:rounded-none overflow-hidden relative z-10">
+      <main className="max-w-[1100px] mx-auto bg-white print:p-0 shadow-[0_60px_120px_rgba(0,0,0,0.08)] print:shadow-none p-10 md:p-20 border border-indigo-50 print:border-none rounded-[3.5rem] print:rounded-none overflow-hidden relative z-10">
         
-        {/* Signature Watermark */}
-        <div className="absolute top-20 right-0 opacity-[0.02] transform rotate-90 origin-right pointer-events-none select-none">
-          <span className="text-[120px] font-black font-space tracking-tighter uppercase whitespace-nowrap">AGAM PATHAK</span>
-        </div>
+        {/* Colorful Gradient Border (Top) */}
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-[--accent] opacity-90" />
 
         <Reveal>
           {/* Header Section */}
-          <header className="relative mb-20">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10 pb-12 border-b border-zinc-100">
-              <div className="space-y-6">
-                <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center text-2xl font-black font-space shadow-2xl shadow-black/20">
+          <header className="relative mb-24">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 pb-14 border-b border-indigo-50">
+              <div className="space-y-8">
+                <div className="flex items-center gap-6">
+                  <div className="w-20 h-20 rounded-[1.75rem] bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 text-white flex items-center justify-center text-3xl font-black font-space shadow-2xl shadow-indigo-200">
                     AP
                   </div>
                   <div>
-                    <h1 className="text-4xl md:text-6xl font-black tracking-tight text-black font-space">Agam Pathak</h1>
-                    <p className="text-lg md:text-xl text-[--accent] font-bold mt-1 tracking-tight brightness-75">
-                      Full-Stack Architect & AI System Specialist
-                    </p>
+                    <h1 className="text-5xl md:text-7xl font-black tracking-tight text-[#0f172a] font-space leading-none mb-2">Agam Pathak</h1>
+                    <div className="flex items-center gap-4">
+                      <span className="h-[2px] w-12 bg-indigo-600/30 hidden md:block" />
+                      <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 font-bold tracking-tight">
+                        Full-Stack Architect & AI System Specialist
+                      </p>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-x-8 gap-y-3 text-xs font-bold uppercase tracking-[2px] text-zinc-400">
-                  <div className="flex items-center gap-2">
-                    <MapPin size={14} className="text-black" /> Meerut, IN
+                <div className="flex flex-wrap gap-x-8 gap-y-4 text-xs font-bold uppercase tracking-[2.5px] text-zinc-400">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-full border border-indigo-100/50">
+                    <MapPin size={14} className="text-indigo-600" /> <span className="text-indigo-900">Meerut, IN</span>
                   </div>
-                  <a href="mailto:agamworkspace@gmail.com" className="flex items-center gap-2 hover:text-black transition-colors">
-                    <Mail size={14} className="text-black" /> agamworkspace@gmail.com
+                  <a href="mailto:agamworkspace@gmail.com" className="flex items-center gap-2 group transition-all">
+                    <Mail size={14} className="text-indigo-600" /> <span className="group-hover:text-indigo-800">agamworkspace@gmail.com</span>
                   </a>
-                  <a href="tel:+917307086547" className="flex items-center gap-2 hover:text-black transition-colors">
-                    <Phone size={14} className="text-black" /> +91 7307086547
-                  </a>
+                  <div className="flex items-center gap-2 group transition-all">
+                    <Phone size={14} className="text-indigo-600" /> <span className="text-zinc-500">+91 7307086547</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 lg:justify-end max-w-[300px]">
+              <div className="flex flex-wrap gap-3 lg:justify-end max-w-[320px]">
                 {[
-                  { icon: <Linkedin size={14} />, label: "LINKEDIN", href: "https://linkedin.com/in/agam-pathak" },
-                  { icon: <Github size={14} />, label: "GITHUB", href: "https://github.com/agam-pathak" },
-                  { icon: <Globe size={14} />, label: "PORTFOLIO", href: "https://agam-portfolio-s.vercel.app" }
+                  { icon: <Linkedin size={14} />, label: "LINKEDIN", href: "https://linkedin.com/in/agam-pathak", color: "blue" },
+                  { icon: <Github size={14} />, label: "GITHUB", href: "https://github.com/agam-pathak", color: "zinc" },
+                  { icon: <Globe size={14} />, label: "PORTFOLIO", href: "https://agam-portfolio-s.vercel.app", color: "indigo" }
                 ].map((social, idx) => (
                   <a 
                     key={idx} 
                     href={social.href} 
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-zinc-50 border border-zinc-100 text-[10px] font-black text-zinc-500 hover:bg-black hover:text-white transition-all tracking-widest"
+                    className="flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-zinc-50 border border-zinc-100 text-[10px] font-black text-zinc-500 hover:bg-white hover:border-indigo-300 hover:text-indigo-600 hover:scale-105 transition-all tracking-widest shadow-sm"
                   >
                     {social.icon} {social.label}
                   </a>
@@ -96,291 +97,276 @@ export default function ResumePage() {
             </div>
           </header>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_2fr] gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_2fr] gap-24">
             {/* Sidebar Column */}
-            <aside className="space-y-16">
-              {/* Profile Intro */}
-              <section>
-                <h3 className="text-[11px] font-black uppercase tracking-[4px] text-zinc-300 mb-8 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-zinc-200" /> MISSION
+            <aside className="space-y-20">
+              {/* Mission Statement */}
+              <section className="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-[2.5rem] border border-indigo-100/50">
+                <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 mb-8 flex items-center gap-3">
+                  <span className="w-10 h-[2px] bg-indigo-200" /> MISSION
                 </h3>
-                <p className="text-zinc-600 leading-relaxed text-[15px] font-medium">
-                  B.Tech CSE student (2023-27) at SCRIET, specializing in building high-fidelity <span className="text-black font-bold">Local-First AI ecosystems</span>. Expert in RAG, enterprise logistics architecture, and high-performance framework-less engineering.
+                <p className="text-zinc-700 leading-relaxed text-[15px] font-semibold">
+                  B.Tech CSE student (2023-27) at SCRIET, specializing in building high-fidelity <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">Local-First AI ecosystems</span>. Expert in RAG pipelines, logistics ERPs, and performance-first game loops.
                 </p>
               </section>
 
               {/* Stack Architecture */}
-              <section className="space-y-10">
-                <h3 className="text-[11px] font-black uppercase tracking-[4px] text-zinc-300 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-zinc-200" /> STACK
+              <section className="space-y-12">
+                <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 flex items-center gap-3 px-4">
+                  <span className="w-10 h-[2px] bg-indigo-200" /> ARCHITECTURE
                 </h3>
                 
-                <div className="space-y-8">
-                  <div>
-                    <p className="text-[10px] font-black text-black mb-4 flex items-center gap-2 tracking-[2px] uppercase">
-                      <Code2 size={14} /> Core Engineering
+                <div className="space-y-10">
+                  <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
+                    <p className="text-[11px] font-black text-indigo-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                      <div className="p-2 rounded-lg bg-indigo-100 text-indigo-600"><Code2 size={16} /></div> Core Engineering
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2.5">
                       {["TypeScript", "C++", "Java", "Python", "SQL", "Go"].map((skill) => (
-                        <span key={skill} className="px-3 py-1.5 rounded-lg bg-zinc-50 border border-zinc-100 text-[12px] font-bold text-zinc-600">{skill}</span>
+                        <span key={skill} className="px-3.5 py-2 rounded-xl bg-indigo-50/50 border border-indigo-100/30 text-[12px] font-black text-indigo-700">{skill}</span>
                       ))}
                     </div>
                   </div>
 
-                  <div>
-                    <p className="text-[10px] font-black text-black mb-4 flex items-center gap-2 tracking-[2px] uppercase">
-                      <Layout size={14} /> Web Architecture
+                  <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
+                    <p className="text-[11px] font-black text-purple-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                      <div className="p-2 rounded-lg bg-purple-100 text-purple-600"><Layout size={16} /></div> Web Systems
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {["Next.js 16", "React 19", "Node.js", "TailwindCSS", "Prisma", "GSAP"].map((skill) => (
-                        <span key={skill} className="px-3 py-1.5 rounded-lg bg-zinc-50 border border-zinc-100 text-[12px] font-bold text-zinc-600">{skill}</span>
+                    <div className="flex flex-wrap gap-2.5">
+                      {["Next.js 16", "React 19", "Node.js", "TailwindCSS", "Prisma", "GSAP", "Supabase"].map((skill) => (
+                        <span key={skill} className="px-3.5 py-2 rounded-xl bg-purple-50/50 border border-purple-100/30 text-[12px] font-black text-purple-700">{skill}</span>
                       ))}
                     </div>
                   </div>
 
-                  <div>
-                    <p className="text-[10px] font-black text-black mb-4 flex items-center gap-2 tracking-[2px] uppercase">
-                      <Cpu size={14} /> AI & Infrastructure
+                  <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
+                    <p className="text-[11px] font-black text-[--accent] text-emerald-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                      <div className="p-2 rounded-lg bg-emerald-100 text-emerald-600"><Cpu size={16} /></div> AI & Infra
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {["RAG Pipelines", "Llama-3.1", "Groq AI", "Vector databases", "Edge", "Vercel"].map((skill) => (
-                        <span key={skill} className="px-3 py-1.5 rounded-lg bg-zinc-50 border border-zinc-100 text-[12px] font-bold text-zinc-600">{skill}</span>
+                    <div className="flex flex-wrap gap-2.5">
+                      {["RAG OPS", "Llama-3.1", "Groq AI", "Pinecone", "Vercel", "Docker"].map((skill) => (
+                        <span key={skill} className="px-3.5 py-2 rounded-xl bg-emerald-50/50 border border-emerald-100/30 text-[12px] font-black text-emerald-700">{skill}</span>
                       ))}
                     </div>
                   </div>
                 </div>
               </section>
 
-              {/* Education Block */}
-              <section>
-                <h3 className="text-[11px] font-black uppercase tracking-[4px] text-zinc-300 mb-8 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-zinc-200" /> ACADEMIA
-                </h3>
-                <div className="bg-zinc-50/50 p-6 rounded-2xl border border-zinc-100 hover:border-black/10 transition-colors">
-                  <p className="text-sm font-black text-black uppercase tracking-tight italic">Bachelor of Technology (CSE)</p>
-                  <p className="text-[11px] text-[--accent] font-black py-2 uppercase tracking-widest">2023 – 2027 (PRE-FINAL)</p>
-                  <p className="text-[12px] text-zinc-500 leading-relaxed font-bold">SCRIET, CCS University Campus, Meerut</p>
+              {/* Education & Achievements */}
+              <section className="space-y-12">
+                <div className="space-y-6">
+                  <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 mb-8 flex items-center gap-3 px-4">
+                    <span className="w-10 h-[2px] bg-indigo-200" /> ACADEMIA
+                  </h3>
+                  <div className="p-8 rounded-[2.5rem] bg-zinc-900 text-white relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 blur-[60px]" />
+                    <p className="text-lg font-black font-space mb-2">B.Tech (CSE)</p>
+                    <p className="text-[11px] text-indigo-400 font-black uppercase tracking-[3px] mb-4">2023 – 2027 (Ongoing)</p>
+                    <p className="text-sm text-white/70 font-bold leading-relaxed">SCRIET, CCS University Campus, Meerut</p>
+                  </div>
                 </div>
-              </section>
 
-              {/* Leadership */}
-              <section>
-                <h3 className="text-[11px] font-black uppercase tracking-[4px] text-zinc-300 mb-8 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-zinc-200" /> LEADERSHIP
-                </h3>
-                <ul className="space-y-5">
-                  {[
-                    { title: "Team Management", desc: "Leading teams of 4+ developers in R&D projects." },
-                    { title: "System Architecture", desc: "Designing scalable, maintenance-first codebases." },
-                    { title: "Public Speaking", desc: "Active contributor to local developer meetups." }
-                  ].map((item, idx) => (
-                    <li key={idx} className="group flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-black mt-1.5 shrink-0" />
-                      <div>
-                        <p className="text-xs font-black text-black uppercase tracking-widest">{item.title}</p>
-                        <p className="text-xs text-zinc-500 font-medium mt-1 leading-relaxed">{item.desc}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-6">
+                  <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 mb-8 flex items-center gap-3 px-4">
+                    <span className="w-10 h-[2px] bg-indigo-200" /> DISTINCTIONS
+                  </h3>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div className="flex items-center gap-4 p-5 rounded-3xl bg-indigo-50/30 border border-indigo-50">
+                      <div className="p-3 rounded-2xl bg-white text-indigo-600 shadow-sm"><Award size={20} /></div>
+                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">15+ Production Ships</p>
+                    </div>
+                    <div className="flex items-center gap-4 p-5 rounded-3xl bg-indigo-50/30 border border-indigo-50">
+                      <div className="p-3 rounded-2xl bg-white text-indigo-600 shadow-sm"><Target size={20} /></div>
+                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">Lead R&D Architect</p>
+                    </div>
+                  </div>
+                </div>
               </section>
             </aside>
 
             {/* Main Content Column */}
-            <div className="space-y-20">
+            <div className="space-y-24">
               {/* Production Proof Section */}
               <section>
-                <h3 className="text-[11px] font-black uppercase tracking-[4px] text-zinc-300 mb-12 flex items-center gap-3">
-                  <span className="w-8 h-[1px] bg-zinc-200" /> PRODUCTION PROOF
-                </h3>
+                <div className="flex items-center justify-between mb-16">
+                  <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 flex items-center gap-5">
+                    <span className="w-10 h-[2px] bg-indigo-200" /> FLAGSHIP OPS
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Verified Proof</span>
+                  </div>
+                </div>
 
-                <div className="space-y-16">
+                <div className="space-y-20">
                   {/* Lexora AI */}
                   <article className="group relative">
-                    <div className="absolute -left-12 top-0 bottom-0 w-[2px] bg-zinc-100 group-hover:bg-black transition-colors hidden md:block" />
                     <div className="flex justify-between items-start mb-6">
-                      <div>
-                        <h4 className="text-2xl font-black text-black font-space mb-1">Lexora AI <span className="text-[10px] font-bold text-zinc-400 align-middle ml-2">v1.2</span></h4>
-                        <p className="text-[11px] font-black text-[--accent] uppercase tracking-[3px]">Document Intelligence Workspace</p>
+                      <div className="flex items-center gap-5">
+                        <div className="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center p-3.5 shadow-xl shadow-indigo-100 group-hover:scale-110 transition-transform">
+                          <BrainCircuit size={32} />
+                        </div>
+                        <div>
+                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">Lexora AI <span className="text-indigo-400 text-sm ml-2 font-black line-through opacity-30">PRO</span></h4>
+                          <p className="text-[11px] font-black text-indigo-500 uppercase tracking-[4px] mt-0.5">Vector Intel Workspace</p>
+                        </div>
                       </div>
-                      <Link href="/case-studies/lexora" className="p-2 rounded-full hover:bg-zinc-50 transition-colors">
-                        <ArrowUpRight size={18} className="text-zinc-400 group-hover:text-black" />
+                      <Link href="/case-studies/lexora" className="p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                        <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[15px] text-zinc-600 leading-relaxed mb-6 font-medium">
-                      Built a professional RAG environment for complex document analysis. Custom zero-dependency vector retrieval pipeline with sub-200ms query times on local sessions.
+                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                      Architected a premium RAG environment for whitepaper analysis. Integrated a zero-dependency vector retrieval pipeline with <span className="text-zinc-900 font-bold">sub-200ms</span> query latency.
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[13px] text-zinc-500 px-4 py-4 bg-zinc-50 rounded-xl border border-zinc-100">
-                      <div className="flex gap-2">
-                        <Target size={14} className="shrink-0 text-black mt-0.5" />
-                        <span>Source citations with vector verification for 100% accuracy.</span>
-                      </div>
-                      <div className="flex gap-2">
-                        <Zap size={14} className="shrink-0 text-black mt-0.5" />
-                        <span>Optimized OCR extraction for technical whitepapers.</span>
-                      </div>
+                    <div className="flex flex-wrap gap-4 pl-20">
+                      <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-700 text-[11px] font-black tracking-widest uppercase"><Zap size={12} /> Hashed Embeddings</div>
+                      <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 rounded-xl border border-indigo-100 text-indigo-700 text-[11px] font-black tracking-widest uppercase"><Database size={12} /> Local Vector Index</div>
                     </div>
                   </article>
 
                   {/* SarthiSync */}
                   <article className="group relative">
-                    <div className="absolute -left-12 top-0 bottom-0 w-[2px] bg-zinc-100 group-hover:bg-black transition-colors hidden md:block" />
                     <div className="flex justify-between items-start mb-6">
-                      <div>
-                        <h4 className="text-2xl font-black text-black font-space mb-1">SarthiSync <span className="text-[10px] font-bold text-zinc-400 align-middle ml-2">TMS</span></h4>
-                        <p className="text-[11px] font-black text-zinc-400 uppercase tracking-[3px]">Enterprise Logistics OS</p>
+                      <div className="flex items-center gap-5">
+                        <div className="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center p-3.5 shadow-xl shadow-emerald-100 group-hover:scale-110 transition-transform">
+                          <Briefcase size={32} />
+                        </div>
+                        <div>
+                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">SarthiSync <span className="text-emerald-400 text-sm ml-2 font-black uppercase tracking-tighter">TMS</span></h4>
+                          <p className="text-[11px] font-black text-emerald-500 uppercase tracking-[4px] mt-0.5">Logistics Operation System</p>
+                        </div>
                       </div>
-                      <Link href="/case-studies/sarthisync" className="p-2 rounded-full hover:bg-zinc-50 transition-colors">
-                        <ArrowUpRight size={18} className="text-zinc-400 group-hover:text-black" />
+                      <Link href="/case-studies/sarthisync" className="p-3 rounded-full bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition-all shadow-sm">
+                        <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[15px] text-zinc-600 leading-relaxed mb-6 font-medium">
-                      Mission-critical Transportation Management System. Digitized vehicle/driver lifecycles with AI Dispatch Copilot for intelligent route planning.
+                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                      Digitalized high-stakes logistics workflows. Built an <span className="text-zinc-900 font-bold">AI Dispatch Copilot</span> resulting in a <span className="text-emerald-600 font-bold underline decoration-emerald-200 decoration-4">60% reduction</span> in administrative overhead.
                     </p>
-                    <div className="flex flex-col gap-3 text-[13px] text-zinc-500 px-4 py-4 bg-zinc-50 rounded-xl border border-zinc-100">
-                      <div className="flex gap-2 items-center">
-                        <Star size={14} className="shrink-0 text-amber-500" />
-                        <span>Reduced administrative overhead by <span className="font-bold text-black">60%</span> via automated consignment generation.</span>
-                      </div>
-                      <div className="flex gap-2 items-center">
-                        <Briefcase size={14} className="shrink-0 text-blue-500" />
-                        <span>Enterprise audit-ready verification flows with dual-OTP & ePOD capture.</span>
-                      </div>
-                    </div>
-                  </article>
-
-                  {/* Rahi.AI */}
-                  <article className="group relative">
-                    <div className="absolute -left-12 top-0 bottom-0 w-[2px] bg-zinc-100 group-hover:bg-black transition-colors hidden md:block" />
-                    <div className="flex justify-between items-start mb-6">
-                      <div>
-                        <h4 className="text-2xl font-black text-black font-space mb-1">Rahi.AI <span className="text-[10px] font-bold text-zinc-400 align-middle ml-2">LIVE</span></h4>
-                        <p className="text-[11px] font-black text-emerald-600 uppercase tracking-[3px]">Travel Orchestration Engine</p>
-                      </div>
-                      <Link href="/case-studies/rahi-ai" className="p-2 rounded-full hover:bg-zinc-50 transition-colors">
-                        <ArrowUpRight size={18} className="text-zinc-400 group-hover:text-black" />
-                      </Link>
-                    </div>
-                    <p className="text-[15px] text-zinc-600 leading-relaxed mb-6 font-medium">
-                      Lead developer for an AI travel platform. Full-stack production flow feat. Stripe billing, multi-user collaboration, and voice-assisted itinerary planning.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-[13px] text-zinc-500 px-4 py-4 bg-zinc-50 rounded-xl border border-zinc-100">
-                      <div className="flex gap-2">
-                        <Zap size={14} className="shrink-0 text-emerald-500 mt-0.5" />
-                        <span>Live collaboration engine with persistent shared workspaces.</span>
-                      </div>
-                      <div className="flex gap-2">
-                        <Layout size={14} className="shrink-0 text-emerald-500 mt-0.5" />
-                        <span>Edge-cached permission validation for premium feature auth.</span>
-                      </div>
-                    </div>
+                    <ul className="space-y-4 pl-20">
+                      <li className="flex gap-4 items-start text-sm text-zinc-500 font-bold">
+                        <Star size={18} className="text-amber-500 shrink-0 mt-0.5" />
+                        <span>Mission-critical operational dashboards with real-time fleet orchestration.</span>
+                      </li>
+                      <li className="flex gap-4 items-start text-sm text-zinc-500 font-bold">
+                        <GraduationCap size={18} className="text-indigo-500 shrink-0 mt-0.5" />
+                        <span>Dual-OTP verification & ePOD capture ensuring 100% audit-ready compliance.</span>
+                      </li>
+                    </ul>
                   </article>
 
                   {/* JS Arcade */}
                   <article className="group relative">
-                    <div className="absolute -left-12 top-0 bottom-0 w-[2px] bg-zinc-100 group-hover:bg-black transition-colors hidden md:block" />
                     <div className="flex justify-between items-start mb-6">
-                      <div>
-                        <h4 className="text-2xl font-black text-black font-space mb-1">JS Arcade <span className="text-[10px] font-bold text-zinc-400 align-middle ml-2">v2.0</span></h4>
-                        <p className="text-[11px] font-black text-purple-600 uppercase tracking-[3px]">Framework-less Game Gallery</p>
+                      <div className="flex items-center gap-5">
+                        <div className="w-14 h-14 rounded-2xl bg-purple-600 text-white flex items-center justify-center p-3.5 shadow-xl shadow-purple-100 group-hover:scale-110 transition-transform">
+                          <Cpu size={32} />
+                        </div>
+                        <div>
+                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">JS Arcade <span className="text-purple-400 text-sm ml-2 font-black uppercase tracking-tighter">2.0</span></h4>
+                          <p className="text-[11px] font-black text-purple-500 uppercase tracking-[4px] mt-0.5">Modular Game Gallery</p>
+                        </div>
                       </div>
-                      <Link href="/case-studies/js-arcade" className="p-2 rounded-full hover:bg-zinc-50 transition-colors">
-                        <ArrowUpRight size={18} className="text-zinc-400 group-hover:text-black" />
+                      <Link href="/case-studies/js-arcade" className="p-3 rounded-full bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white transition-all shadow-sm">
+                        <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[15px] text-zinc-600 leading-relaxed mb-6 font-medium">
-                      Collection of 8+ immersive arcade games built with 100% vanilla JavaScript. Custom physics engines and high-frequency game loop architecture (60 FPS).
+                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                      Collection of 8+ immersive games built using <span className="text-purple-600 font-black italic underline decoration-purple-100">100% Vanilla JS</span>. Custom spatial physics and Web Audio API integration for tactile arcade UX.
                     </p>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {["Physics Engines", "Canvas API", "Web Audio", "Mobile Optimized", "60 FPS"].map(item => (
-                        <span key={item} className="px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 text-[10px] font-black uppercase tracking-tighter border border-purple-100">{item}</span>
+                    <div className="flex flex-wrap gap-2 pl-20">
+                      {["Physics Math", "Canvas API", "60 FPS Render", "Mobile Focus"].map(tech => (
+                        <span key={tech} className="px-3 py-1 bg-purple-50 text-purple-700 text-[10px] font-black tracking-[1px] uppercase rounded-lg border border-purple-100">{tech}</span>
                       ))}
                     </div>
                   </article>
                 </div>
               </section>
 
-              {/* Extras */}
-              <section className="bg-black text-white rounded-[2rem] p-10 md:p-14 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[--accent] opacity-10 blur-[100px]" />
-                <h3 className="text-[11px] font-black uppercase tracking-[4px] text-white/40 mb-10 flex items-center gap-3 relative z-10">
-                  <span className="w-8 h-[1px] bg-white/20" /> IMPACT & AWARDS
+              {/* Impact Card */}
+              <section className="bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white rounded-[3.5rem] p-12 md:p-16 relative overflow-hidden group shadow-2xl shadow-indigo-900/20">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500 opacity-5 blur-[120px] -translate-y-1/2 translate-x-1/2" />
+                <h3 className="text-[11px] font-black uppercase tracking-[6px] text-white/40 mb-12 flex items-center gap-4">
+                  <span className="w-10 h-[1px] bg-white/20" /> IMPACT METRICS
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 relative z-10">
-                  <div>
-                    <Award size={32} className="text-[--accent] mb-4" />
-                    <h5 className="font-bold text-lg mb-2">Systems Architect</h5>
-                    <p className="text-sm text-white/60 leading-relaxed">Successfully deployed 15+ complex projects using distributed edge and serverless architectures.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+                  <div className="space-y-4">
+                    <div className="text-4xl font-black font-space text-[--accent]">15+</div>
+                    <h5 className="font-black uppercase tracking-widest text-sm">Full-Stack Ships</h5>
+                    <p className="text-sm text-white/50 font-medium leading-relaxed">From concept to production-grade deployment across Edge/Serverless environments.</p>
                   </div>
-                  <div>
-                    <Database size={32} className="text-[--accent] mb-4" />
-                    <h5 className="font-bold text-lg mb-2">Cloud Strategy</h5>
-                    <p className="text-sm text-white/60 leading-relaxed">Scaling applications to handle concurrent multi-user environments with sub-second latency.</p>
+                  <div className="space-y-4">
+                    <div className="text-4xl font-black font-space text-indigo-400">95%</div>
+                    <h5 className="font-black uppercase tracking-widest text-sm">Deployment Success</h5>
+                    <p className="text-sm text-white/50 font-medium leading-relaxed">Maintained high-availability systems with robust error handling and observability.</p>
                   </div>
                 </div>
               </section>
             </div>
           </div>
 
-          <footer className="mt-20 pt-10 border-t border-zinc-100 flex flex-col items-center justify-center gap-4">
-            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-200">
-              Verified: {year} &bull; Agam Pathak
-            </div>
-            <p className="text-[10px] text-zinc-300 font-bold uppercase tracking-widest text-center">
-              Devised with purpose 
-              <span className="mx-2 opacity-30">&bull;</span>
-              Built on Next.js 16
+          <footer className="mt-28 py-12 border-t border-indigo-50 text-center space-y-4">
+            <p className="text-[11px] font-black uppercase tracking-[5px] text-zinc-300">
+              Verified {year} &bull; Agam Pathak
             </p>
+            <div className="flex justify-center items-center gap-4 text-[10px] text-zinc-400 font-bold uppercase tracking-[2px]">
+              <span>Next.js 16 Production Build</span>
+              <span className="w-1 h-1 rounded-full bg-indigo-300" />
+              <span>Built with Precision</span>
+            </div>
           </footer>
         </Reveal>
       </main>
 
-      {/* Global CSS for Printing */}
+      {/* Printing Overrides */}
       <style jsx global>{`
         @media print {
           html, body {
             background-color: white !important;
-            color: #1a1a1a !important;
-            padding: 0 !important;
-            margin: 0 !important;
+            color: #1a1e23 !important;
           }
           main {
             padding: 40px !important;
-            border: none !important;
             box-shadow: none !important;
+            border: none !important;
             margin: 0 !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            border-radius: 0 !important;
           }
-          .absolute, .print-hidden, .fixed {
+          .absolute, .fixed, .print-hidden, button {
             display: none !important;
           }
-          aside {
-            border-right: none !important;
+          .p-8, .p-10, .p-12, .p-16 {
+            padding: 1.5rem !important;
           }
-          .page-break-inside-avoid {
-            page-break-inside: avoid;
+          .rounded-[3.5rem], .rounded-[2.5rem], .rounded-3xl {
+            border-radius: 0.75rem !important;
           }
-        }
-        
-        /* Custom scrollbar for better look */
-        ::-webkit-scrollbar {
-          width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-          background: #eee;
-          border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-          background: #ddd;
+          .bg-indigo-50, .bg-indigo-50/30, .bg-zinc-900 {
+            background-color: #f8fafc !important;
+            color: #1a1e23 !important;
+            border: 1px solid #e2e8f0 !important;
+          }
+          .text-indigo-600, .text-emerald-600, .text-purple-600 {
+            color: #1a1e21 !important;
+            text-decoration: underline !important;
+          }
+          .shadow-xl, .shadow-2xl, .shadow-lg {
+            box-shadow: none !important;
+          }
         }
         
         .font-space {
           font-family: var(--font-space, 'Space Grotesk', sans-serif);
+        }
+
+        ::-webkit-scrollbar {
+          width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 10px;
         }
       `}</style>
     </div>
