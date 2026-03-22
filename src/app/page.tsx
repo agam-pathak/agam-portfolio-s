@@ -103,7 +103,7 @@ export default function Home() {
             </p>
             <p className="text-lg leading-relaxed opacity-90">
               Beyond the code, I focus on the "why"—understanding user bottlenecks, lead-time optimization, and shipping reliable systems. 
-              Currently pursuing my B.Tech at CCU Campus (SCRIET), I spend my days orchestrating AI workflows and leading teams to deliver 
+              Currently pursuing my B.Tech at CCS University (SCRIET), I spend my days orchestrating AI workflows and leading teams to deliver 
               high-performance solutions that solve real-world problems.
             </p>
           </div>
