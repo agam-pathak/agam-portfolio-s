@@ -565,18 +565,33 @@ export default function Home() {
                     Focused on 100% framework-less code with premium Glassmorphism and Neon aesthetics.
                   </li>
                 </ul>
-                <div className="proof-grid mb-6 grid grid-cols-1 gap-4">
-                  <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md flex flex-col items-center justify-center text-center gap-4 group/arcade transition-all hover:bg-white/10 hover:border-[--accent]/30">
-                    <div className="arcade-icons flex gap-6 text-3xl">
-                       <span className="animate-bounce" style={{ animationDelay: '0s' }}>☄️</span>
-                       <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>🕹️</span>
-                       <span className="animate-bounce" style={{ animationDelay: '0.4s' }}>🐍</span>
-                       <span className="animate-bounce" style={{ animationDelay: '0.6s' }}>💣</span>
+                <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
+                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
+                    <Image
+                      src="/assets/screenshots/arcade-dashboard-desktop.png"
+                      alt="JS Arcade dashboard desktop interface"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> Live Arcade
+                      </p>
                     </div>
-                    <div className="text-[10px] font-medium opacity-60 tracking-widest uppercase">
-                      Interactive Dashboard with 8+ Projects
+                  </figure>
+                  <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
+                    <Image
+                      src="/assets/screenshots/arcade-dashboard-mobile.png"
+                      alt="JS Arcade dashboard on mobile"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                        <ExternalLink size={10} /> Mobile Optimized
+                      </p>
                     </div>
-                  </div>
+                  </figure>
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
