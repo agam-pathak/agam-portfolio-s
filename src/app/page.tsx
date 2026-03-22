@@ -10,7 +10,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Counter } from "@/components/Counter";
 import { MouseTracker } from "@/components/MouseTracker";
 import { motion } from "framer-motion";
-import { Github, Mail, Twitter, ExternalLink, ArrowRight } from "lucide-react";
+import { Github, Mail, Twitter, ExternalLink, ArrowRight, Gamepad2 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
 
 export default function Home() {
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
             <div className="stats-grid mt-6">
               <article className="stat p-4 text-center">
-                <Counter value={2} suffix="" />
+                <Counter value={3} suffix="" />
                 <p>Flagship systems built and led</p>
               </article>
               <article className="stat p-4 text-center">
@@ -85,7 +85,7 @@ export default function Home() {
                 <p>Production-grade flows in Rahi.AI</p>
               </article>
               <article className="stat p-4 text-center">
-                <Counter value={3} suffix="" />
+                <Counter value={4} suffix="" />
                 <p>Live deployed products</p>
               </article>
             </div>
@@ -518,7 +518,82 @@ export default function Home() {
                 </Magnetic>
               </div>
             </article>
+            <article className="project-card flex flex-col justify-between" data-cursor="view">
+              <div>
+                <div className="project-head flex justify-between items-start mb-4">
+                  <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-10 h-10 p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center">
+                        <Gamepad2 className="text-[--accent]" size={24} />
+                      </div>
+                      <h3 className="font-bold text-xl">JS Arcade (Gallery)</h3>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-purple-400 opacity-90">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400"></span>
+                      </span>
+                      Interactive: Mini-Apps Collection
+                    </div>
+                  </div>
+                  <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">Creative Coding Gallery</span>
+                </div>
+
+                <div className="project-tech-icons mb-3">
+                  <img
+                    src="https://skillicons.dev/icons?i=js,html,css"
+                    alt="JS Arcade Stack"
+                    className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
+                    loading="lazy"
+                  />
+                </div>
+
+                <p className="stack text-sm mb-4">
+                  Pure JavaScript (ES6+), HTML5, CSS3, DOM API, Canvas API
+                </p>
+                <ul className="list-disc pl-5 mb-4 space-y-2 opacity-80">
+                  <li>
+                    Built a high-performance "Game Gallery" featuring 8+ immersive arcade games and utilities.
+                  </li>
+                  <li>
+                    Engineered physics-based mechanics for **Void Strike** (shooter) and **Synth Quest** (platformer).
+                  </li>
+                  <li>
+                    Implemented real-time data fetching for **SkySentry Weather** and **FinanceGo Converter**.
+                  </li>
+                  <li>
+                    Focused on 100% framework-less code with premium Glassmorphism and Neon aesthetics.
+                  </li>
+                </ul>
+                <div className="proof-grid mb-6 grid grid-cols-1 gap-4">
+                  <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md flex flex-col items-center justify-center text-center gap-4 group/arcade transition-all hover:bg-white/10 hover:border-[--accent]/30">
+                    <div className="arcade-icons flex gap-6 text-3xl">
+                       <span className="animate-bounce" style={{ animationDelay: '0s' }}>☄️</span>
+                       <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>🕹️</span>
+                       <span className="animate-bounce" style={{ animationDelay: '0.4s' }}>🐍</span>
+                       <span className="animate-bounce" style={{ animationDelay: '0.6s' }}>💣</span>
+                    </div>
+                    <div className="text-[10px] font-medium opacity-60 tracking-widest uppercase">
+                      Interactive Dashboard with 8+ Projects
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="project-actions flex gap-4 pt-4 mt-auto">
+                <Magnetic>
+                  <a
+                    href="https://agam-pathak.github.io/JS-Mini-Projects/"
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Live Arcade
+                  </a>
+                </Magnetic>
+              </div>
+            </article>
           </div>
+
         </Reveal>
 
 
