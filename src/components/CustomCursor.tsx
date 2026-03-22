@@ -1,95 +1,93 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export function CustomCursor() {
-  const [hoveredEl, setHoveredEl] = useState<string | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
   const [isMagnetic, setIsMagnetic] = useState(false);
-  const [targetPos, setTargetPos] = useState({ x: 0, y: 0 });
+  
+  // Real mouse position for the dot
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
 
-  const cursorX = useMotionValue(-100);
-  const cursorY = useMotionValue(-100);
-
-  const springConfig = { damping: 30, stiffness: 450, mass: 0.3 };
-  const cursorXSpring = useSpring(cursorX, springConfig);
-  const cursorYSpring = useSpring(cursorY, springConfig);
+  // Lagging spring position for the aura
+  const auraX = useSpring(mouseX, { damping: 30, stiffness: 200, mass: 0.5 });
+  const auraY = useSpring(mouseY, { damping: 30, stiffness: 200, mass: 0.5 });
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const attr = target.closest("[data-magnetic]");
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
       
-      if (attr) {
-        const { left, top, width, height } = attr.getBoundingClientRect();
-        const centerX = left + width / 2;
-        const centerY = top + height / 2;
-        
-        // Calculate "pull" towards center if near
-        // We set the target position to the center of the magnetic element
-        cursorX.set(centerX);
-        cursorY.set(centerY);
+      const target = e.target as HTMLElement;
+      setIsHovered(!!target.closest('a, button, [data-cursor]'));
+      
+      const magneticEl = target.closest('[data-magnetic]');
+      if (magneticEl) {
+        const { left, top, width, height } = magneticEl.getBoundingClientRect();
+        // Snap aura to center if magnetic
+        mouseX.set(left + width / 2);
+        mouseY.set(top + height / 2);
         setIsMagnetic(true);
       } else {
-        cursorX.set(e.clientX);
-        cursorY.set(e.clientY);
         setIsMagnetic(false);
       }
     };
 
-    const handleHover = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const cursorType = target.closest("[data-cursor]")?.getAttribute("data-cursor");
-      setHoveredEl(cursorType || null);
-    };
-
     window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("mouseover", handleHover);
-
-    return () => {
-      window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("mouseover", handleHover);
-    };
-  }, [cursorX, cursorY]);
+    return () => window.removeEventListener("mousemove", moveCursor);
+  }, [mouseX, mouseY]);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[10000] hidden md:block">
+    <div className="pointer-events-none fixed inset-0 z-[10000] hidden md:block overflow-hidden">
+      {/* Lagging Aura */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 w-8 h-8 rounded-full border border-[--accent] mix-blend-difference flex items-center justify-center transition-transform"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-[--accent] opacity-20"
         style={{
-          translateX: cursorXSpring,
-          translateY: cursorYSpring,
-          left: -16,
-          top: -16,
+          x: auraX,
+          y: auraY,
+          translateX: "-50%",
+          translateY: "-50%",
         }}
         animate={{
-          scale: hoveredEl ? (isMagnetic ? 1.1 : 1.5) : 1,
-          backgroundColor: hoveredEl === "view" && !isMagnetic ? "var(--accent)" : (isMagnetic ? "rgba(102, 246, 202, 0.1)" : "transparent"),
-          borderColor: isMagnetic ? "rgba(102, 246, 202, 0.4)" : "var(--accent)",
-          width: isMagnetic ? 70 : 32,
-          height: isMagnetic ? 70 : 32,
-          borderRadius: isMagnetic ? "12px" : "100%", 
-          opacity: isMagnetic ? 0.4 : 1,
+          scale: isHovered ? (isMagnetic ? 1.8 : 2.2) : 1,
+          opacity: isHovered ? 0.4 : 0.15,
+          borderWidth: isHovered ? "1px" : "2px",
         }}
-        transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 25,
+        transition={{ type: "spring", stiffness: 250, damping: 20 }}
+      />
+
+      {/* Instant Core Dot */}
+      <motion.div
+        className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-[--accent]"
+        style={{
+          x: mouseX,
+          y: mouseY,
+          translateX: "-50%",
+          translateY: "-50%",
         }}
-      >
-        <AnimatePresence>
-          {hoveredEl === "view" && !isMagnetic && (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.5 }}
-              className="text-[10px] font-bold text-black uppercase tracking-tight"
-            >
-              View
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.div>
+        animate={{
+          scale: isHovered ? 0.5 : 1,
+          opacity: isMagnetic ? 0 : 1, // Hide dot when snapped to button center for elegance
+        }}
+      />
+      
+      {/* Subtle Glow Trail */}
+      {isHovered && !isMagnetic && (
+        <motion.div
+          className="fixed top-0 left-0 w-24 h-24 rounded-full bg-[--accent] blur-[40px] opacity-10"
+          style={{
+            x: auraX,
+            y: auraY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          exit={{ scale: 0 }}
+        />
+      )}
     </div>
   );
 }
