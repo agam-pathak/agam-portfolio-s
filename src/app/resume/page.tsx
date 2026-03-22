@@ -224,7 +224,30 @@ export default function ResumePage() {
                     </div>
                   </article>
 
-                  {/* SarthiSync */}
+                  {/* Rahi.AI */}
+                  <article className="group relative">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="flex items-center gap-5">
+                        <div className="w-14 h-14 rounded-2xl bg-indigo-500 text-white flex items-center justify-center p-3.5 shadow-xl shadow-indigo-100 group-hover:scale-110 transition-transform">
+                          <Globe size={32} />
+                        </div>
+                        <div>
+                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">Rahi.AI <span className="text-indigo-400 text-sm ml-2 font-black uppercase tracking-tighter">LIVE</span></h4>
+                          <p className="text-[11px] font-black text-indigo-500 uppercase tracking-[4px] mt-0.5">Production Travel Orchestrator</p>
+                        </div>
+                      </div>
+                      <Link href="/case-studies/rahi-ai" className="p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                        <ArrowUpRight size={20} />
+                      </Link>
+                    </div>
+                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                      Led development of an AI travel platform with <span className="text-zinc-900 font-bold">100% automated day-wise itineraries</span>. Full-stack production flow featuring Stripe billing and multi-user collaboration.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-20">
+                      <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Collaboration Engine</div>
+                      <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Edge Permission Auth</div>
+                    </div>
+                  </article>
                   <article className="group relative">
                     <div className="flex justify-between items-start mb-6">
                       <div className="flex items-center gap-5">
