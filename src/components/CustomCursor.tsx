@@ -53,9 +53,9 @@ export function CustomCursor() {
   }, [cursorX, cursorY]);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[9999] hidden md:block">
+    <div className="pointer-events-none fixed inset-0 z-[10000] hidden md:block">
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[--accent] mix-blend-difference flex items-center justify-center transition-transform"
+        className="pointer-events-none fixed top-0 left-0 w-8 h-8 rounded-full border border-[--accent] mix-blend-difference flex items-center justify-center transition-transform"
         style={{
           translateX: cursorXSpring,
           translateY: cursorYSpring,
@@ -63,12 +63,13 @@ export function CustomCursor() {
           top: -16,
         }}
         animate={{
-          scale: hoveredEl ? (isMagnetic ? 1.8 : 2.5) : 1,
-          backgroundColor: hoveredEl === "view" ? "var(--accent)" : (isMagnetic ? "rgba(102, 246, 202, 0.2)" : "transparent"),
-          borderColor: "var(--accent)",
-          width: isMagnetic ? 60 : 32,
-          height: isMagnetic ? 60 : 32,
-          borderRadius: isMagnetic ? "12px" : "100%", // Boxy snap for buttons
+          scale: hoveredEl ? (isMagnetic ? 1.1 : 1.5) : 1,
+          backgroundColor: hoveredEl === "view" && !isMagnetic ? "var(--accent)" : (isMagnetic ? "rgba(102, 246, 202, 0.1)" : "transparent"),
+          borderColor: isMagnetic ? "rgba(102, 246, 202, 0.4)" : "var(--accent)",
+          width: isMagnetic ? 70 : 32,
+          height: isMagnetic ? 70 : 32,
+          borderRadius: isMagnetic ? "12px" : "100%", 
+          opacity: isMagnetic ? 0.4 : 1,
         }}
         transition={{
           type: "spring",
@@ -77,12 +78,12 @@ export function CustomCursor() {
         }}
       >
         <AnimatePresence>
-          {hoveredEl === "view" && (
+          {hoveredEl === "view" && !isMagnetic && (
             <motion.span
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.5 }}
-              className="text-[8px] font-bold text-black uppercase tracking-tighter"
+              className="text-[10px] font-bold text-black uppercase tracking-tight"
             >
               View
             </motion.span>
