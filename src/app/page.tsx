@@ -605,6 +605,11 @@ export default function Home() {
                     Open Live Arcade
                   </a>
                 </Magnetic>
+                <Magnetic>
+                  <Link href="/case-studies/js-arcade" className="btn btn-secondary">
+                    View Case Study
+                  </Link>
+                </Magnetic>
               </div>
             </article>
           </div>
