@@ -317,11 +317,11 @@ a {
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0.9rem 1.2rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  gap: 1rem;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .brand {
@@ -431,8 +431,8 @@ a {
   background: var(--header-btn-bg);
   border-color: var(--outline);
   color: var(--text);
-  min-width: 6.5rem;
-  padding-inline: 0.9rem;
+  min-width: auto;
+  padding-inline: 0.8rem;
 }
 
 .theme-icon {
@@ -512,8 +512,16 @@ h2 {
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
+  flex-direction: column;
+  width: fit-content;
+  gap: 0.8rem;
+}
+
+@media (min-width: 480px) {
+  .hero-actions {
+    flex-direction: row;
+    width: auto;
+  }
 }
 
 .meta-row {
@@ -1107,7 +1115,15 @@ button:focus-visible {
 
 @media (max-width: 760px) {
   .header-inner {
-    grid-template-columns: auto auto auto;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .theme-label {
+    display: none;
   }
 
   .nav-toggle {

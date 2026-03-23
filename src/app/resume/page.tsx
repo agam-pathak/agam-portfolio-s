@@ -14,7 +14,7 @@ export default function ResumePage() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen bg-[#f1f3f6] text-[#1a202c] selection:bg-[--accent] selection:text-black p-4 md:p-12 font-sans transition-colors duration-500 overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#f1f3f6] text-[#1a202c] selection:bg-[--accent] selection:text-black p-3 md:p-12 font-sans transition-colors duration-500 overflow-x-hidden relative">
       {/* Dynamic Background Visuals */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden print:hidden">
         <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-gradient-to-br from-indigo-500/10 to-transparent blur-[140px] rounded-full" />
@@ -24,9 +24,9 @@ export default function ResumePage() {
 
       {/* Action Bar */}
       <div className="max-w-[1100px] mx-auto mb-10 flex flex-col sm:flex-row justify-between items-center print:hidden bg-white/60 backdrop-blur-3xl p-4 rounded-[2rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] gap-4 sticky top-6 z-50">
-        <Link href="/" className="group text-xs font-black uppercase tracking-[2px] text-indigo-600/70 hover:text-indigo-600 flex items-center gap-3 transition-all">
-          <span className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm shadow-sm shadow-indigo-100">←</span>
-          Return to Hub
+        <Link href="/" className="group text-[10px] sm:text-xs font-black uppercase tracking-[2px] text-indigo-600/70 hover:text-indigo-600 flex items-center gap-2 sm:gap-3 transition-all shrink-0">
+          <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm shadow-sm shadow-indigo-100">←</span>
+          Hub
         </Link>
         <div className="flex gap-4">
           <Magnetic>
@@ -41,7 +41,7 @@ export default function ResumePage() {
       </div>
 
       {/* Main Resume Container */}
-      <main className="max-w-[1100px] mx-auto bg-white print:p-0 shadow-[0_60px_120px_rgba(0,0,0,0.08)] print:shadow-none p-10 md:p-20 border border-indigo-50 print:border-none rounded-[3.5rem] print:rounded-none overflow-hidden relative z-10">
+      <main className="max-w-[1100px] mx-auto bg-white print:p-0 shadow-[0_60px_120px_rgba(0,0,0,0.08)] print:shadow-none p-6 md:p-20 border border-indigo-50 print:border-none rounded-[2rem] md:rounded-[3.5rem] print:rounded-none overflow-hidden relative z-10">
         
         {/* Colorful Gradient Border (Top) */}
         <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-[--accent] opacity-90" />
@@ -59,8 +59,8 @@ export default function ResumePage() {
                     <h1 className="text-5xl md:text-7xl font-black tracking-tight text-[#0f172a] font-space leading-none mb-2">Agam Pathak</h1>
                     <div className="flex items-center gap-4">
                       <span className="h-[2px] w-12 bg-indigo-600/30 hidden md:block" />
-                      <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 font-bold tracking-tight">
-                        Full-Stack Architect & AI System Specialist
+                      <p className="text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 font-bold tracking-tight leading-tight">
+                        Full-Stack Architect & AI Specialist
                       </p>
                     </div>
                   </div>
