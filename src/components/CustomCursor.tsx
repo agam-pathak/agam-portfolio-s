@@ -83,7 +83,7 @@ export function CustomCursor() {
       {/* Subtle Glow Trail */}
       {isHovered && !isMagnetic && (
         <motion.div
-          className="fixed top-0 left-0 w-24 h-24 rounded-full bg-[--accent] blur-[40px] opacity-10"
+          className="fixed top-0 left-0 w-24 h-24 rounded-full bg-[--accent] blur-[40px] opacity-10 pointer-events-none"
           style={{
             x: auraX,
             y: auraY,
