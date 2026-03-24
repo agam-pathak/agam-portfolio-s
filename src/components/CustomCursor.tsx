@@ -11,9 +11,9 @@ export function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Lagging spring position for the aura
-  const auraX = useSpring(mouseX, { damping: 30, stiffness: 200, mass: 0.5 });
-  const auraY = useSpring(mouseY, { damping: 30, stiffness: 200, mass: 0.5 });
+  // Snappier spring position for the aura
+  const auraX = useSpring(mouseX, { damping: 35, stiffness: 450, mass: 0.3 });
+  const auraY = useSpring(mouseY, { damping: 35, stiffness: 450, mass: 0.3 });
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -43,7 +43,7 @@ export function CustomCursor() {
     <div className="pointer-events-none fixed inset-0 z-[10000] hidden md:block overflow-hidden">
       {/* Lagging Aura */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-[--accent] opacity-20"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full border border-[--accent] opacity-10 pointer-events-none"
         style={{
           x: auraX,
           y: auraY,
@@ -51,11 +51,11 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          scale: isHovered ? (isMagnetic ? 1.8 : 2.2) : 1,
-          opacity: isHovered ? 0.4 : 0.15,
+          scale: isHovered ? (isMagnetic ? 1.5 : 1.8) : 1,
+          opacity: isHovered ? 0.35 : 0.1,
           borderWidth: isHovered ? "1px" : "2px",
         }}
-        transition={{ type: "spring", stiffness: 250, damping: 20 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
       />
 
       {/* Instant Core Dot */}

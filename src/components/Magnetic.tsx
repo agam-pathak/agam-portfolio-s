@@ -8,7 +8,7 @@ interface MagneticProps {
   strength?: number;
 }
 
-export function Magnetic({ children, strength = 0.35 }: MagneticProps) {
+export function Magnetic({ children, strength = 0.15 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -39,16 +39,19 @@ export function Magnetic({ children, strength = 0.35 }: MagneticProps) {
   const { x, y } = position;
 
   return (
-    <motion.div
+    <div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 350, damping: 20, mass: 0.1 }}
+      data-magnetic="true"
+      className="inline-block cursor-pointer"
     >
-      {React.cloneElement(children, {
-        "data-magnetic": "true", // Tell the cursor we are magnetic
-      } as any)}
-    </motion.div>
+      <motion.div
+        animate={{ x, y }}
+        transition={{ type: "spring", stiffness: 350, damping: 20, mass: 0.1 }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
