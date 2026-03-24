@@ -7,13 +7,17 @@ export function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false);
   const [isMagnetic, setIsMagnetic] = useState(false);
   
-  // Real mouse position for the dot
+  // Motion values for the snap target (button center)
+  const snapX = useMotionValue(-100);
+  const snapY = useMotionValue(-100);
+
+  // Snappier spring position for the visual aura
+  const auraX = useSpring(snapX, { damping: 35, stiffness: 450, mass: 0.3 });
+  const auraY = useSpring(snapY, { damping: 35, stiffness: 450, mass: 0.3 });
+
+  // Instant real mouse position for the dot
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
-
-  // Snappier spring position for the aura
-  const auraX = useSpring(mouseX, { damping: 35, stiffness: 450, mass: 0.3 });
-  const auraY = useSpring(mouseY, { damping: 35, stiffness: 450, mass: 0.3 });
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -26,11 +30,14 @@ export function CustomCursor() {
       const magneticEl = target.closest('[data-magnetic]');
       if (magneticEl) {
         const { left, top, width, height } = magneticEl.getBoundingClientRect();
-        // Snap aura to center if magnetic
-        mouseX.set(left + width / 2);
-        mouseY.set(top + height / 2);
+        // Snap the visual target to center, but keep real mouse separate
+        snapX.set(left + width / 2);
+        snapY.set(top + height / 2);
         setIsMagnetic(true);
       } else {
+        // Target follows mouse normally
+        snapX.set(e.clientX);
+        snapY.set(e.clientY);
         setIsMagnetic(false);
       }
     };
