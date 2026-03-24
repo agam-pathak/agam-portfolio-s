@@ -75,8 +75,8 @@ export function CustomCursor() {
           translateY: "-50%",
         }}
         animate={{
-          scale: isHovered ? 0.5 : 1,
-          opacity: isMagnetic ? 0 : 1, // Hide dot when snapped to button center for elegance
+          scale: isHovered ? 0.7 : 1,
+          opacity: 1, // Keep core dot always visible for clicking confidence
         }}
       />
       
