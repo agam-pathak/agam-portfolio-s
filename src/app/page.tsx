@@ -9,6 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Counter } from "@/components/Counter";
 import { MouseTracker } from "@/components/MouseTracker";
+import { GlowEffect } from "@/components/GlowEffect";
 import { motion } from "framer-motion";
 import { Github, Mail, Twitter, ExternalLink, ArrowRight, Gamepad2 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
@@ -41,16 +42,20 @@ export default function Home() {
               project outcomes.
             </p>
             <div className="hero-actions my-6">
-              <Magnetic>
-                <Link href="#projects" className="btn btn-primary" data-cursor="pointer">
-                  View Projects
-                </Link>
-              </Magnetic>
-              <Magnetic>
-                <Link href="/resume" className="btn btn-secondary" data-cursor="pointer">
-                  View Modern Resume
-                </Link>
-              </Magnetic>
+              <GlowEffect glowSize={180}>
+                <Magnetic strength={0.2}>
+                  <Link href="#projects" className="btn btn-primary">
+                    View Projects
+                  </Link>
+                </Magnetic>
+              </GlowEffect>
+              <GlowEffect glowSize={180}>
+                <Magnetic strength={0.4}>
+                  <Link href="/resume" className="btn btn-secondary">
+                    View Modern Resume
+                  </Link>
+                </Magnetic>
+              </GlowEffect>
             </div>
             <div className="meta-row">
               <span className="mr-4">Meerut, India</span>
@@ -307,21 +312,25 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions mt-auto flex gap-4 pt-4 border-t border-[--outline]">
-                <Magnetic>
-                  <a
-                    href="https://rahi-ai.vercel.app"
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Live App
-                  </a>
-                </Magnetic>
-                <Magnetic>
-                  <Link href="/case-studies/rahi-ai" className="btn btn-secondary">
-                    View Case Study
-                  </Link>
-                </Magnetic>
+                <GlowEffect>
+                  <Magnetic strength={0.3}>
+                    <a
+                      href="https://rahi-ai.vercel.app"
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open Live App
+                    </a>
+                  </Magnetic>
+                </GlowEffect>
+                <GlowEffect>
+                  <Magnetic strength={0.4}>
+                    <Link href="/case-studies/rahi-ai" className="btn btn-secondary">
+                      View Case Study
+                    </Link>
+                  </Magnetic>
+                </GlowEffect>
               </div>
             </article>
 
@@ -402,21 +411,25 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <Magnetic>
-                  <a
-                    href="https://lexora-ai-nine.vercel.app"
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Live App
-                  </a>
-                </Magnetic>
-                <Magnetic>
-                  <Link href="/case-studies/lexora" className="btn btn-secondary">
-                    View Case Study
-                  </Link>
-                </Magnetic>
+                <GlowEffect>
+                  <Magnetic strength={0.3}>
+                    <a
+                      href="https://lexora-ai-nine.vercel.app"
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open Live App
+                    </a>
+                  </Magnetic>
+                </GlowEffect>
+                <GlowEffect>
+                  <Magnetic strength={0.4}>
+                    <Link href="/case-studies/lexora" className="btn btn-secondary">
+                      View Case Study
+                    </Link>
+                  </Magnetic>
+                </GlowEffect>
               </div>
             </article>
 
@@ -501,21 +514,25 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <Magnetic>
-                  <a
-                    href="https://sarthisync-live.vercel.app"
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Live App
-                  </a>
-                </Magnetic>
-                <Magnetic>
-                  <Link href="/case-studies/sarthisync" className="btn btn-secondary">
-                    View Case Study
-                  </Link>
-                </Magnetic>
+                <GlowEffect>
+                  <Magnetic strength={0.3}>
+                    <a
+                      href="https://sarthisync-live.vercel.app"
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open Live App
+                    </a>
+                  </Magnetic>
+                </GlowEffect>
+                <GlowEffect>
+                  <Magnetic strength={0.4}>
+                    <Link href="/case-studies/sarthisync" className="btn btn-secondary">
+                      View Case Study
+                    </Link>
+                  </Magnetic>
+                </GlowEffect>
               </div>
             </article>
             <article className="project-card flex flex-col justify-between" data-cursor="view">
@@ -595,21 +612,25 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <Magnetic>
-                  <a
-                    href="https://agam-pathak.github.io/JS-Mini-Projects/"
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Live Arcade
-                  </a>
-                </Magnetic>
-                <Magnetic>
-                  <Link href="/case-studies/js-arcade" className="btn btn-secondary">
-                    View Case Study
-                  </Link>
-                </Magnetic>
+                <GlowEffect>
+                  <Magnetic strength={0.3}>
+                    <a
+                      href="https://agam-pathak.github.io/JS-Mini-Projects/"
+                      className="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open Live Arcade
+                    </a>
+                  </Magnetic>
+                </GlowEffect>
+                <GlowEffect>
+                  <Magnetic strength={0.4}>
+                    <Link href="/case-studies/js-arcade" className="btn btn-secondary">
+                      View Case Study
+                    </Link>
+                  </Magnetic>
+                </GlowEffect>
               </div>
             </article>
           </div>

@@ -3,7 +3,6 @@ import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PageTransition } from "@/components/PageTransition";
-import { CustomCursor } from "@/components/CustomCursor";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -22,6 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://agam-pathak.com"),
   title: "Agam Pathak | Full-Stack Software Developer & Team Lead",
   description:
     "Agam Pathak is a software engineer specializing in building practical, full-stack AI applications like Rahi.AI and Lexora with clean architecture and localized intelligence.",
@@ -56,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
           <PageTransition>
