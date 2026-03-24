@@ -59,7 +59,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
-          <CustomCursor />
           <PageTransition>
             {children}
           </PageTransition>
