@@ -3,6 +3,9 @@ import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PageTransition } from "@/components/PageTransition";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -58,11 +61,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
-        <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </ThemeProvider>
+          <Analytics />
+          <SpeedInsights />
+        </PostHogProvider>
       </body>
     </html>
   );
