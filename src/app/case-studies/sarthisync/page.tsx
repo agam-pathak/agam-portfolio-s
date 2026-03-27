@@ -1,6 +1,7 @@
 import { CaseStudyHeader } from "@/components/CaseStudyHeader";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from 'next';
 
@@ -133,18 +134,22 @@ graph TD
           </div>
           <div className="case-image-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/sarthi-dashboard-desktop.png"
                 alt="SarthiSync live operations dashboard screenshot in desktop layout"
-                loading="lazy"
+                width={1600}
+                height={1000}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/sarthi-dashboard-mobile.png"
                 alt="SarthiSync live operations dashboard screenshot in mobile layout"
-                loading="lazy"
+                width={900}
+                height={1125}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>

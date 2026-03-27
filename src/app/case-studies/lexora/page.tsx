@@ -47,7 +47,7 @@ export default function LexoraCaseStudy() {
           <div className="panel p-6">
             <ul className="case-list list-disc pl-5 space-y-2 text-[--muted]">
               <li>Developed a complete RAG pipeline connecting PDF text extraction (`pdf-parse`) to an embedded vector index.</li>
-              <li>Engineered a premium UI providing a Perplexity-grade UX with source cards and "thinking" agentic steps.</li>
+              <li>Engineered a premium UI providing a Perplexity-grade UX with source cards and visible reasoning steps.</li>
               <li>Implemented local zero-dependency vector storage under `.lexora/` with a fallback mechanism for hashed embeddings.</li>
               <li>Designed highly robust document parsers and a secure local auth system using signed `httpOnly` sessions.</li>
             </ul>
@@ -118,18 +118,22 @@ graph LR
           </div>
           <div className="case-image-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/lexora-dashboard-desktop.png"
                 alt="Lexora AI dashboard desktop screenshot"
-                loading="lazy"
+                width={1600}
+                height={1000}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/lexora-dashboard-mobile.png"
                 alt="Lexora AI chat mobile screenshot"
-                loading="lazy"
+                width={900}
+                height={1125}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>

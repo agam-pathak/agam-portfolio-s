@@ -19,7 +19,8 @@ export function MouseTracker() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-30 transition duration-300"
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 transition duration-300"
       style={{
         background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(102, 246, 202, 0.06), transparent 80%)`,
       }}

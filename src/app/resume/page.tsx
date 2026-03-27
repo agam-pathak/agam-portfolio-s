@@ -1,10 +1,9 @@
 "use client";
 
-import { Download, Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Globe, Award, Database, Cpu, Layout, Code2, Briefcase, GraduationCap, ArrowUpRight, Zap, Target, Star, BrainCircuit } from "lucide-react";
+import { Download, Mail, Phone, MapPin, Github, Linkedin, Globe, Award, Database, Cpu, Layout, Code2, Briefcase, GraduationCap, ArrowUpRight, Zap, Target, Star, BrainCircuit } from "lucide-react";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { Magnetic } from "@/components/Magnetic";
-import Image from "next/image";
 
 export default function ResumePage() {
   const handlePrint = () => {
@@ -60,7 +59,7 @@ export default function ResumePage() {
                     <div className="flex items-center gap-4">
                       <span className="h-[2px] w-12 bg-indigo-600/30 hidden md:block" />
                       <p className="text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 font-bold tracking-tight leading-tight">
-                        Full-Stack Architect & AI Specialist
+                        Full-Stack Developer focused on AI products
                       </p>
                     </div>
                   </div>
@@ -88,6 +87,8 @@ export default function ResumePage() {
                   <a 
                     key={idx} 
                     href={social.href} 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-zinc-50 border border-zinc-100 text-[10px] font-black text-zinc-500 hover:bg-white hover:border-indigo-300 hover:text-indigo-600 hover:scale-105 transition-all tracking-widest shadow-sm"
                   >
                     {social.icon} {social.label}
@@ -106,7 +107,7 @@ export default function ResumePage() {
                   <span className="w-10 h-[2px] bg-indigo-200" /> MISSION
                 </h3>
                 <p className="text-zinc-700 leading-relaxed text-[15px] font-semibold">
-                  B.Tech CSE student (2023-27) at SCRIET, specializing in building high-fidelity <span className="text-indigo-600 underline decoration-indigo-200 decoration-2 underline-offset-4">Local-First AI ecosystems</span>. Expert in RAG pipelines, logistics ERPs, and performance-first game loops.
+                  B.Tech CSE student (2023-27) at SCRIET, focused on shipping practical full-stack products across AI workflows, logistics software, and interactive web experiences.
                 </p>
               </section>
 
@@ -118,9 +119,10 @@ export default function ResumePage() {
                 
                 <div className="space-y-10">
                   <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
-                    <p className="text-[11px] font-black text-indigo-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
-                      <div className="p-2 rounded-lg bg-indigo-100 text-indigo-600"><Code2 size={16} /></div> Core Engineering
-                    </p>
+                    <div className="text-[11px] font-black text-indigo-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                      <span className="p-2 rounded-lg bg-indigo-100 text-indigo-600"><Code2 size={16} /></span>
+                      <span>Core Engineering</span>
+                    </div>
                     <div className="flex flex-wrap gap-2.5">
                       {["TypeScript", "C++", "Java", "Python", "SQL", "Go"].map((skill) => (
                         <span key={skill} className="px-3.5 py-2 rounded-xl bg-indigo-50/50 border border-indigo-100/30 text-[12px] font-black text-indigo-700">{skill}</span>
@@ -129,9 +131,10 @@ export default function ResumePage() {
                   </div>
 
                   <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
-                    <p className="text-[11px] font-black text-purple-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
-                      <div className="p-2 rounded-lg bg-purple-100 text-purple-600"><Layout size={16} /></div> Web Systems
-                    </p>
+                    <div className="text-[11px] font-black text-purple-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                      <span className="p-2 rounded-lg bg-purple-100 text-purple-600"><Layout size={16} /></span>
+                      <span>Web Systems</span>
+                    </div>
                     <div className="flex flex-wrap gap-2.5">
                       {["Next.js 16", "React 19", "Node.js", "TailwindCSS", "Prisma", "GSAP", "Supabase"].map((skill) => (
                         <span key={skill} className="px-3.5 py-2 rounded-xl bg-purple-50/50 border border-purple-100/30 text-[12px] font-black text-purple-700">{skill}</span>
@@ -140,9 +143,10 @@ export default function ResumePage() {
                   </div>
 
                   <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
-                    <p className="text-[11px] font-black text-[--accent] text-emerald-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
-                      <div className="p-2 rounded-lg bg-emerald-100 text-emerald-600"><Cpu size={16} /></div> AI & Infra
-                    </p>
+                    <div className="text-[11px] font-black text-[--accent] text-emerald-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                      <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600"><Cpu size={16} /></span>
+                      <span>AI & Infra</span>
+                    </div>
                     <div className="flex flex-wrap gap-2.5">
                       {["RAG OPS", "Llama-3.1", "Groq AI", "Pinecone", "Vercel", "Docker"].map((skill) => (
                         <span key={skill} className="px-3.5 py-2 rounded-xl bg-emerald-50/50 border border-emerald-100/30 text-[12px] font-black text-emerald-700">{skill}</span>
@@ -173,11 +177,11 @@ export default function ResumePage() {
                   <div className="grid grid-cols-1 gap-4">
                     <div className="flex items-center gap-4 p-5 rounded-3xl bg-indigo-50/30 border border-indigo-50">
                       <div className="p-3 rounded-2xl bg-white text-indigo-600 shadow-sm"><Award size={20} /></div>
-                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">15+ Production Ships</p>
+                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">4 Live Portfolio Systems</p>
                     </div>
                     <div className="flex items-center gap-4 p-5 rounded-3xl bg-indigo-50/30 border border-indigo-50">
                       <div className="p-3 rounded-2xl bg-white text-indigo-600 shadow-sm"><Target size={20} /></div>
-                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">Lead R&D Architect</p>
+                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">Student Project Team Lead</p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +198,7 @@ export default function ResumePage() {
                   </h3>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Verified Proof</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-emerald-600">Selected Work</span>
                   </div>
                 </div>
 
@@ -216,7 +220,7 @@ export default function ResumePage() {
                       </Link>
                     </div>
                     <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
-                      Architected a premium RAG environment for whitepaper analysis. Integrated a zero-dependency vector retrieval pipeline with <span className="text-zinc-900 font-bold">sub-200ms</span> query latency.
+                      Built a RAG workspace for whitepaper analysis with a zero-dependency vector retrieval pipeline focused on fast local search and readable citations.
                     </p>
                     <div className="flex flex-wrap gap-4 pl-20">
                       <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-700 text-[11px] font-black tracking-widest uppercase"><Zap size={12} /> Hashed Embeddings</div>
@@ -241,7 +245,7 @@ export default function ResumePage() {
                       </Link>
                     </div>
                     <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
-                      Led development of an AI travel platform with <span className="text-zinc-900 font-bold">100% automated day-wise itineraries</span>. Full-stack production flow featuring Stripe billing and multi-user collaboration.
+                      Led development of an AI travel platform with <span className="text-zinc-900 font-bold">AI-generated day-wise itineraries</span>, multi-user collaboration, and billing flows.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-20">
                       <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Collaboration Engine</div>
@@ -264,7 +268,7 @@ export default function ResumePage() {
                       </Link>
                     </div>
                     <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
-                      Digitalized high-stakes logistics workflows. Built an <span className="text-zinc-900 font-bold">AI Dispatch Copilot</span> resulting in a <span className="text-emerald-600 font-bold underline decoration-emerald-200 decoration-4">60% reduction</span> in administrative overhead.
+                      Digitalized logistics workflows with an <span className="text-zinc-900 font-bold">AI Dispatch Copilot</span>, live tracking, and delivery verification flows that reduce manual admin work.
                     </p>
                     <ul className="space-y-4 pl-20">
                       <li className="flex gap-4 items-start text-sm text-zinc-500 font-bold">
@@ -314,14 +318,14 @@ export default function ResumePage() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
                   <div className="space-y-4">
-                    <div className="text-4xl font-black font-space text-[--accent]">15+</div>
-                    <h5 className="font-black uppercase tracking-widest text-sm">Full-Stack Ships</h5>
-                    <p className="text-sm text-white/50 font-medium leading-relaxed">From concept to production-grade deployment across Edge/Serverless environments.</p>
+                    <div className="text-4xl font-black font-space text-[--accent]">4</div>
+                    <h5 className="font-black uppercase tracking-widest text-sm">Shipped Portfolio Systems</h5>
+                    <p className="text-sm text-white/50 font-medium leading-relaxed">Projects delivered across AI travel, document intelligence, logistics, and interactive web experiences.</p>
                   </div>
                   <div className="space-y-4">
-                    <div className="text-4xl font-black font-space text-indigo-400">95%</div>
-                    <h5 className="font-black uppercase tracking-widest text-sm">Deployment Success</h5>
-                    <p className="text-sm text-white/50 font-medium leading-relaxed">Maintained high-availability systems with robust error handling and observability.</p>
+                    <div className="text-4xl font-black font-space text-indigo-400">3</div>
+                    <h5 className="font-black uppercase tracking-widest text-sm">Core Product Domains</h5>
+                    <p className="text-sm text-white/50 font-medium leading-relaxed">Applied the same engineering approach across AI, logistics operations, and user-facing product design.</p>
                   </div>
                 </div>
               </section>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Github, Linkedin, Mail, Twitter, ChevronUp, ArrowRight } from "lucide-react";
+import { ChevronUp, ArrowRight } from "lucide-react";
 import { Magnetic } from "./Magnetic";
 
 export function Footer() {
@@ -88,7 +88,7 @@ export function Footer() {
             <ul className="flex flex-col items-start gap-5 text-[15px] font-medium text-[--muted]">
               <li><Link href="/resume" className="hover:text-white transition-colors">Modern Resume</Link></li>
               <li><a href="/resume.pdf" download className="hover:text-white transition-colors">Printable CV</a></li>
-              <li><a href="https://github.com/Agam-Pathak" target="_blank" className="hover:text-white transition-colors">Documentation</a></li>
+              <li><a href="https://github.com/Agam-Pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub Profile</a></li>
             </ul>
           </nav>
 

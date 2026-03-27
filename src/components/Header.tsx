@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -21,11 +22,15 @@ export function Header() {
         <Magnetic strength={0.2}>
           <GlowEffect glowSize={120}>
             <Link href="/#top" className="brand flex items-center gap-3">
-              <img 
-                src="/brand-logo.svg" 
-                alt="Agam Pathak Logo" 
-                className="brand-mark w-10 h-10 p-1 rounded-lg border border-white/10 bg-white/5 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/10" 
-              />
+              <span className="brand-mark w-10 h-10 p-1 rounded-lg border border-white/10 bg-white/5 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/10">
+                <Image
+                  src="/brand-logo.svg"
+                  alt="Agam Pathak Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
+              </span>
               <span className="brand-text font-bold text-lg tracking-tight">Agam Pathak</span>
             </Link>
           </GlowEffect>
@@ -45,7 +50,7 @@ export function Header() {
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#about" onClick={() => setIsOpen(false)}>About</Link></GlowEffect></Magnetic>
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#skills" onClick={() => setIsOpen(false)}>Skills</Link></GlowEffect></Magnetic>
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#projects" onClick={() => setIsOpen(false)}>Projects</Link></GlowEffect></Magnetic>
-          <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#education" onClick={() => setIsOpen(false)}>Education</Link></GlowEffect></Magnetic>
+          <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#journey" onClick={() => setIsOpen(false)}>Journey</Link></GlowEffect></Magnetic>
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#contact" onClick={() => setIsOpen(false)}>Contact</Link></GlowEffect></Magnetic>
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><a href="/resume.pdf" download className="nav-resume">Resume</a></GlowEffect></Magnetic>
         </nav>

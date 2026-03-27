@@ -633,12 +633,10 @@ h2 {
   flex-direction: column;
   gap: 0.2rem;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
-  perspective: 1000px;
-  transform-style: preserve-3d;
 }
 
 .project-card:hover {
-  transform: translateY(-8px) rotateX(2deg) rotateY(-2deg);
+  transform: translateY(-8px);
   border-color: var(--accent);
   box-shadow: 
     0 22px 52px rgba(4, 12, 29, 0.62),
@@ -703,6 +701,7 @@ h2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
   align-items: stretch;
+  pointer-events: none;
 }
 
 .proof-shot {
@@ -776,6 +775,15 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
+  position: relative;
+  z-index: 3;
+  isolation: isolate;
+}
+
+.project-actions .btn {
+  position: relative;
+  z-index: 4;
+  pointer-events: auto;
 }
 
 .timeline {

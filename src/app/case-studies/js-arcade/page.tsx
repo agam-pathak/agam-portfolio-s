@@ -8,7 +8,7 @@ import { MermaidDiagram } from "@/components/MermaidDiagram";
 
 export const metadata: Metadata = {
   title: "JS Arcade Case Study | Agam Pathak",
-  description: "Case study for JS Arcade by Agam Pathak: architecture, physics engines, and framework-less development of a premium game gallery.",
+  description: "Case study for JS Arcade by Agam Pathak: architecture, physics engines, and framework-free development of a premium game gallery.",
 };
 
 export default function JSArcadeCaseStudy() {
@@ -26,7 +26,7 @@ export default function JSArcadeCaseStudy() {
             JS Arcade (Mini-Apps Collection)
           </h1>
           <p className="case-summary text-lg text-[--muted] max-w-3xl mb-6">
-            JS Arcade is a high-performance "Game Gallery" featuring 8+ immersive arcade games and utilities built entirely with vanilla JavaScript. It demonstrates the power of framework-less engineering, physics-based mechanics, and real-time API integrations with a premium Glassmorphism aesthetic.
+            JS Arcade is a high-performance game gallery featuring 8+ immersive arcade games and utilities built entirely with vanilla JavaScript. It demonstrates the power of framework-free engineering, physics-based mechanics, and real-time API integrations with a premium Glassmorphism aesthetic.
           </p>
           <div className="chip-row flex flex-wrap gap-3">
             <span className="chip">Vanilla JavaScript</span>
@@ -46,9 +46,9 @@ export default function JSArcadeCaseStudy() {
           </div>
           <div className="panel p-6">
             <ul className="case-list list-disc pl-5 space-y-2 text-[--muted]">
-              <li>Engineered custom physics engines for 2D shooters (**Void Strike**) and platformers (**Synth Quest**) using pure JS vector math.</li>
-              <li>Implemented a centralized "Game Lobby" architecture to manage state transitions between different mini-apps seamlessly.</li>
-              <li>Developed real-time data synchronization for utilities like **SkySentry Weather** ensuring sub-second UI updates upon API response.</li>
+              <li>Engineered custom physics engines for 2D shooters like Void Strike and platformers like Synth Quest using pure JS vector math.</li>
+              <li>Implemented a centralized game lobby architecture to manage state transitions between different mini-apps seamlessly.</li>
+              <li>Developed real-time data synchronization for utilities like SkySentry Weather, ensuring fast UI updates after each API response.</li>
               <li>Designed a modular CSS system for global theme consistency across 8+ different visual environments without using pre-processors.</li>
             </ul>
           </div>
@@ -60,7 +60,7 @@ export default function JSArcadeCaseStudy() {
             <h2 className="text-3xl font-bold font-space">Vanilla Game Loop Engine</h2>
           </div>
           <p className="text-[--muted] mb-8 max-w-2xl leading-relaxed">
-            The core engine uses a high-frequency <strong>RequestAnimationFrame</strong> loop with delta-timing to ensure consistent physics calculations regardless of the monitor's refresh rate.
+            The core engine uses a high-frequency <strong>RequestAnimationFrame</strong> loop with delta-timing to ensure consistent physics calculations regardless of the monitor&rsquo;s refresh rate.
           </p>
           <MermaidDiagram chart={`
 graph TD
@@ -116,18 +116,22 @@ graph TD
           </div>
           <div className="case-image-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/arcade-dashboard-desktop.png"
                 alt="JS Arcade dashboard desktop screenshot"
-                loading="lazy"
+                width={1600}
+                height={1000}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/arcade-dashboard-mobile.png"
                 alt="JS Arcade dashboard mobile screenshot"
-                loading="lazy"
+                width={900}
+                height={1125}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>

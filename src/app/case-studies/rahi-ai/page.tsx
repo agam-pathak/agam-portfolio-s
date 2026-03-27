@@ -151,18 +151,22 @@ graph TD
           </div>
           <div className="case-image-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/rahi-planner-desktop.jpg"
                 alt="Rahi.AI planner desktop screenshot"
-                loading="lazy"
+                width={1600}
+                height={1000}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>
             <div className="rounded-xl overflow-hidden border border-[--outline] shadow-lg">
-              <img
+              <Image
                 src="/assets/screenshots/rahi-chat-mobile.jpg"
                 alt="Rahi.AI chat mobile screenshot"
-                loading="lazy"
+                width={900}
+                height={1125}
+                sizes="(min-width: 768px) 50vw, 100vw"
                 className="w-full h-auto"
               />
             </div>

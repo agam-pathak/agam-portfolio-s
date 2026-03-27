@@ -1,54 +1,60 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import mermaid from "mermaid";
+
+let mermaidInitialized = false;
 
 export function MermaidDiagram({ chart }: { chart: string }) {
   const [svg, setSvg] = useState("");
   const [error, setError] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // Initialize mermaid only once on client
-    try {
-      mermaid.initialize({
-        startOnLoad: false,
-        theme: "dark",
-        securityLevel: "loose",
-        fontFamily: "var(--font-space-grotesk)",
-        themeVariables: {
-          primaryColor: "#66f6ca",
-          primaryTextColor: "#e7eefc",
-          primaryBorderColor: "rgba(102, 246, 202, 0.4)",
-          lineColor: "#66f6ca",
-          secondaryColor: "#101b2f",
-          tertiaryColor: "#08111f"
-        }
-      });
-      setIsInitialized(true);
-    } catch (err) {
-      console.error("Mermaid initialization failed:", err);
-    }
-  }, []);
+    if (!chart) return;
 
-  useEffect(() => {
-    if (!isInitialized || !chart) return;
+    let isCancelled = false;
 
     const renderChart = async () => {
       try {
+        if (!mermaidInitialized) {
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: "dark",
+            securityLevel: "loose",
+            fontFamily: "var(--font-space-grotesk)",
+            themeVariables: {
+              primaryColor: "#66f6ca",
+              primaryTextColor: "#e7eefc",
+              primaryBorderColor: "rgba(102, 246, 202, 0.4)",
+              lineColor: "#66f6ca",
+              secondaryColor: "#101b2f",
+              tertiaryColor: "#08111f",
+            },
+          });
+          mermaidInitialized = true;
+        }
+
         const id = `mermaid-svg-${Math.random().toString(36).substring(2, 9)}`;
         const { svg: renderedSvg } = await mermaid.render(id, chart);
-        setSvg(renderedSvg);
-        setError(false);
+        if (!isCancelled) {
+          setSvg(renderedSvg);
+          setError(false);
+        }
       } catch (err) {
         console.error("Mermaid parsing error:", err);
-        setError(true);
-        setSvg("");
+        if (!isCancelled) {
+          setError(true);
+          setSvg("");
+        }
       }
     };
 
     renderChart();
-  }, [chart, isInitialized]);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [chart]);
 
   return (
     <div 

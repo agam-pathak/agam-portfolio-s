@@ -38,6 +38,7 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMsg("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -54,6 +55,7 @@ export function ContactForm() {
       if (!res.ok) throw new Error("Submission failed");
       
       setStatus("success");
+      form.reset();
       triggerConfetti();
     } catch {
       setStatus("error");
@@ -77,7 +79,7 @@ export function ContactForm() {
             </div>
             <h3 className="text-3xl font-bold font-space">Message Sent Successfully!</h3>
             <p className="text-[--muted] max-w-sm">
-              Thanks for reaching out! I've received your inquiry and will get back to you within 24 hours.
+              Thanks for reaching out. I usually reply within 24 hours.
             </p>
             <button 
               onClick={() => setStatus("idle")} 
@@ -150,7 +152,7 @@ export function ContactForm() {
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 mt-6 border-t border-white/5">
               <p className="text-xs opacity-60 max-w-[250px]">
-                Form uses secure encryption and delivers directly to my inbox.
+                Submitted via FormSubmit and forwarded to my inbox.
               </p>
               <button 
                 type="submit" 

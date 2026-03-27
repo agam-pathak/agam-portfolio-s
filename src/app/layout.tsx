@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Agam Pathak | Full-Stack Software Developer & Team Lead",
     description:
       "B.Tech CSE student building high-impact full-stack applications with localized AI, clean code, and team-centric leadership.",
-    url: "https://agam-pathak.com", // Assuming this will be the URL
+    url: "https://agam-pathak.com",
     siteName: "Agam Pathak Portfolio",
     images: [{ url: "/og-image.svg" }],
     type: "website",

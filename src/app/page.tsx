@@ -8,17 +8,36 @@ import { IntroAnimation } from "@/components/IntroAnimation";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Counter } from "@/components/Counter";
-import { MouseTracker } from "@/components/MouseTracker";
 import { GlowEffect } from "@/components/GlowEffect";
 import { motion } from "framer-motion";
-import { Github, Mail, Twitter, ExternalLink, ArrowRight, Gamepad2 } from "lucide-react";
+import { Github, Mail, Twitter, ExternalLink, Gamepad2 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
+
+function IconStrip({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className: string;
+}) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={320}
+      height={48}
+      unoptimized
+      className={className}
+    />
+  );
+}
 
 export default function Home() {
   return (
     <>
       <IntroAnimation />
-      <MouseTracker />
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
@@ -107,7 +126,7 @@ export default function Home() {
               I’m a developer who bridges the gap between complex engineering and user-friendly products.
             </p>
             <p className="text-lg leading-relaxed opacity-90">
-              Beyond the code, I focus on the "why"—understanding user bottlenecks, lead-time optimization, and shipping reliable systems. 
+              Beyond the code, I focus on the underlying problem: understanding user bottlenecks, lead-time optimization, and shipping reliable systems.
               Currently pursuing my B.Tech at CCS University (SCRIET), I spend my days orchestrating AI workflows and leading teams to deliver 
               high-performance solutions that solve real-world problems.
             </p>
@@ -182,7 +201,7 @@ export default function Home() {
                 <h3 className="font-bold text-lg">Core Ecosystem</h3>
               </div>
               <div className="skills-icons flex flex-wrap gap-2 mb-4">
-                <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,nodejs" alt="Core Skills" className="h-9" />
+                <IconStrip src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,nodejs" alt="Core Skills" className="h-9 w-auto" />
               </div>
               <p className="text-sm text-[--muted]">My primary toolkit for building high-performance, full-stack applications with localized intelligence.</p>
             </article>
@@ -193,7 +212,7 @@ export default function Home() {
                 <h3 className="font-bold text-lg">Languages & Foundations</h3>
               </div>
               <div className="skills-icons flex flex-wrap gap-2 mb-4">
-                <img src="https://skillicons.dev/icons?i=cpp,java,py,js,html,css" alt="Languages" className="h-9" />
+                <IconStrip src="https://skillicons.dev/icons?i=cpp,java,py,js,html,css" alt="Languages" className="h-9 w-auto" />
               </div>
               <p className="text-sm text-[--muted]">Deeply rooted in C++, Java, and Python for algorithm-heavy tasks and core engineering logic.</p>
             </article>
@@ -204,7 +223,7 @@ export default function Home() {
                 <h3 className="font-bold text-lg">Infrastructure & Data</h3>
               </div>
               <div className="skills-icons flex flex-wrap gap-2 mb-4">
-                <img src="https://skillicons.dev/icons?i=postgres,mysql,prisma,vercel,git,linux" alt="Infra Skills" className="h-9" />
+                <IconStrip src="https://skillicons.dev/icons?i=postgres,mysql,prisma,vercel,git,linux" alt="Infrastructure skills" className="h-9 w-auto" />
               </div>
               <p className="text-sm text-[--muted]">Experienced in RDBMS management, edge deployments, and version control workflows.</p>
             </article>
@@ -230,7 +249,7 @@ export default function Home() {
             <h2>Real systems built in team settings</h2>
           </div>
           <div className="projects-grid">
-            <article className="project-card flex flex-col justify-between" data-cursor="view">
+            <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -245,18 +264,17 @@ export default function Home() {
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-[--accent]"></span>
                       </span>
-                      Production Ready: Vercel Edge
+                      Deployed on Vercel
                     </div>
                   </div>
                   <span className="pill hover:-translate-y-1 hover:scale-105 transition-transform">AI Travel Platform</span>
                 </div>
 
                 <div className="project-tech-icons mb-3">
-                  <img
+                  <IconStrip
                     src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind,supabase,workers"
                     alt="Rahi.AI Stack"
-                    className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
-                    loading="lazy"
+                    className="h-8 w-auto opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
                   />
                 </div>
 
@@ -312,29 +330,21 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions mt-auto flex gap-4 pt-4 border-t border-[--outline]">
-                <GlowEffect>
-                  <Magnetic strength={0.3}>
-                    <a
-                      href="https://rahi-ai.vercel.app"
-                      className="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open Live App
-                    </a>
-                  </Magnetic>
-                </GlowEffect>
-                <GlowEffect>
-                  <Magnetic strength={0.4}>
-                    <Link href="/case-studies/rahi-ai" className="btn btn-secondary">
-                      View Case Study
-                    </Link>
-                  </Magnetic>
-                </GlowEffect>
+                <a
+                  href="https://rahi-ai.vercel.app"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Live App
+                </a>
+                <Link href="/case-studies/rahi-ai" className="btn btn-secondary">
+                  View Case Study
+                </Link>
               </div>
             </article>
 
-            <article className="project-card flex flex-col justify-between" data-cursor="view">
+            <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -356,11 +366,10 @@ export default function Home() {
                 </div>
 
                 <div className="project-tech-icons mb-3">
-                  <img
+                  <IconStrip
                     src="https://skillicons.dev/icons?i=nextjs,ts,react,tailwind,vercel"
                     alt="Lexora AI Stack"
-                    className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
-                    loading="lazy"
+                    className="h-8 w-auto opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
                   />
                 </div>
 
@@ -411,29 +420,21 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <GlowEffect>
-                  <Magnetic strength={0.3}>
-                    <a
-                      href="https://lexora-ai-nine.vercel.app"
-                      className="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open Live App
-                    </a>
-                  </Magnetic>
-                </GlowEffect>
-                <GlowEffect>
-                  <Magnetic strength={0.4}>
-                    <Link href="/case-studies/lexora" className="btn btn-secondary">
-                      View Case Study
-                    </Link>
-                  </Magnetic>
-                </GlowEffect>
+                <a
+                  href="https://lexora-ai-nine.vercel.app"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Live App
+                </a>
+                <Link href="/case-studies/lexora" className="btn btn-secondary">
+                  View Case Study
+                </Link>
               </div>
             </article>
 
-            <article className="project-card flex flex-col justify-between" data-cursor="view">
+            <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -455,11 +456,10 @@ export default function Home() {
                 </div>
 
                 <div className="project-tech-icons mb-3">
-                  <img
+                  <IconStrip
                     src="https://skillicons.dev/icons?i=nodejs,js,bootstrap,vercel"
                     alt="SarthiSync Stack"
-                    className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
-                    loading="lazy"
+                    className="h-8 w-auto opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
                   />
                 </div>
 
@@ -514,28 +514,20 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <GlowEffect>
-                  <Magnetic strength={0.3}>
-                    <a
-                      href="https://sarthisync-live.vercel.app"
-                      className="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open Live App
-                    </a>
-                  </Magnetic>
-                </GlowEffect>
-                <GlowEffect>
-                  <Magnetic strength={0.4}>
-                    <Link href="/case-studies/sarthisync" className="btn btn-secondary">
-                      View Case Study
-                    </Link>
-                  </Magnetic>
-                </GlowEffect>
+                <a
+                  href="https://sarthisync-live.vercel.app"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Live App
+                </a>
+                <Link href="/case-studies/sarthisync" className="btn btn-secondary">
+                  View Case Study
+                </Link>
               </div>
             </article>
-            <article className="project-card flex flex-col justify-between" data-cursor="view">
+            <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
@@ -557,11 +549,10 @@ export default function Home() {
                 </div>
 
                 <div className="project-tech-icons mb-3">
-                  <img
+                  <IconStrip
                     src="https://skillicons.dev/icons?i=js,html,css"
                     alt="JS Arcade Stack"
-                    className="h-8 opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
-                    loading="lazy"
+                    className="h-8 w-auto opacity-90 hover:-translate-y-1 hover:scale-105 transition-transform"
                   />
                 </div>
 
@@ -570,16 +561,16 @@ export default function Home() {
                 </p>
                 <ul className="list-disc pl-5 mb-4 space-y-2 opacity-80">
                   <li>
-                    Built a high-performance "Game Gallery" featuring 8+ immersive arcade games and utilities.
+                    Built a high-performance game gallery featuring 8+ immersive arcade games and utilities.
                   </li>
                   <li>
-                    Engineered physics-based mechanics for **Void Strike** (shooter) and **Synth Quest** (platformer).
+                    Engineered physics-based mechanics for Void Strike (shooter) and Synth Quest (platformer).
                   </li>
                   <li>
-                    Implemented real-time data fetching for **SkySentry Weather** and **FinanceGo Converter**.
+                    Implemented real-time data fetching for SkySentry Weather and FinanceGo Converter.
                   </li>
                   <li>
-                    Focused on 100% framework-less code with premium Glassmorphism and Neon aesthetics.
+                    Focused on 100% framework-free code with premium Glassmorphism and Neon aesthetics.
                   </li>
                 </ul>
                 <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
@@ -612,25 +603,17 @@ export default function Home() {
                 </div>
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
-                <GlowEffect>
-                  <Magnetic strength={0.3}>
-                    <a
-                      href="https://agam-pathak.github.io/JS-Mini-Projects/"
-                      className="btn btn-primary"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open Live Arcade
-                    </a>
-                  </Magnetic>
-                </GlowEffect>
-                <GlowEffect>
-                  <Magnetic strength={0.4}>
-                    <Link href="/case-studies/js-arcade" className="btn btn-secondary">
-                      View Case Study
-                    </Link>
-                  </Magnetic>
-                </GlowEffect>
+                <a
+                  href="https://agam-pathak.github.io/JS-Mini-Projects/"
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open Live Arcade
+                </a>
+                <Link href="/case-studies/js-arcade" className="btn btn-secondary">
+                  View Case Study
+                </Link>
               </div>
             </article>
           </div>

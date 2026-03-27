@@ -10,39 +10,54 @@ interface MagneticProps {
 
 export function Magnetic({ children, strength = 0.5 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
-  
-  // Motion values for the translation
+  const isPressedRef = useRef(false);
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth springs for the translation
   const springConfig = { damping: 20, stiffness: 150, mass: 0.1 };
   const springX = useSpring(mouseX, springConfig);
   const springY = useSpring(mouseY, springConfig);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
+  const resetPosition = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse" || isPressedRef.current || !ref.current) {
+      return;
+    }
+
     const { clientX, clientY } = e;
     const { width, height, left, top } = ref.current.getBoundingClientRect();
-    
-    // Calculate distance from center
+
     const x = clientX - (left + width / 2);
     const y = clientY - (top + height / 2);
-    
+
     mouseX.set(x * strength);
     mouseY.set(y * strength);
   };
 
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
+  const handlePointerDownCapture = () => {
+    isPressedRef.current = true;
+    resetPosition();
+  };
+
+  const handlePointerRelease = () => {
+    isPressedRef.current = false;
+    resetPosition();
   };
 
   return (
     <div
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerRelease}
+      onPointerDownCapture={handlePointerDownCapture}
+      onPointerUpCapture={handlePointerRelease}
+      onPointerCancelCapture={handlePointerRelease}
+      onLostPointerCapture={handlePointerRelease}
       className="inline-block relative overflow-visible"
       style={{ isolation: "isolate" }}
       data-cursor="magnetic"
