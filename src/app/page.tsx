@@ -243,12 +243,13 @@ export default function Home() {
           </div>
         </Reveal>
 
-        <Reveal className="section" id="projects">
+        <div className="section" id="projects">
           <div className="section-heading mb-6">
             <p className="eyebrow">Projects</p>
             <h2>Real systems built in team settings</h2>
           </div>
           <div className="projects-grid">
+            <Reveal>
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
@@ -343,7 +344,9 @@ export default function Home() {
                 </Link>
               </div>
             </article>
+            </Reveal>
 
+            <Reveal>
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
@@ -433,7 +436,9 @@ export default function Home() {
                 </Link>
               </div>
             </article>
+            </Reveal>
 
+            <Reveal>
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
@@ -527,6 +532,8 @@ export default function Home() {
                 </Link>
               </div>
             </article>
+            </Reveal>
+            <Reveal>
             <article className="project-card flex flex-col justify-between">
               <div>
                 <div className="project-head flex justify-between items-start mb-4">
@@ -616,9 +623,9 @@ export default function Home() {
                 </Link>
               </div>
             </article>
+            </Reveal>
           </div>
-
-        </Reveal>
+        </div>
 
 
         <Reveal className="section">
