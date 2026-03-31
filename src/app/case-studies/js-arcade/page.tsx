@@ -9,6 +9,9 @@ import { MermaidDiagram } from "@/components/MermaidDiagram";
 export const metadata: Metadata = {
   title: "JS Arcade Case Study | Agam Pathak",
   description: "Case study for JS Arcade by Agam Pathak: architecture, physics engines, and framework-free development of a premium game gallery.",
+  icons: {
+    icon: "/assets/logos/arcade-logo.png",
+  },
 };
 
 export default function JSArcadeCaseStudy() {
@@ -17,14 +20,27 @@ export default function JSArcadeCaseStudy() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <CaseStudyHeader liveUrl="https://agam-pathak.github.io/JS-Mini-Projects/" />
+      <CaseStudyHeader 
+        liveUrl="https://agam-pathak.github.io/JS-Mini-Projects/" 
+        projectTitle="JS Arcade | Premium Mini-Projects Collection"
+        projectIcon={<Image src="/assets/logos/arcade-logo.png" alt="" width={18} height={18} className="rounded-sm" />}
+      />
 
       <main id="main-content" className="case-main max-w-[var(--max-width)] mx-auto px-5 py-10 pb-20">
         <Reveal className="section case-hero">
           <p className="eyebrow">Case Study</p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-space">
-            JS Arcade (Mini-Apps Collection)
-          </h1>
+          <div className="flex items-center gap-4 mb-4">
+            <Image 
+              src="/assets/logos/arcade-logo.png" 
+              alt="JS Arcade Logo" 
+              width={60} 
+              height={60} 
+              className="rounded-xl shadow-lg border border-[--outline] bg-[--bg-card]"
+            />
+            <h1 className="text-4xl md:text-5xl font-bold font-space">
+              JS Arcade (Mini-Apps Collection)
+            </h1>
+          </div>
           <p className="case-summary text-lg text-[--muted] max-w-3xl mb-6">
             JS Arcade is a high-performance game gallery featuring 8+ immersive arcade games and utilities built entirely with vanilla JavaScript. It demonstrates the power of framework-free engineering, physics-based mechanics, and real-time API integrations with a premium Glassmorphism aesthetic.
           </p>

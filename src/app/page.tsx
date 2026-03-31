@@ -539,8 +539,8 @@ export default function Home() {
                 <div className="project-head flex justify-between items-start mb-4">
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center gap-3">
-                      <div className="relative w-10 h-10 p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center">
-                        <Gamepad2 className="text-[--accent]" size={24} />
+                      <div className="relative w-10 h-10 p-1.5 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center overflow-hidden">
+                        <Image src="/assets/logos/arcade-logo.png" alt="JS Arcade" fill className="p-1 object-contain" />
                       </div>
                       <h3 className="font-bold text-xl">JS Arcade (Gallery)</h3>
                     </div>

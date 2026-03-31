@@ -2,9 +2,19 @@
 
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Globe } from "lucide-react";
 
-export function CaseStudyHeader({ title = "Open Live App", liveUrl }: { title?: string, liveUrl: string }) {
+export function CaseStudyHeader({ 
+  title = "Open Live App", 
+  liveUrl,
+  projectTitle,
+  projectIcon
+}: { 
+  title?: string;
+  liveUrl: string;
+  projectTitle?: string;
+  projectIcon?: React.ReactNode;
+}) {
   const { setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -18,9 +28,20 @@ export function CaseStudyHeader({ title = "Open Live App", liveUrl }: { title?: 
           <span className="brand-mark" aria-hidden="true">
             AP
           </span>
-          <span className="brand-text hidden sm:inline">Back to Portfolio</span>
-          <span className="brand-text sm:hidden">Back</span>
+          <span className="brand-text hidden lg:inline">Back to Portfolio</span>
+          <span className="brand-text lg:hidden">Back</span>
         </Link>
+
+        {projectTitle && (
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[--nav-hover-bg] border border-[--outline] transform transition-all hover:scale-[1.02]">
+            <span className="text-[--accent] flex items-center justify-center">
+              {projectIcon || <Globe size={18} />}
+            </span>
+            <span className="text-sm font-medium tracking-tight whitespace-nowrap">
+              {projectTitle}
+            </span>
+          </div>
+        )}
 
         <div className="header-cta col-start-3 md:col-start-4">
           <button
