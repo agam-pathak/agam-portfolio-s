@@ -24,7 +24,7 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="footer-wrap mt-32 relative border-t border-white/5 bg-black/20 backdrop-blur-xl pt-24 pb-12 overflow-hidden text-left">
+    <footer className="footer-wrap mt-32 relative z-10 border-t border-white/5 bg-black/20 backdrop-blur-xl pt-24 pb-12 overflow-hidden text-left">
       {/* Background Signature Watermark */}
       <div className="absolute inset-0 pointer-events-none select-none opacity-[0.03] flex justify-center items-center z-0">
         <span className="text-[12vw] font-bold font-space leading-none tracking-tighter uppercase whitespace-nowrap">

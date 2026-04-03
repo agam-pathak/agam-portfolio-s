@@ -6,6 +6,7 @@ import { PageTransition } from "@/components/PageTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "@/components/PostHogProvider";
+import { SceneWrapper } from "@/components/scene/SceneWrapper";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
         <PostHogProvider>
           <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem>
+            <SceneWrapper />
             <PageTransition>
               {children}
             </PageTransition>

@@ -13,18 +13,11 @@ export default function ResumePage() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="min-h-screen bg-[#f1f3f6] text-[#1a202c] selection:bg-[--accent] selection:text-black p-3 md:p-12 font-sans transition-colors duration-500 overflow-x-hidden relative">
-      {/* Dynamic Background Visuals */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden print:hidden">
-        <div className="absolute top-[-5%] left-[-5%] w-[45%] h-[45%] bg-gradient-to-br from-indigo-500/10 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute bottom-[-5%] right-[-5%] w-[45%] h-[45%] bg-gradient-to-tl from-[--accent]/10 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
-      </div>
-
+    <div className="min-h-screen text-[--text] selection:bg-[--accent] selection:text-[#030610] p-3 md:p-12 font-sans transition-colors duration-500 overflow-x-hidden relative z-10">
       {/* Action Bar */}
-      <div className="max-w-[1100px] mx-auto mb-10 flex flex-col sm:flex-row justify-between items-center print:hidden bg-white/60 backdrop-blur-3xl p-4 rounded-[2rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] gap-4 sticky top-6 z-50">
+      <div className="max-w-[1100px] mx-auto mb-10 flex flex-col sm:flex-row justify-between items-center print:hidden bg-[--surface]/80 backdrop-blur-3xl p-4 rounded-[2rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.06)] gap-4 sticky top-6 z-50">
         <Link href="/" className="group text-[10px] sm:text-xs font-black uppercase tracking-[2px] text-indigo-600/70 hover:text-indigo-600 flex items-center gap-2 sm:gap-3 transition-all shrink-0">
-          <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm shadow-sm shadow-indigo-100">←</span>
+          <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[--surface] flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-all text-sm shadow-sm shadow-indigo-100">←</span>
           Hub
         </Link>
         <div className="flex gap-4">
@@ -40,7 +33,7 @@ export default function ResumePage() {
       </div>
 
       {/* Main Resume Container */}
-      <main className="max-w-[1100px] mx-auto bg-white print:p-0 shadow-[0_60px_120px_rgba(0,0,0,0.08)] print:shadow-none p-6 md:p-20 border border-indigo-50 print:border-none rounded-[2rem] md:rounded-[3.5rem] print:rounded-none overflow-hidden relative z-10">
+      <main className="max-w-[1100px] mx-auto bg-[--surface-strong] backdrop-blur-2xl print:p-0 shadow-[0_60px_120px_rgba(0,0,0,0.08)] print:shadow-none p-6 md:p-20 border border-[--outline] print:border-none rounded-[2rem] md:rounded-[3.5rem] print:rounded-none overflow-hidden relative z-10">
         
         {/* Colorful Gradient Border (Top) */}
         <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-[--accent] opacity-90" />
@@ -48,32 +41,32 @@ export default function ResumePage() {
         <Reveal>
           {/* Header Section */}
           <header className="relative mb-24">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 pb-14 border-b border-indigo-50">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-12 pb-14 border-b border-[--outline]">
               <div className="space-y-8">
                 <div className="flex items-center gap-6">
                   <div className="w-20 h-20 rounded-[1.75rem] bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 text-white flex items-center justify-center text-3xl font-black font-space shadow-2xl shadow-indigo-200">
                     AP
                   </div>
                   <div>
-                    <h1 className="text-5xl md:text-7xl font-black tracking-tight text-[#0f172a] font-space leading-none mb-2">Agam Pathak</h1>
+                    <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white font-space leading-none mb-2">Agam Pathak</h1>
                     <div className="flex items-center gap-4">
                       <span className="h-[2px] w-12 bg-indigo-600/30 hidden md:block" />
-                      <p className="text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 font-bold tracking-tight leading-tight">
+                      <p className="text-lg md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-[--accent] to-blue-400 font-bold tracking-tight leading-tight">
                         Full-Stack Developer focused on AI products
                       </p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap gap-x-8 gap-y-4 text-xs font-bold uppercase tracking-[2.5px] text-zinc-400">
-                  <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-full border border-indigo-100/50">
-                    <MapPin size={14} className="text-indigo-600" /> <span className="text-indigo-900">Meerut, IN</span>
+                <div className="flex flex-wrap gap-x-8 gap-y-4 text-xs font-bold uppercase tracking-[2.5px] text-[--muted]">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-[--surface]/50 rounded-full border border-indigo-100/50">
+                    <MapPin size={14} className="text-indigo-600" /> <span className="text-[--text]">Meerut, IN</span>
                   </div>
                   <a href="mailto:agamworkspace@gmail.com" className="flex items-center gap-2 group transition-all">
                     <Mail size={14} className="text-indigo-600" /> <span className="group-hover:text-indigo-800">agamworkspace@gmail.com</span>
                   </a>
                   <div className="flex items-center gap-2 group transition-all">
-                    <Phone size={14} className="text-indigo-600" /> <span className="text-zinc-500">+91 7307086547</span>
+                    <Phone size={14} className="text-indigo-600" /> <span className="text-[--muted]">+91 7307086547</span>
                   </div>
                 </div>
               </div>
@@ -89,7 +82,7 @@ export default function ResumePage() {
                     href={social.href} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-zinc-50 border border-zinc-100 text-[10px] font-black text-zinc-500 hover:bg-white hover:border-indigo-300 hover:text-indigo-600 hover:scale-105 transition-all tracking-widest shadow-sm"
+                    className="flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-[--surface] border border-[--outline] text-[10px] font-black text-[--muted] hover:bg-[--surface-strong] hover:border-indigo-300 hover:text-indigo-600 hover:scale-105 transition-all tracking-widest shadow-sm"
                   >
                     {social.icon} {social.label}
                   </a>
@@ -102,11 +95,11 @@ export default function ResumePage() {
             {/* Sidebar Column */}
             <aside className="space-y-20">
               {/* Mission Statement */}
-              <section className="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-[2.5rem] border border-indigo-100/50">
+              <section className="bg-gradient-to-br from-[--surface] to-[--surface-strong] p-8 rounded-[2.5rem] border border-indigo-100/50">
                 <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 mb-8 flex items-center gap-3">
                   <span className="w-10 h-[2px] bg-indigo-200" /> MISSION
                 </h3>
-                <p className="text-zinc-700 leading-relaxed text-[15px] font-semibold">
+                <p className="text-[--muted] leading-relaxed text-[15px] font-semibold">
                   B.Tech CSE student (2023-27) at SCRIET, focused on shipping practical full-stack products across AI workflows, logistics software, and interactive web experiences.
                 </p>
               </section>
@@ -118,20 +111,20 @@ export default function ResumePage() {
                 </h3>
                 
                 <div className="space-y-10">
-                  <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-[11px] font-black text-indigo-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                  <div className="bg-[--surface-strong] p-6 rounded-3xl border border-[--outline] shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-[11px] font-black text-[--text] mb-5 flex items-center gap-3 tracking-[3px] uppercase">
                       <span className="p-2 rounded-lg bg-indigo-100 text-indigo-600"><Code2 size={16} /></span>
                       <span>Core Engineering</span>
                     </div>
                     <div className="flex flex-wrap gap-2.5">
                       {["TypeScript", "C++", "Java", "Python", "SQL", "Go"].map((skill) => (
-                        <span key={skill} className="px-3.5 py-2 rounded-xl bg-indigo-50/50 border border-indigo-100/30 text-[12px] font-black text-indigo-700">{skill}</span>
+                        <span key={skill} className="px-3.5 py-2 rounded-xl bg-[--surface]/50 border border-indigo-100/30 text-[12px] font-black text-indigo-700">{skill}</span>
                       ))}
                     </div>
                   </div>
 
-                  <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-[11px] font-black text-purple-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                  <div className="bg-[--surface-strong] p-6 rounded-3xl border border-[--outline] shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-[11px] font-black text-[--text] mb-5 flex items-center gap-3 tracking-[3px] uppercase">
                       <span className="p-2 rounded-lg bg-purple-100 text-purple-600"><Layout size={16} /></span>
                       <span>Web Systems</span>
                     </div>
@@ -142,8 +135,8 @@ export default function ResumePage() {
                     </div>
                   </div>
 
-                  <div className="bg-white p-6 rounded-3xl border border-indigo-50 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-[11px] font-black text-[--accent] text-emerald-900 mb-5 flex items-center gap-3 tracking-[3px] uppercase">
+                  <div className="bg-[--surface-strong] p-6 rounded-3xl border border-[--outline] shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-[11px] font-black text-[--accent] text-[--text] mb-5 flex items-center gap-3 tracking-[3px] uppercase">
                       <span className="p-2 rounded-lg bg-emerald-100 text-emerald-600"><Cpu size={16} /></span>
                       <span>AI & Infra</span>
                     </div>
@@ -162,8 +155,8 @@ export default function ResumePage() {
                   <h3 className="text-[11px] font-black uppercase tracking-[5px] text-indigo-400 mb-8 flex items-center gap-3 px-4">
                     <span className="w-10 h-[2px] bg-indigo-200" /> ACADEMIA
                   </h3>
-                  <div className="p-8 rounded-[2.5rem] bg-zinc-900 text-white relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 blur-[60px]" />
+                  <div className="p-8 rounded-[2.5rem] bg-[--surface] text-[--text] relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[--surface]0/20 blur-[60px]" />
                     <p className="text-lg font-black font-space mb-2">B.Tech (CSE)</p>
                     <p className="text-[11px] text-indigo-400 font-black uppercase tracking-[3px] mb-4">2023 – 2027 (Ongoing)</p>
                     <p className="text-sm text-white/70 font-bold leading-relaxed">SCRIET, CCS University Campus, Meerut</p>
@@ -175,13 +168,13 @@ export default function ResumePage() {
                     <span className="w-10 h-[2px] bg-indigo-200" /> DISTINCTIONS
                   </h3>
                   <div className="grid grid-cols-1 gap-4">
-                    <div className="flex items-center gap-4 p-5 rounded-3xl bg-indigo-50/30 border border-indigo-50">
-                      <div className="p-3 rounded-2xl bg-white text-indigo-600 shadow-sm"><Award size={20} /></div>
-                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">4 Live Portfolio Systems</p>
+                    <div className="flex items-center gap-4 p-5 rounded-3xl bg-[--surface]/30 border border-[--outline]">
+                      <div className="p-3 rounded-2xl bg-[--surface-strong] text-indigo-600 shadow-sm"><Award size={20} /></div>
+                      <p className="text-[13px] font-black text-[--text] uppercase tracking-tighter leading-none">4 Live Portfolio Systems</p>
                     </div>
-                    <div className="flex items-center gap-4 p-5 rounded-3xl bg-indigo-50/30 border border-indigo-50">
-                      <div className="p-3 rounded-2xl bg-white text-indigo-600 shadow-sm"><Target size={20} /></div>
-                      <p className="text-[13px] font-black text-indigo-900 uppercase tracking-tighter leading-none">Student Project Team Lead</p>
+                    <div className="flex items-center gap-4 p-5 rounded-3xl bg-[--surface]/30 border border-[--outline]">
+                      <div className="p-3 rounded-2xl bg-[--surface-strong] text-indigo-600 shadow-sm"><Target size={20} /></div>
+                      <p className="text-[13px] font-black text-[--text] uppercase tracking-tighter leading-none">Student Project Team Lead</p>
                     </div>
                   </div>
                 </div>
@@ -211,20 +204,20 @@ export default function ResumePage() {
                           <BrainCircuit size={32} />
                         </div>
                         <div>
-                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">Lexora AI <span className="text-indigo-400 text-sm ml-2 font-black line-through opacity-30">PRO</span></h4>
+                          <h4 className="text-3xl font-black text-[--text] font-space tracking-tight">Lexora AI <span className="text-indigo-400 text-sm ml-2 font-black line-through opacity-30">PRO</span></h4>
                           <p className="text-[11px] font-black text-indigo-500 uppercase tracking-[4px] mt-0.5">Vector Intel Workspace</p>
                         </div>
                       </div>
-                      <Link href="/case-studies/lexora" className="p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                      <Link href="/case-studies/lexora" className="p-3 rounded-full bg-[--surface] text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
                         <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                    <p className="text-[16px] text-[--muted] leading-relaxed mb-8 font-medium pl-20">
                       Built a RAG workspace for whitepaper analysis with a zero-dependency vector retrieval pipeline focused on fast local search and readable citations.
                     </p>
                     <div className="flex flex-wrap gap-4 pl-20">
                       <div className="flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-xl border border-emerald-100 text-emerald-700 text-[11px] font-black tracking-widest uppercase"><Zap size={12} /> Hashed Embeddings</div>
-                      <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 rounded-xl border border-indigo-100 text-indigo-700 text-[11px] font-black tracking-widest uppercase"><Database size={12} /> Local Vector Index</div>
+                      <div className="flex items-center gap-2 px-4 py-2 bg-[--surface] rounded-xl border border-indigo-100 text-indigo-700 text-[11px] font-black tracking-widest uppercase"><Database size={12} /> Local Vector Index</div>
                     </div>
                   </article>
 
@@ -232,24 +225,24 @@ export default function ResumePage() {
                   <article className="group relative">
                     <div className="flex justify-between items-start mb-6">
                       <div className="flex items-center gap-5">
-                        <div className="w-14 h-14 rounded-2xl bg-indigo-500 text-white flex items-center justify-center p-3.5 shadow-xl shadow-indigo-100 group-hover:scale-110 transition-transform">
+                        <div className="w-14 h-14 rounded-2xl bg-[--surface]0 text-white flex items-center justify-center p-3.5 shadow-xl shadow-indigo-100 group-hover:scale-110 transition-transform">
                           <Globe size={32} />
                         </div>
                         <div>
-                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">Rahi.AI <span className="text-indigo-400 text-sm ml-2 font-black uppercase tracking-tighter">LIVE</span></h4>
+                          <h4 className="text-3xl font-black text-[--text] font-space tracking-tight">Rahi.AI <span className="text-indigo-400 text-sm ml-2 font-black uppercase tracking-tighter">LIVE</span></h4>
                           <p className="text-[11px] font-black text-indigo-500 uppercase tracking-[4px] mt-0.5">Production Travel Orchestrator</p>
                         </div>
                       </div>
-                      <Link href="/case-studies/rahi-ai" className="p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
+                      <Link href="/case-studies/rahi-ai" className="p-3 rounded-full bg-[--surface] text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
                         <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                    <p className="text-[16px] text-[--muted] leading-relaxed mb-8 font-medium pl-20">
                       Led development of an AI travel platform with <span className="text-zinc-900 font-bold">AI-generated day-wise itineraries</span>, multi-user collaboration, and billing flows.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-20">
-                      <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Collaboration Engine</div>
-                      <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Edge Permission Auth</div>
+                      <div className="flex items-center gap-2 px-4 py-2 bg-[--surface]/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Collaboration Engine</div>
+                      <div className="flex items-center gap-2 px-4 py-2 bg-[--surface]/50 rounded-xl border border-indigo-100/30 text-indigo-700 text-[11px] font-black tracking-widest uppercase">/ Edge Permission Auth</div>
                     </div>
                   </article>
                   <article className="group relative">
@@ -259,7 +252,7 @@ export default function ResumePage() {
                           <Briefcase size={32} />
                         </div>
                         <div>
-                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">SarthiSync <span className="text-emerald-400 text-sm ml-2 font-black uppercase tracking-tighter">TMS</span></h4>
+                          <h4 className="text-3xl font-black text-[--text] font-space tracking-tight">SarthiSync <span className="text-emerald-400 text-sm ml-2 font-black uppercase tracking-tighter">TMS</span></h4>
                           <p className="text-[11px] font-black text-emerald-500 uppercase tracking-[4px] mt-0.5">Logistics Operation System</p>
                         </div>
                       </div>
@@ -267,15 +260,15 @@ export default function ResumePage() {
                         <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                    <p className="text-[16px] text-[--muted] leading-relaxed mb-8 font-medium pl-20">
                       Digitalized logistics workflows with an <span className="text-zinc-900 font-bold">AI Dispatch Copilot</span>, live tracking, and delivery verification flows that reduce manual admin work.
                     </p>
                     <ul className="space-y-4 pl-20">
-                      <li className="flex gap-4 items-start text-sm text-zinc-500 font-bold">
+                      <li className="flex gap-4 items-start text-sm text-[--muted] font-bold">
                         <Star size={18} className="text-amber-500 shrink-0 mt-0.5" />
                         <span>Mission-critical operational dashboards with real-time fleet orchestration.</span>
                       </li>
-                      <li className="flex gap-4 items-start text-sm text-zinc-500 font-bold">
+                      <li className="flex gap-4 items-start text-sm text-[--muted] font-bold">
                         <GraduationCap size={18} className="text-indigo-500 shrink-0 mt-0.5" />
                         <span>Dual-OTP verification & ePOD capture ensuring 100% audit-ready compliance.</span>
                       </li>
@@ -290,7 +283,7 @@ export default function ResumePage() {
                           <Cpu size={32} />
                         </div>
                         <div>
-                          <h4 className="text-3xl font-black text-[#0f172a] font-space tracking-tight">JS Arcade <span className="text-purple-400 text-sm ml-2 font-black uppercase tracking-tighter">2.0</span></h4>
+                          <h4 className="text-3xl font-black text-[--text] font-space tracking-tight">JS Arcade <span className="text-purple-400 text-sm ml-2 font-black uppercase tracking-tighter">2.0</span></h4>
                           <p className="text-[11px] font-black text-purple-500 uppercase tracking-[4px] mt-0.5">Modular Game Gallery</p>
                         </div>
                       </div>
@@ -298,7 +291,7 @@ export default function ResumePage() {
                         <ArrowUpRight size={20} />
                       </Link>
                     </div>
-                    <p className="text-[16px] text-zinc-600 leading-relaxed mb-8 font-medium pl-20">
+                    <p className="text-[16px] text-[--muted] leading-relaxed mb-8 font-medium pl-20">
                       Collection of 8+ immersive games built using <span className="text-purple-600 font-black italic underline decoration-purple-100">100% Vanilla JS</span>. Custom spatial physics and Web Audio API integration for tactile arcade UX.
                     </p>
                     <div className="flex flex-wrap gap-2 pl-20">
@@ -312,9 +305,9 @@ export default function ResumePage() {
 
               {/* Impact Card */}
               <section className="bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white rounded-[3.5rem] p-12 md:p-16 relative overflow-hidden group shadow-2xl shadow-indigo-900/20">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500 opacity-5 blur-[120px] -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[--surface]0 opacity-5 blur-[120px] -translate-y-1/2 translate-x-1/2" />
                 <h3 className="text-[11px] font-black uppercase tracking-[6px] text-white/40 mb-12 flex items-center gap-4">
-                  <span className="w-10 h-[1px] bg-white/20" /> IMPACT METRICS
+                  <span className="w-10 h-[1px] bg-[--surface-strong]/20" /> IMPACT METRICS
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
                   <div className="space-y-4">
@@ -332,11 +325,11 @@ export default function ResumePage() {
             </div>
           </div>
 
-          <footer className="mt-28 py-12 border-t border-indigo-50 text-center space-y-4">
+          <footer className="mt-28 py-12 border-t border-[--outline] text-center space-y-4">
             <p className="text-[11px] font-black uppercase tracking-[5px] text-zinc-300">
               Verified {year} &bull; Agam Pathak
             </p>
-            <div className="flex justify-center items-center gap-4 text-[10px] text-zinc-400 font-bold uppercase tracking-[2px]">
+            <div className="flex justify-center items-center gap-4 text-[10px] text-[--muted] font-bold uppercase tracking-[2px]">
               <span>Next.js 16 Production Build</span>
               <span className="w-1 h-1 rounded-full bg-indigo-300" />
               <span>Built with Precision</span>
@@ -367,7 +360,7 @@ export default function ResumePage() {
           .rounded-[3.5rem], .rounded-[2.5rem], .rounded-3xl {
             border-radius: 0.75rem !important;
           }
-          .bg-indigo-50, .bg-indigo-50/30, .bg-zinc-900 {
+          .bg-[--surface], .bg-[--surface]/30, .bg-zinc-900 {
             background-color: #f8fafc !important;
             color: #1a1e23 !important;
             border: 1px solid #e2e8f0 !important;
