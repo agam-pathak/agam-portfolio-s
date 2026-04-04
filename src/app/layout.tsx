@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { SceneWrapper } from "@/components/scene/SceneWrapper";
+import { FloatingAI } from "@/components/FloatingAI";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -68,6 +69,7 @@ export default function RootLayout({
             <PageTransition>
               {children}
             </PageTransition>
+            <FloatingAI />
           </ThemeProvider>
           <Analytics />
           <SpeedInsights />
