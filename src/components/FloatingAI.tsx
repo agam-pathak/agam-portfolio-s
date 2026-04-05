@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, Loader2, Sparkles } from 'lucide-react';
+import React, { useState, useRef, useEffect, useCallback, memo } from 'react';
+import { MessageCircle, X, Send, Bot, Loader2, Sparkles, Mic, MicOff } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePostHog } from 'posthog-js/react';
+import { useRouter } from 'next/navigation';
 
 type Message = {
   role: 'system' | 'user' | 'assistant';
@@ -11,9 +12,9 @@ type Message = {
 };
 
 const SUGGESTED_QUESTIONS = [
-  "What is your tech stack?",
-  "Tell me about Lexora AI.",
-  "Are you available for work?"
+  "Lexora's RAG Architecture?",
+  "What is SarthiSync TMS?",
+  "Agam's mission & goals?"
 ];
 
 function TypewriterText({ text, onComplete }: { text: string; onComplete?: () => void }) {
@@ -23,7 +24,6 @@ function TypewriterText({ text, onComplete }: { text: string; onComplete?: () =>
     let index = 0;
     setDisplayed('');
     
-    // Very fast typewriter because nobody likes waiting
     const interval = setInterval(() => {
       setDisplayed(text.slice(0, index));
       index += 2;
@@ -40,57 +40,281 @@ function TypewriterText({ text, onComplete }: { text: string; onComplete?: () =>
   return <span>{displayed}</span>;
 }
 
+const ChatMessage = memo(({ msg, isLatestAssistant, scrollToBottom }: { 
+  msg: Message; 
+  isLatestAssistant: boolean;
+  scrollToBottom: () => void;
+}) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+    >
+      <div 
+        className={`max-w-[85%] p-3.5 rounded-2xl text-[0.9rem] leading-relaxed relative break-words overflow-wrap-anywhere ${
+          msg.role === 'user' 
+            ? 'rounded-br-sm shadow-md' 
+            : 'rounded-bl-sm shadow-sm font-normal'
+        }`}
+        style={msg.role === 'user' ? {
+          background: 'linear-gradient(135deg, var(--accent), #69b6ff)',
+          color: '#03111f'
+        } : {
+          background: 'var(--surface)',
+          color: 'var(--text)',
+          border: '1px solid var(--outline)'
+        }}
+      >
+        {msg.role === 'assistant' && (
+          <div className="absolute top-0 right-0 p-1 opacity-20">
+            <Bot className="w-8 h-8" />
+          </div>
+        )}
+        
+        <div className="relative z-10 font-mono tracking-tight" style={{fontFamily: 'var(--font-space-grotesk)'}}>
+          {isLatestAssistant ? (
+            <TypewriterText text={msg.content} onComplete={scrollToBottom} />
+          ) : (
+            msg.content
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+});
+
+ChatMessage.displayName = 'ChatMessage';
+
+const ChatBody = (
+  { messages, isLoading, endRef }: { messages: Message[]; isLoading: boolean; endRef: React.RefObject<HTMLDivElement | null> },
+  ref: React.Ref<HTMLDivElement>
+) => {
+  return (
+    <div 
+      ref={ref}
+      className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent"
+    >
+      {messages.map((msg, idx) => (
+        <ChatMessage 
+          key={idx}
+          msg={msg}
+          isLatestAssistant={msg.role === 'assistant' && idx === messages.length - 1 && idx !== 0}
+          scrollToBottom={() => {}} 
+        />
+      ))}
+      
+      {isLoading && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
+          <div className="p-3.5 rounded-2xl rounded-bl-sm" style={{ background: 'var(--surface)', border: '1px solid var(--outline)' }}>
+            <Loader2 className="w-4 h-4 animate-spin" style={{ color: 'var(--accent)' }} />
+          </div>
+        </motion.div>
+      )}
+      <div ref={endRef} className="h-2" />
+    </div>
+  );
+};
+
+const ForwardedChatBody = memo(React.forwardRef(ChatBody));
+ForwardedChatBody.displayName = 'ChatBody';
+
+const ChatInput = memo(({ onSend, isLoading }: { 
+  onSend: (text: string) => void; 
+  isLoading: boolean;
+}) => {
+  const [input, setInput] = useState('');
+  const [isListening, setIsListening] = useState(false);
+
+  const startListening = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) return alert("Speech recognition not supported in this browser.");
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => setIsListening(true);
+    recognition.onend = () => setIsListening(false);
+    recognition.onresult = (event: any) => {
+      const text = event.results[0][0].transcript;
+      onSend(text);
+    };
+    recognition.start();
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (input.trim() && !isLoading) {
+      onSend(input);
+      setInput('');
+    }
+  };
+
+  return (
+    <div className="p-4" style={{ borderTop: '1px solid var(--outline)', background: 'var(--surface)' }}>
+      <form onSubmit={handleSubmit} className="flex gap-2 relative">
+        <div className="relative flex-1">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={isListening ? "Listening..." : "Ask me anything..."}
+            disabled={isLoading}
+            className="w-full text-sm rounded-full pl-5 pr-20 py-3.5 focus:outline-none transition-all disabled:opacity-50"
+            style={{ 
+              background: 'var(--input-bg)', 
+              color: 'var(--text)', 
+              border: '1px solid var(--accent)',
+              boxShadow: 'inset 0 0 10px rgba(0,0,0,0.5)'
+            }}
+          />
+          <div className="absolute right-1.5 top-1/2 -translate-y-1/2 flex items-center gap-1">
+            <button
+              type="button"
+              onClick={startListening}
+              className={`p-2 rounded-full transition-all ${isListening ? 'bg-[--accent] text-black animate-pulse' : 'text-[--muted] hover:text-[--accent]'}`}
+              title="Voice Command"
+            >
+              {isListening ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
+            </button>
+            <button
+              type="submit"
+              disabled={isLoading || !input.trim()}
+              className="p-2 rounded-full disabled:opacity-50 transition-transform active:scale-95"
+              style={{ background: 'linear-gradient(135deg, var(--accent), #69b6ff)', color: '#03111f' }}
+            >
+              <Send className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+});
+ChatInput.displayName = 'ChatInput';
+
 export function FloatingAI() {
   const posthog = usePostHog();
+  const router = useRouter(); 
   const [isOpen, setIsOpen] = useState(false);
-  const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: "Hello. I am Agam's AI. I've analyzed his background, codebase, and engineering capabilities. How can I assist you?" }
-  ]);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+
+  // Initialize from localStorage for persistence
+  const [messages, setMessages] = useState<Message[]>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('agam_ai_history');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          console.error('Failed to parse chat history', e);
+        }
+      }
+    }
+    return [
+      { role: 'assistant', content: "Hello. I am Agam's AI. I've analyzed his background, codebase, and engineering capabilities. How can I assist you?" }
+    ];
+  });
+
+  // --- Specialized Action Parser ---
+  const parseAction = useCallback((text: string, currentMessages: Message[]) => {
+    if (text.includes('[ACTION:SCROLL_LEXORA]')) {
+      const el = document.getElementById('projects');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    } else if (text.includes('[ACTION:SCROLL_RAHI]')) {
+      const el = document.getElementById('projects'); 
+      el?.scrollIntoView({ behavior: 'smooth' });
+    } else if (text.includes('[ACTION:SCROLL_SARTHI]')) {
+      const el = document.getElementById('projects');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    } else if (text.includes('[ACTION:NAV_RESUME]')) {
+      router.push('/resume');
+    } else if (text.includes('[ACTION:SCROLL_CONTACT]')) {
+      const el = document.getElementById('contact');
+      el?.scrollIntoView({ behavior: 'smooth' });
+    } else if (text.includes('[ACTION:TRIGGER_LEAD]')) {
+      posthog?.capture('ai_lead_captured', { history: currentMessages });
+    }
+    return text.replace(/\[ACTION:.*\]/g, '').trim();
+  }, [posthog, router]);
+
+  // Persist messages to localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('agam_ai_history', JSON.stringify(messages));
+    }
+  }, [messages]);
+
+  const scrollToBottom = useCallback((behavior: ScrollBehavior = 'smooth') => {
+    messagesEndRef.current?.scrollIntoView({ behavior });
+  }, []);
+
+  // Use ResizeObserver for more robust scrolling when content heights change dynamically
+  useEffect(() => {
+    if (!isOpen || !scrollContainerRef.current) return;
+    
+    const observer = new ResizeObserver(() => {
+      scrollToBottom('auto');
+    });
+
+    // Observe children of the scroll container
+    const children = scrollContainerRef.current.children;
+    for (let i = 0; i < children.length; i++) {
+      observer.observe(children[i]);
+    }
+
+    return () => observer.disconnect();
+  }, [isOpen, messages, scrollToBottom]);
 
   useEffect(() => {
     if (isOpen) {
       posthog?.capture('ai_chat_opened');
-      scrollToBottom();
+      setTimeout(() => scrollToBottom('auto'), 200);
     }
-  }, [messages, isOpen, posthog]);
+  }, [isOpen, posthog, scrollToBottom]);
 
-  const handleSend = async (messageText: string) => {
-    if (!messageText.trim() || isLoading) return;
+  const handleSend = useCallback(async (messageText: string) => {
+    const trimmed = messageText.trim();
+    if (!trimmed || isLoading) return;
 
-    posthog?.capture('ai_message_sent', { question: messageText });
+    posthog?.capture('ai_message_sent', { question: trimmed });
     
-    setInput('');
-    const newMessages = [...messages, { role: 'user' as const, content: messageText }];
-    setMessages(newMessages);
-    setIsLoading(true);
+    const newUserMessage: Message = { role: 'user', content: trimmed };
+    const updatedMessages = [...messages, newUserMessage];
+    setMessages(updatedMessages);
+    
+    const fetchAIResponse = async (currentMessages: Message[]) => {
+      setIsLoading(true);
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: currentMessages.filter(m => m.role !== 'system') }),
+        });
 
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages.filter(m => m.role !== 'system') }),
-      });
+        if (!response.ok) throw new Error('API Error');
 
-      if (!response.ok) throw new Error('API Error');
+        const data = await response.json();
+        const rawReply = data.choices?.[0]?.message?.content || "System overload. Please try again.";
+        const cleanReply = parseAction(rawReply, updatedMessages);
+        
+        setMessages(prevMsgs => [...prevMsgs, { role: 'assistant', content: cleanReply }]);
+      } catch (error) {
+        setMessages(prevMsgs => [...prevMsgs, { role: 'assistant', content: "Connection disrupted. Please contact Agam directly." }]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-      const data = await response.json();
-      const aiReply = data.choices?.[0]?.message?.content || "System overload. Please try again.";
-      
-      setMessages([...newMessages, { role: 'assistant', content: aiReply }]);
-    } catch (error) {
-      setMessages([...newMessages, { role: 'assistant', content: "Connection disrupted. Please contact Agam directly." }]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    fetchAIResponse(updatedMessages);
+  }, [isLoading, posthog, messages]);
 
   return (
     <>
@@ -100,14 +324,16 @@ export function FloatingAI() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle Agam AI"
+        aria-label={isOpen ? "Close Agam AI Chat" : "Open Agam AI Chat"}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <MessageCircle className="w-6 h-6" aria-hidden="true" />}
       </motion.button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            role="dialog"
+            aria-label="Agam AI Chatbot"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -118,7 +344,7 @@ export function FloatingAI() {
             <div className="p-4 flex items-center justify-between" style={{ borderBottom: '1px solid var(--outline)', background: 'var(--surface-strong)' }}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'var(--header-btn-bg)', color: 'var(--accent)', border: '1px solid var(--outline)' }}>
-                  <Sparkles className="w-5 h-5 mx-auto" />
+                  <Sparkles className="w-5 h-5 mx-auto" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col">
                   <h3 className="font-semibold text-sm" style={{ color: 'var(--text)' }}>Agam.AI</h3>
@@ -128,61 +354,24 @@ export function FloatingAI() {
                   </span>
                 </div>
               </div>
+              <button 
+                onClick={() => {
+                  setMessages([{ role: 'assistant', content: "Memory cleared. How can I assist you?" }]);
+                  localStorage.removeItem('agam_ai_history');
+                }}
+                className="text-[0.65rem] uppercase tracking-wider opacity-50 hover:opacity-100 transition-opacity"
+                title="Clear Chat History"
+              >
+                Reset
+              </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
-              {messages.map((msg, idx) => {
-                const isLatestAssistant = msg.role === 'assistant' && idx === messages.length - 1 && idx !== 0;
-                
-                return (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    key={idx} 
-                    className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div 
-                      className={`max-w-[85%] p-3.5 rounded-2xl text-[0.9rem] leading-relaxed relative ${
-                        msg.role === 'user' 
-                          ? 'rounded-br-sm shadow-md' 
-                          : 'rounded-bl-sm shadow-sm font-normal'
-                      }`}
-                      style={msg.role === 'user' ? {
-                        background: 'linear-gradient(135deg, var(--accent), #69b6ff)',
-                        color: '#03111f'
-                      } : {
-                        background: 'var(--surface)',
-                        color: 'var(--text)',
-                        border: '1px solid var(--outline)'
-                      }}
-                    >
-                      {msg.role === 'assistant' && idx !== 0 && (
-                        <div className="absolute top-0 right-0 p-1 opacity-20">
-                          <Bot className="w-8 h-8" />
-                        </div>
-                      )}
-                      
-                      <div className="relative z-10 font-mono tracking-tight" style={{fontFamily: 'var(--font-space-grotesk)'}}>
-                        {isLatestAssistant ? (
-                          <TypewriterText text={msg.content} onComplete={scrollToBottom} />
-                        ) : (
-                          msg.content
-                        )}
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-              
-              {isLoading && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex justify-start">
-                  <div className="p-3.5 rounded-2xl rounded-bl-sm" style={{ background: 'var(--surface)', border: '1px solid var(--outline)' }}>
-                    <Loader2 className="w-4 h-4 animate-spin" style={{ color: 'var(--accent)' }} />
-                  </div>
-                </motion.div>
-              )}
-              <div ref={messagesEndRef} className="h-2" />
-            </div>
+            <ForwardedChatBody 
+              messages={messages} 
+              isLoading={isLoading} 
+              ref={scrollContainerRef}
+              endRef={messagesEndRef}
+            />
 
             {/* Quick Prompts */}
             {messages.length === 1 && (
@@ -204,32 +393,7 @@ export function FloatingAI() {
               </div>
             )}
 
-            <div className="p-4" style={{ borderTop: '1px solid var(--outline)', background: 'var(--surface)' }}>
-              <form onSubmit={(e) => { e.preventDefault(); handleSend(input); }} className="flex gap-2 relative">
-                <input
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask me anything..."
-                  disabled={isLoading}
-                  className="flex-1 text-sm rounded-full pl-5 pr-12 py-3.5 focus:outline-none transition-all disabled:opacity-50"
-                  style={{ 
-                    background: 'var(--input-bg)', 
-                    color: 'var(--text)', 
-                    border: '1px solid var(--accent)',
-                    boxShadow: 'inset 0 0 10px rgba(0,0,0,0.5)'
-                  }}
-                />
-                <button
-                  type="submit"
-                  disabled={isLoading || !input.trim()}
-                  className="absolute right-1.5 top-1/2 -translate-y-1/2 p-2 rounded-full disabled:opacity-50 transition-transform active:scale-95"
-                  style={{ background: 'linear-gradient(135deg, var(--accent), #69b6ff)', color: '#03111f' }}
-                >
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
+            <ChatInput onSend={handleSend} isLoading={isLoading} />
           </motion.div>
         )}
       </AnimatePresence>
