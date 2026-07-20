@@ -63,9 +63,9 @@ export default function Home() {
       <Header />
 
       <main id="main-content">
-        <section className="hero section mt-8 mb-20 grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+        <section className="hero section mt-6 mb-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
           <Reveal className="hero-copy">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[--accent]/10 border border-[--accent]/30 text-[--accent] text-xs font-bold mb-6 tracking-wide shadow-[0_0_15px_rgba(102,246,202,0.15)]">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[--accent]/10 border border-[--accent]/30 text-[--accent] text-xs font-bold mb-6 tracking-wide shadow-[0_0_20px_rgba(102,246,202,0.12)]">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[--accent]"></span>
@@ -73,21 +73,21 @@ export default function Home() {
               Available for Tech &amp; Operations Roles
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-space tracking-tight leading-[1.1] mb-4 text-white">
-              Hi, I&apos;m <span className="text-[--accent] bg-clip-text text-transparent bg-gradient-to-r from-[--accent] to-cyan-400">Agam Pathak</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-space tracking-tight leading-[1.1] mb-4 text-white">
+              Hi, I&apos;m <span className="text-[--accent] bg-clip-text text-transparent bg-gradient-to-r from-[--accent] via-teal-300 to-cyan-400">Agam Pathak</span>
             </h1>
 
-            <div className="text-2xl sm:text-3xl font-bold font-space text-[--muted] mb-6 min-h-[44px] flex items-center flex-wrap">
-              <span>I build&nbsp;</span>
-              <div className="relative inline-block overflow-hidden">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-bold font-space text-[--muted] mb-6 h-12 flex items-center overflow-hidden">
+              <span className="shrink-0">I build&nbsp;</span>
+              <div className="relative inline-flex items-center overflow-hidden h-full">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={phraseIdx}
-                    initial={{ y: 20, opacity: 0 }}
+                    initial={{ y: 25, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: "easeOut" }}
-                    className="inline-block text-white border-r-2 border-[--accent] pr-1"
+                    exit={{ y: -25, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    className="text-[--accent] border-r-2 border-[--accent] pr-1.5 truncate"
                   >
                     {TYPEWRITER_PHRASES[phraseIdx]}
                   </motion.span>
@@ -95,102 +95,87 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="hero-text text-lg text-[--muted] leading-relaxed max-w-xl mb-8">
-              Full-Stack Software Architect &amp; B.Tech Computer Science student (2023-2027) at SCRIET (CCS University). Expert in RAG pipelines, Vector Databases, and Logistics ERP systems with 15+ shipped production apps.
+            <p className="hero-text text-base sm:text-lg text-[--muted] leading-relaxed max-w-xl mb-8 font-normal">
+              Full-Stack Software Architect &amp; B.Tech Computer Science student (2023–2027) at SCRIET (CCS University). Expert in RAG pipelines, Vector Databases, and Logistics ERP systems with 15+ shipped production apps.
             </p>
 
             <div className="hero-actions my-6 flex flex-wrap gap-4">
               <GlowEffect glowSize={180}>
                 <Magnetic strength={0.2}>
-                  <Link href="#projects" className="btn btn-primary px-8 py-3.5 text-sm">
+                  <Link href="#projects" className="btn btn-primary px-7 py-3 text-sm font-bold">
                     View Projects
                   </Link>
                 </Magnetic>
               </GlowEffect>
               <GlowEffect glowSize={180}>
                 <Magnetic strength={0.4}>
-                  <Link href="/resume" className="btn btn-secondary px-8 py-3.5 text-sm">
+                  <Link href="/resume" className="btn btn-secondary px-7 py-3 text-sm font-bold">
                     View Modern Resume
                   </Link>
                 </Magnetic>
               </GlowEffect>
             </div>
 
-            <div className="meta-row text-xs uppercase tracking-widest font-bold text-[--muted] flex flex-wrap gap-4 pt-2 border-t border-white/10">
+            <div className="meta-row text-xs uppercase tracking-wider font-bold text-[--muted] flex flex-wrap items-center gap-3 pt-3 border-t border-white/10">
               <span className="flex items-center gap-1.5"><span className="text-[--accent]">📍</span> Noida, UP, India</span>
-              <span>&bull;</span>
+              <span className="opacity-40">&bull;</span>
               <a href="mailto:agamworkspace@gmail.com" className="hover:text-[--accent] transition-colors">agamworkspace@gmail.com</a>
-              <span>&bull;</span>
+              <span className="opacity-40">&bull;</span>
               <a href="tel:+917307086547" className="hover:text-[--accent] transition-colors">+91 7307086547</a>
             </div>
           </Reveal>
 
           <Reveal className="hero-media relative flex flex-col items-center justify-center">
-            {/* Futuristic Hero Avatar Showcase with Dynamic Floating Badges */}
-            <div className="relative w-full max-w-[380px] aspect-square mx-auto flex items-center justify-center">
-              {/* Glowing Ambient Halo */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[--accent]/30 via-cyan-500/20 to-indigo-600/30 blur-3xl opacity-70 animate-pulse pointer-events-none" />
+            {/* Clean Hero Portrait Frame */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] mx-auto rounded-3xl p-1 bg-gradient-to-b from-[--accent]/40 via-white/10 to-indigo-500/30 border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden group">
+              <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#071322] relative">
+                <Image
+                  src="/profile-optimized.jpg"
+                  alt="Portrait of Agam Pathak"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#08111f] via-transparent to-transparent opacity-60" />
+              </div>
 
-              {/* Circular Avatar Container */}
-              <div className="relative w-[86%] h-[86%] rounded-full p-1.5 bg-gradient-to-tr from-[--accent] via-cyan-400 to-indigo-600 shadow-[0_0_50px_rgba(102,246,202,0.3)] overflow-hidden group">
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#071322] relative">
-                  <Image
-                    src="/profile-optimized.jpg"
-                    alt="Portrait of Agam Pathak"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
+              {/* Glassmorphic Floating Badge - Full-Stack */}
+              <div className="absolute top-4 left-4 bg-[#081427]/85 backdrop-blur-md border border-[--accent]/30 rounded-2xl p-2.5 shadow-xl flex items-center gap-2.5 z-10 pointer-events-none">
+                <div className="w-8 h-8 rounded-xl bg-[--accent]/15 border border-[--accent]/30 flex items-center justify-center text-[--accent] shrink-0 font-mono text-xs font-black">
+                  &lt;/&gt;
+                </div>
+                <div className="text-left pr-1">
+                  <p className="text-[11px] font-bold text-white font-space leading-tight">Full-Stack &amp; AI</p>
+                  <p className="text-[9px] text-[--muted] leading-tight">Lexora AI &amp; Rahi.AI Lead</p>
                 </div>
               </div>
 
-              {/* Floating Capability Badge 1 (Top Left) */}
-              <motion.div
-                initial={{ opacity: 0, x: -20, y: -10 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="absolute -top-2 -left-4 sm:-left-8 bg-[#0b172a]/90 backdrop-blur-xl border border-[--accent]/40 rounded-2xl p-3 shadow-2xl flex items-center gap-3 z-20 hover:scale-105 transition-transform"
-              >
-                <div className="w-9 h-9 rounded-xl bg-[--accent]/15 border border-[--accent]/30 flex items-center justify-center text-[--accent]">
-                  <span className="font-mono text-sm font-black">&lt;/&gt;</span>
+              {/* Glassmorphic Floating Badge - Operations */}
+              <div className="absolute bottom-4 right-4 bg-[#081427]/85 backdrop-blur-md border border-cyan-400/30 rounded-2xl p-2.5 shadow-xl flex items-center gap-2.5 z-10 pointer-events-none">
+                <div className="w-8 h-8 rounded-xl bg-cyan-400/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shrink-0 text-xs">
+                  ⚙️
                 </div>
-                <div className="text-left">
-                  <p className="text-xs font-black text-white font-space">Full-Stack &amp; AI</p>
-                  <p className="text-[10px] text-[--muted] font-medium">Lexora AI &amp; Rahi.AI Lead</p>
+                <div className="text-left pr-1">
+                  <p className="text-[11px] font-bold text-white font-space leading-tight">HR &amp; Ops Systems</p>
+                  <p className="text-[9px] text-[--muted] leading-tight">SarthiSync &amp; Virtual HR</p>
                 </div>
-              </motion.div>
-
-              {/* Floating Capability Badge 2 (Bottom Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 20, y: 10 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="absolute -bottom-2 -right-4 sm:-right-8 bg-[#0b172a]/90 backdrop-blur-xl border border-cyan-400/40 rounded-2xl p-3 shadow-2xl flex items-center gap-3 z-20 hover:scale-105 transition-transform"
-              >
-                <div className="w-9 h-9 rounded-xl bg-cyan-400/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
-                  <span className="text-base">⚙️</span>
-                </div>
-                <div className="text-left">
-                  <p className="text-xs font-black text-white font-space">HR &amp; Ops Operations</p>
-                  <p className="text-[10px] text-[--muted] font-medium">SarthiSync &amp; Virtual HR</p>
-                </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Quick Metrics Counter Grid */}
-            <div className="stats-grid w-full mt-8 grid grid-cols-3 gap-3">
+            <div className="stats-grid w-full max-w-[380px] mt-6 grid grid-cols-3 gap-3">
               <article className="stat p-3 text-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
                 <Counter value={15} suffix="+" />
-                <p className="text-[11px] text-[--muted] mt-1 font-medium">Production Apps</p>
+                <p className="text-[11px] text-[--muted] mt-1 font-medium leading-tight">Production Apps</p>
               </article>
               <article className="stat p-3 text-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
                 <Counter value={98} suffix="%" />
-                <p className="text-[11px] text-[--muted] mt-1 font-medium">System Uptime</p>
+                <p className="text-[11px] text-[--muted] mt-1 font-medium leading-tight">System Uptime</p>
               </article>
               <article className="stat p-3 text-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
                 <Counter value={60} suffix="%" />
-                <p className="text-[11px] text-[--muted] mt-1 font-medium">Admin Reduction</p>
+                <p className="text-[11px] text-[--muted] mt-1 font-medium leading-tight">Admin Reduction</p>
               </article>
             </div>
           </Reveal>
