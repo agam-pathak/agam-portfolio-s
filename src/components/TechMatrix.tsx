@@ -53,13 +53,13 @@ export function TechMatrix() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as Category)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
                 isActive
-                  ? "bg-[--accent] text-[#041220] shadow-[0_0_20px_rgba(102,246,202,0.3)] scale-105"
+                  ? "bg-[--surface-strong] border border-[--accent] text-[--accent] shadow-[0_0_15px_rgba(102,246,202,0.25)] scale-105"
                   : "bg-white/5 border border-white/10 text-[--muted] hover:bg-white/10 hover:text-white"
               }`}
             >
-              <Icon size={14} />
+              <Icon size={14} className={isActive ? "text-[--accent]" : ""} />
               {tab.label}
             </button>
           );
