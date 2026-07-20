@@ -427,6 +427,41 @@ a {
   border-color: var(--outline);
 }
 
+.btn-header-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(102, 246, 202, 0.08);
+  border: 1px solid rgba(102, 246, 202, 0.6);
+  color: var(--accent);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 16px rgba(102, 246, 202, 0.15);
+}
+
+.btn-header-resume:hover {
+  background: rgba(102, 246, 202, 0.18);
+  border-color: var(--accent);
+  box-shadow: 0 0 25px rgba(102, 246, 202, 0.35);
+  transform: translateY(-2px);
+}
+
+.pdf-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #041220;
+}
+
 .btn-theme {
   background: var(--header-btn-bg);
   border-color: var(--outline);
