@@ -12,6 +12,10 @@ import { GlowEffect } from "@/components/GlowEffect";
 import { motion } from "framer-motion";
 import { Github, Mail, Twitter, ExternalLink, Gamepad2 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
+import { SystemStatusHud } from "@/components/SystemStatusHud";
+import { RagSandbox } from "@/components/RagSandbox";
+import { TechMatrix } from "@/components/TechMatrix";
+import { ProjectCardWithToggle } from "@/components/ProjectCardWithToggle";
 
 function IconStrip({
   src,
@@ -44,9 +48,10 @@ export default function Home() {
       <div className="page-glow" aria-hidden="true" />
 
       <Header />
+      <SystemStatusHud />
 
       <main id="main-content">
-        <section className="hero section mt-12 mb-20 grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-8 items-center">
+        <section className="hero section mt-12 mb-12 grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-8 items-center">
           <Reveal className="hero-copy">
             <p className="eyebrow">Software Developer</p>
             <h1>
@@ -115,6 +120,11 @@ export default function Home() {
             </div>
           </Reveal>
         </section>
+
+        {/* Idea 1: Interactive RAG Sandbox Section */}
+        <Reveal className="section mb-16">
+          <RagSandbox />
+        </Reveal>
 
         <Reveal className="section" id="about">
           <div className="section-heading mb-6">
@@ -189,58 +199,13 @@ export default function Home() {
           </div>
         </Reveal>
 
+        {/* Idea 2: Interactive Tech Matrix */}
         <Reveal className="section" id="skills">
           <div className="section-heading mb-8">
             <p className="eyebrow">Technical Skills</p>
-            <h2 className="text-3xl font-bold font-space">Tools and technologies I use</h2>
+            <h2 className="text-3xl font-bold font-space">Interactive Engineering Matrix</h2>
           </div>
-          <div className="skills-grid gap-4">
-            <article className="card p-6 border-l-4 border-l-[--accent]">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="p-2 rounded-lg bg-[--accent]/10 text-[--accent]"><Github size={20} /></span>
-                <h3 className="font-bold text-lg">Core Ecosystem</h3>
-              </div>
-              <div className="skills-icons flex flex-wrap gap-2 mb-4">
-                <IconStrip src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,nodejs" alt="Core Skills" className="h-9 w-auto" />
-              </div>
-              <p className="text-sm text-[--muted]">My primary toolkit for building high-performance, full-stack applications with localized intelligence.</p>
-            </article>
-
-            <article className="card p-6 border-l-4 border-l-blue-400">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="p-2 rounded-lg bg-blue-400/10 text-blue-400"><Mail size={20} /></span>
-                <h3 className="font-bold text-lg">Languages & Foundations</h3>
-              </div>
-              <div className="skills-icons flex flex-wrap gap-2 mb-4">
-                <IconStrip src="https://skillicons.dev/icons?i=cpp,java,py,js,html,css" alt="Languages" className="h-9 w-auto" />
-              </div>
-              <p className="text-sm text-[--muted]">Deeply rooted in C++, Java, and Python for algorithm-heavy tasks and core engineering logic.</p>
-            </article>
-
-            <article className="card p-6 border-l-4 border-l-purple-400">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="p-2 rounded-lg bg-purple-400/10 text-purple-400"><Github size={20} /></span>
-                <h3 className="font-bold text-lg">Infrastructure & Data</h3>
-              </div>
-              <div className="skills-icons flex flex-wrap gap-2 mb-4">
-                <IconStrip src="https://skillicons.dev/icons?i=postgres,mysql,prisma,vercel,git,linux" alt="Infrastructure skills" className="h-9 w-auto" />
-              </div>
-              <p className="text-sm text-[--muted]">Experienced in RDBMS management, edge deployments, and version control workflows.</p>
-            </article>
-
-            <article className="card p-6 border-l-4 border-l-orange-400">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="p-2 rounded-lg bg-orange-400/10 text-orange-400"><Twitter size={20} /></span>
-                <h3 className="font-bold text-lg">Currently Optimizing</h3>
-              </div>
-              <p className="text-sm text-[--muted] mb-3">Focused on deepening expertise in:</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="pill text-[10px] bg-orange-400/10 border-orange-400/20 text-orange-400">RAG Architectures</span>
-                <span className="pill text-[10px] bg-orange-400/10 border-orange-400/20 text-orange-400">Edge Runtime Ops</span>
-                <span className="pill text-[10px] bg-orange-400/10 border-orange-400/20 text-orange-400">Fleet Logistics AI</span>
-              </div>
-            </article>
-          </div>
+          <TechMatrix />
         </Reveal>
 
         <div className="section" id="projects">
@@ -393,34 +358,49 @@ export default function Home() {
                     Designed highly robust document parsers and a secure local auth system.
                   </li>
                 </ul>
-                <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
-                    <Image
-                      src="/assets/screenshots/lexora-dashboard-desktop.png"
-                      alt="Lexora AI dashboard desktop"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
-                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
-                        <ExternalLink size={10} /> RAG Workspace
-                      </p>
+                <ProjectCardWithToggle
+                  title="Lexora AI RAG Engine"
+                  architectureDiagram={`
+graph LR
+    PDF[PDF Upload] --> Parse[pdf-parse Extraction]
+    Parse --> Chunk[Semantic Chunking]
+    Chunk --> Vector[(Local Vector Index .lexora/)]
+    Query[User Query] --> Search[Semantic Search]
+    Vector --> Search
+    Search -- "Top Context" --> LLM[Llama-3.1 LLM]
+    LLM --> UI[Perplexity-like Cited UI]
+                  `}
+                  productProof={
+                    <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
+                      <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
+                        <Image
+                          src="/assets/screenshots/lexora-dashboard-desktop.png"
+                          alt="Lexora AI dashboard desktop"
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                          <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                            <ExternalLink size={10} /> RAG Workspace
+                          </p>
+                        </div>
+                      </figure>
+                      <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
+                        <Image
+                          src="/assets/screenshots/lexora-dashboard-mobile.png"
+                          alt="Lexora AI chat mobile"
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                          <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                            <ExternalLink size={10} /> Dual-pane Chat
+                          </p>
+                        </div>
+                      </figure>
                     </div>
-                  </figure>
-                  <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
-                    <Image
-                      src="/assets/screenshots/lexora-dashboard-mobile.png"
-                      alt="Lexora AI chat mobile"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
-                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
-                        <ExternalLink size={10} /> Dual-pane Chat
-                      </p>
-                    </div>
-                  </figure>
-                </div>
+                  }
+                />
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
                 <a
@@ -489,34 +469,48 @@ export default function Home() {
                     routing.
                   </li>
                 </ul>
-                <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
-                  <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
-                    <Image
-                      src="/assets/screenshots/sarthi-dashboard-desktop.png"
-                      alt="SarthiSync dashboard desktop"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
-                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
-                        <ExternalLink size={10} /> Fleet Dashboard
-                      </p>
+                <ProjectCardWithToggle
+                  title="SarthiSync Logistics Dispatch"
+                  architectureDiagram={`
+graph TD
+    Intake[Consignment Intake] --> Copilot[AI Dispatch Copilot]
+    Copilot --> Assign[Vehicle Assignment]
+    Assign --> Live[Live Fleet Tracking]
+    Live --> OTP1[Pickup OTP]
+    OTP1 --> OTP2[Dropoff OTP]
+    OTP2 --> ePOD[Audit-Ready ePOD]
+                  `}
+                  productProof={
+                    <div className="proof-grid mb-6 grid grid-cols-2 gap-4">
+                      <figure className="proof-shot proof-shot-desktop overflow-hidden border border-white/10 rounded-xl relative aspect-[16/10] group/proof">
+                        <Image
+                          src="/assets/screenshots/sarthi-dashboard-desktop.png"
+                          alt="SarthiSync dashboard desktop"
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                          <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                            <ExternalLink size={10} /> Fleet Dashboard
+                          </p>
+                        </div>
+                      </figure>
+                      <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
+                        <Image
+                          src="/assets/screenshots/sarthi-dashboard-mobile.png"
+                          alt="SarthiSync dashboard mobile"
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
+                          <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
+                            <ExternalLink size={10} /> Mobile Ops
+                          </p>
+                        </div>
+                      </figure>
                     </div>
-                  </figure>
-                  <figure className="proof-shot proof-shot-mobile aspect-[4/5] group/proof">
-                    <Image
-                      src="/assets/screenshots/sarthi-dashboard-mobile.png"
-                      alt="SarthiSync dashboard mobile"
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover/proof:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-end p-3">
-                      <p className="text-[10px] text-white/90 font-medium flex items-center gap-1">
-                        <ExternalLink size={10} /> Mobile Ops
-                      </p>
-                    </div>
-                  </figure>
-                </div>
+                  }
+                />
               </div>
               <div className="project-actions flex gap-4 pt-4 mt-auto">
                 <a
