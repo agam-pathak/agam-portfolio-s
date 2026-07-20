@@ -77,7 +77,7 @@ export default function Home() {
               </GlowEffect>
             </div>
             <div className="meta-row">
-              <span className="mr-4">Meerut, India</span>
+              <span className="mr-4">Noida, UP, India</span>
               <span className="mr-4">
                 <a href="mailto:agamworkspace@gmail.com">agamworkspace@gmail.com</a>
               </span>
@@ -688,7 +688,7 @@ export default function Home() {
               </a>
               <div className="contact-item card">
                 <h3 className="font-bold">Location</h3>
-                <p className="text-sm">Meerut, India</p>
+                <p className="text-sm">Noida, UP, India</p>
               </div>
             </div>
 

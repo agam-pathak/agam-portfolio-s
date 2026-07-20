@@ -56,7 +56,7 @@ export function Footer() {
             </div>
             <div className="text-left lg:text-right">
               <p className="text-sm font-bold text-white/90">Agam Pathak</p>
-              <p className="text-xs text-[--muted] mt-1">Meerut, India &bull; {time}</p>
+              <p className="text-xs text-[--muted] mt-1">Noida, UP, India &bull; {time}</p>
             </div>
           </div>
         </div>
@@ -88,14 +88,14 @@ export function Footer() {
             <ul className="flex flex-col items-start gap-5 text-[15px] font-medium text-[--muted]">
               <li><Link href="/resume" className="hover:text-white transition-colors">Modern Resume</Link></li>
               <li><a href="/resume.pdf" download className="hover:text-white transition-colors">Printable CV</a></li>
-              <li><a href="https://github.com/Agam-Pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub Profile</a></li>
+              <li><a href="https://github.com/agam-pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub Profile</a></li>
             </ul>
           </nav>
 
           <nav className="flex flex-col items-start text-left">
             <h4 className="text-[11px] font-bold uppercase tracking-[2px] text-white/30 mb-8 font-space">Socials</h4>
             <ul className="flex flex-col items-start gap-5 text-[15px] font-medium text-[--muted]">
-              <li><a href="https://github.com/Agam-Pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
+              <li><a href="https://github.com/agam-pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
               <li><a href="https://linkedin.com/in/agam-pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
               <li><a href="https://twitter.com/agam_pathak" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X / Twitter</a></li>
             </ul>
