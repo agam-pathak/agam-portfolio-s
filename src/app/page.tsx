@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/Header";
@@ -10,17 +9,9 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Counter } from "@/components/Counter";
 import { GlowEffect } from "@/components/GlowEffect";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Github, Mail, Twitter, ExternalLink, Gamepad2 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
-
-const TYPEWRITER_PHRASES = [
-  "Virtual HR Onboarding",
-  "Local-First AI Ecosystems",
-  "Logistics ERP Systems",
-  "RAG Document Intel",
-  "High-Performance Web Apps"
-];
 
 function IconStrip({
   src,
@@ -44,14 +35,6 @@ function IconStrip({
 }
 
 export default function Home() {
-  const [phraseIdx, setPhraseIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setPhraseIdx((prev) => (prev + 1) % TYPEWRITER_PHRASES.length);
-    }, 3200);
-    return () => clearInterval(timer);
-  }, []);
   return (
     <>
       <IntroAnimation />
@@ -63,119 +46,71 @@ export default function Home() {
       <Header />
 
       <main id="main-content">
-        <section className="hero section mt-6 mb-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
+        <section className="hero section mt-12 mb-20 grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-8 items-center">
           <Reveal className="hero-copy">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[--accent]/10 border border-[--accent]/30 text-[--accent] text-xs font-bold mb-6 tracking-wide shadow-[0_0_20px_rgba(102,246,202,0.12)]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[--accent] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[--accent]"></span>
-              </span>
-              Available for Tech &amp; Operations Roles
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-space tracking-tight leading-[1.1] mb-4 text-white">
-              Hi, I&apos;m <span className="text-[--accent] bg-clip-text text-transparent bg-gradient-to-r from-[--accent] via-teal-300 to-cyan-400">Agam Pathak</span>
+            <p className="eyebrow">Software Developer</p>
+            <h1>
+              Building practical software with
+              <span> clean architecture </span>
+              and user-focused design.
             </h1>
-
-            <div className="text-xl sm:text-2xl lg:text-3xl font-bold font-space text-[--muted] mb-6 h-12 flex items-center overflow-hidden">
-              <span className="shrink-0">I build&nbsp;</span>
-              <div className="relative inline-flex items-center overflow-hidden h-full">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={phraseIdx}
-                    initial={{ y: 25, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -25, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="text-[--accent] border-r-2 border-[--accent] pr-1.5 truncate"
-                  >
-                    {TYPEWRITER_PHRASES[phraseIdx]}
-                  </motion.span>
-                </AnimatePresence>
-              </div>
-            </div>
-
-            <p className="hero-text text-base sm:text-lg text-[--muted] leading-relaxed max-w-xl mb-8 font-normal">
-              Full-Stack Software Architect &amp; B.Tech Computer Science student (2023–2027) at SCRIET (CCS University). Expert in RAG pipelines, Vector Databases, and Logistics ERP systems with 15+ shipped production apps.
+            <p className="hero-text text-lg">
+              I am a B.Tech Computer Science Engineering student (2023 to 2027)
+              at Chaudhary Charan Singh University Campus (SCRIET), Meerut. I
+              build full-stack web applications and lead teams to ship reliable
+              project outcomes.
             </p>
-
-            <div className="hero-actions my-6 flex flex-wrap gap-4">
+            <div className="hero-actions my-6">
               <GlowEffect glowSize={180}>
                 <Magnetic strength={0.2}>
-                  <Link href="#projects" className="btn btn-primary px-7 py-3 text-sm font-bold">
+                  <Link href="#projects" className="btn btn-primary">
                     View Projects
                   </Link>
                 </Magnetic>
               </GlowEffect>
               <GlowEffect glowSize={180}>
                 <Magnetic strength={0.4}>
-                  <Link href="/resume" className="btn btn-secondary px-7 py-3 text-sm font-bold">
+                  <Link href="/resume" className="btn btn-secondary">
                     View Modern Resume
                   </Link>
                 </Magnetic>
               </GlowEffect>
             </div>
-
-            <div className="meta-row text-xs uppercase tracking-wider font-bold text-[--muted] flex flex-wrap items-center gap-3 pt-3 border-t border-white/10">
-              <span className="flex items-center gap-1.5"><span className="text-[--accent]">📍</span> Noida, UP, India</span>
-              <span className="opacity-40">&bull;</span>
-              <a href="mailto:agamworkspace@gmail.com" className="hover:text-[--accent] transition-colors">agamworkspace@gmail.com</a>
-              <span className="opacity-40">&bull;</span>
-              <a href="tel:+917307086547" className="hover:text-[--accent] transition-colors">+91 7307086547</a>
+            <div className="meta-row">
+              <span className="mr-4">Noida, UP, India</span>
+              <span className="mr-4">
+                <a href="mailto:agamworkspace@gmail.com">agamworkspace@gmail.com</a>
+              </span>
+              <span>
+                <a href="tel:+917307086547">+91 7307086547</a>
+              </span>
             </div>
           </Reveal>
 
-          <Reveal className="hero-media relative flex flex-col items-center justify-center">
-            {/* Clean Hero Portrait Frame */}
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] mx-auto rounded-3xl p-1 bg-gradient-to-b from-[--accent]/40 via-white/10 to-indigo-500/30 border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.5)] overflow-hidden group">
-              <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#071322] relative">
-                <Image
-                  src="/profile-optimized.jpg"
-                  alt="Portrait of Agam Pathak"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#08111f] via-transparent to-transparent opacity-60" />
-              </div>
-
-              {/* Glassmorphic Floating Badge - Full-Stack */}
-              <div className="absolute top-4 left-4 bg-[#081427]/85 backdrop-blur-md border border-[--accent]/30 rounded-2xl p-2.5 shadow-xl flex items-center gap-2.5 z-10 pointer-events-none">
-                <div className="w-8 h-8 rounded-xl bg-[--accent]/15 border border-[--accent]/30 flex items-center justify-center text-[--accent] shrink-0 font-mono text-xs font-black">
-                  &lt;/&gt;
-                </div>
-                <div className="text-left pr-1">
-                  <p className="text-[11px] font-bold text-white font-space leading-tight">Full-Stack &amp; AI</p>
-                  <p className="text-[9px] text-[--muted] leading-tight">Lexora AI &amp; Rahi.AI Lead</p>
-                </div>
-              </div>
-
-              {/* Glassmorphic Floating Badge - Operations */}
-              <div className="absolute bottom-4 right-4 bg-[#081427]/85 backdrop-blur-md border border-cyan-400/30 rounded-2xl p-2.5 shadow-xl flex items-center gap-2.5 z-10 pointer-events-none">
-                <div className="w-8 h-8 rounded-xl bg-cyan-400/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400 shrink-0 text-xs">
-                  ⚙️
-                </div>
-                <div className="text-left pr-1">
-                  <p className="text-[11px] font-bold text-white font-space leading-tight">HR &amp; Ops Systems</p>
-                  <p className="text-[9px] text-[--muted] leading-tight">SarthiSync &amp; Virtual HR</p>
-                </div>
-              </div>
+          <Reveal className="hero-media">
+            <div className="profile-frame max-w-sm mx-auto relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[--accent] to-transparent opacity-0 group-hover:opacity-10 transition-opacity pointer-events-none" />
+              <Image
+                src="/profile-optimized.jpg"
+                alt="Portrait of Agam Pathak"
+                width={400}
+                height={500}
+                priority
+                className="w-full h-auto object-cover"
+              />
             </div>
-
-            {/* Quick Metrics Counter Grid */}
-            <div className="stats-grid w-full max-w-[380px] mt-6 grid grid-cols-3 gap-3">
-              <article className="stat p-3 text-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
-                <Counter value={15} suffix="+" />
-                <p className="text-[11px] text-[--muted] mt-1 font-medium leading-tight">Production Apps</p>
+            <div className="stats-grid mt-6">
+              <article className="stat p-4 text-center">
+                <Counter value={3} suffix="" />
+                <p>Flagship systems built and led</p>
               </article>
-              <article className="stat p-3 text-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
-                <Counter value={98} suffix="%" />
-                <p className="text-[11px] text-[--muted] mt-1 font-medium leading-tight">System Uptime</p>
+              <article className="stat p-4 text-center">
+                <Counter value={8} suffix="+" />
+                <p>Production-grade flows in Rahi.AI</p>
               </article>
-              <article className="stat p-3 text-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md">
-                <Counter value={60} suffix="%" />
-                <p className="text-[11px] text-[--muted] mt-1 font-medium leading-tight">Admin Reduction</p>
+              <article className="stat p-4 text-center">
+                <Counter value={4} suffix="" />
+                <p>Live deployed products</p>
               </article>
             </div>
           </Reveal>

@@ -22,7 +22,7 @@ export function Header() {
         <Magnetic strength={0.2}>
           <GlowEffect glowSize={120}>
             <Link href="/#top" className="brand flex items-center gap-3">
-              <span className="brand-mark w-10 h-10 p-1 rounded-lg border border-[--accent]/30 bg-[--accent]/10 backdrop-blur-md transition-all hover:scale-105">
+              <span className="brand-mark w-10 h-10 p-1 rounded-lg border border-white/10 bg-white/5 backdrop-blur-md transition-all hover:scale-105 hover:bg-white/10">
                 <Image
                   src="/brand-logo.svg"
                   alt="Agam Pathak Logo"
@@ -31,9 +31,7 @@ export function Header() {
                   className="w-full h-full object-contain"
                 />
               </span>
-              <span className="brand-text font-black text-xl font-space tracking-tight text-white flex items-center">
-                &lt;<span className="text-[--accent]">Agam Pathak</span>&nbsp;/&gt;
-              </span>
+              <span className="brand-text font-bold text-lg tracking-tight">Agam Pathak</span>
             </Link>
           </GlowEffect>
         </Magnetic>
@@ -54,7 +52,7 @@ export function Header() {
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#projects" onClick={() => setIsOpen(false)}>Projects</Link></GlowEffect></Magnetic>
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#journey" onClick={() => setIsOpen(false)}>Journey</Link></GlowEffect></Magnetic>
           <Magnetic strength={0.4}><GlowEffect glowSize={80}><Link href="/#contact" onClick={() => setIsOpen(false)}>Contact</Link></GlowEffect></Magnetic>
-          <Magnetic strength={0.4}><GlowEffect glowSize={80}><a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="nav-resume">View Resume</a></GlowEffect></Magnetic>
+          <Magnetic strength={0.4}><GlowEffect glowSize={80}><a href="/resume.pdf" download className="nav-resume">Resume</a></GlowEffect></Magnetic>
         </nav>
 
         <div className="header-cta">
@@ -77,8 +75,8 @@ export function Header() {
           </Magnetic>
           <Magnetic strength={0.5}>
             <GlowEffect glowSize={100}>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-header-resume">
-                <span className="pdf-badge">PDF</span> View Resume
+              <a href="/resume.pdf" download className="btn btn-header">
+                Resume
               </a>
             </GlowEffect>
           </Magnetic>
