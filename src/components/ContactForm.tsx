@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Send, Mail } from "lucide-react";
+import { CheckCircle2, Send, Mail, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
 export function ContactForm() {
@@ -10,8 +10,8 @@ export function ContactForm() {
   const [errorMsg, setErrorMsg] = useState("");
 
   const triggerConfetti = () => {
-    const end = Date.now() + 3 * 1000; // 3 seconds
-    const colors = ["#66f6ca", "#e7eefc", "#101b2f"];
+    const end = Date.now() + 3 * 1000;
+    const colors = ["#66f6ca", "#38bdf8", "#a855f7"];
 
     (function frame() {
       confetti({
@@ -72,21 +72,21 @@ export function ContactForm() {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: -20 }}
-            className="flex flex-col items-center justify-center py-20 text-center space-y-4 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md"
+            className="flex flex-col items-center justify-center p-10 text-center space-y-4 bg-[--surface] border border-[--outline] rounded-3xl backdrop-blur-xl shadow-[var(--shadow)]"
           >
-            <div className="w-20 h-20 bg-[--accent]/20 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle2 className="w-10 h-10 text-[--accent]" />
+            <div className="w-16 h-16 bg-[--accent]/20 rounded-full flex items-center justify-center mb-2">
+              <CheckCircle2 className="w-8 h-8 text-[--accent]" />
             </div>
-            <h3 className="text-3xl font-bold font-space">Message Sent Successfully!</h3>
-            <p className="text-[--muted] max-w-sm">
+            <h3 className="text-2xl md:text-3xl font-bold font-space text-[--text]">Message Sent Successfully!</h3>
+            <p className="text-[--muted] text-sm max-w-sm">
               Thanks for reaching out. I usually reply within 24 hours.
             </p>
             <button 
               onClick={() => setStatus("idle")} 
-              className="btn btn-secondary mt-8"
+              className="btn btn-secondary mt-6"
               data-cursor="pointer"
             >
-              Send Another
+              Send Another Message
             </button>
           </motion.div>
         ) : (
@@ -96,7 +96,7 @@ export function ContactForm() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="contact-form"
+            className="p-8 rounded-3xl bg-[--surface] backdrop-blur-xl border border-[--outline] shadow-[var(--shadow)] flex flex-col gap-6"
             action="https://formsubmit.co/ajax/agamworkspace@gmail.com"
             method="POST"
             onSubmit={handleSubmit}
@@ -113,50 +113,56 @@ export function ContactForm() {
               autoComplete="off"
             />
 
-            <div className="form-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="contact-name" className="text-sm font-medium opacity-80 ml-1">Your Name</label>
+                <label htmlFor="contact-name" className="text-xs font-bold uppercase tracking-wider text-[--text] font-space ml-1">
+                  Your Name
+                </label>
                 <input 
                   id="contact-name" 
                   name="name" 
                   type="text" 
-                  placeholder="John Doe"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[--accent] focus:ring-1 focus:ring-[--accent] outline-none transition-all"
+                  placeholder="e.g. John Doe"
+                  className="w-full bg-[--bg-soft] border border-[--outline] text-[--text] placeholder:text-[--muted] rounded-2xl px-4 py-3.5 focus:border-[--accent] focus:ring-2 focus:ring-[--accent]/20 outline-none transition-all text-sm font-medium"
                   required 
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="contact-email" className="text-sm font-medium opacity-80 ml-1">Email Address</label>
+                <label htmlFor="contact-email" className="text-xs font-bold uppercase tracking-wider text-[--text] font-space ml-1">
+                  Email Address
+                </label>
                 <input 
                   id="contact-email" 
                   name="email" 
                   type="email" 
-                  placeholder="john@example.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[--accent] focus:ring-1 focus:ring-[--accent] outline-none transition-all"
+                  placeholder="john@company.com"
+                  className="w-full bg-[--bg-soft] border border-[--outline] text-[--text] placeholder:text-[--muted] rounded-2xl px-4 py-3.5 focus:border-[--accent] focus:ring-2 focus:ring-[--accent]/20 outline-none transition-all text-sm font-medium"
                   required 
                 />
               </div>
             </div>
 
-            <div className="space-y-2 mt-6">
-              <label htmlFor="contact-message" className="text-sm font-medium opacity-80 ml-1">Message</label>
+            <div className="space-y-2">
+              <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-wider text-[--text] font-space ml-1">
+                Your Message / Inquiry
+              </label>
               <textarea 
                 id="contact-message" 
                 name="message" 
                 rows={5} 
-                placeholder="How can I help you? Describe your project or inquiry..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-[--accent] focus:ring-1 focus:ring-[--accent] outline-none transition-all resize-none"
+                placeholder="Describe your project, role opportunity, or technical inquiry..."
+                className="w-full bg-[--bg-soft] border border-[--outline] text-[--text] placeholder:text-[--muted] rounded-2xl px-4 py-3.5 focus:border-[--accent] focus:ring-2 focus:ring-[--accent]/20 outline-none transition-all resize-none text-sm font-medium"
                 required
               ></textarea>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 mt-6 border-t border-white/5">
-              <p className="text-xs opacity-60 max-w-[250px]">
-                Submitted via FormSubmit and forwarded to my inbox.
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-[--outline]">
+              <p className="text-xs text-[--muted]">
+                Direct inbox delivery via FormSubmit • Instant Response
               </p>
               <button 
                 type="submit" 
-                className="btn btn-primary w-full md:w-auto flex items-center justify-center gap-2 group px-8" 
+                className="btn btn-primary w-full md:w-auto flex items-center justify-center gap-2 group px-8 shadow-[0_0_20px_rgba(102,246,202,0.3)]" 
                 disabled={status === "submitting"}
                 data-cursor="pointer"
               >
@@ -172,7 +178,7 @@ export function ContactForm() {
                 ) : (
                   <>
                     <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    <span>Send Inquiry</span>
+                    <span>Send Message</span>
                   </>
                 )}
               </button>
@@ -182,9 +188,9 @@ export function ContactForm() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl mt-6 text-sm flex items-center gap-3"
+                className="p-4 bg-red-500/10 border border-red-500/30 text-red-500 dark:text-red-400 rounded-2xl mt-2 text-xs flex items-center gap-3 font-medium"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 shrink-0" />
                 <p>{errorMsg}</p>
               </motion.div>
             )}

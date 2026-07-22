@@ -4,8 +4,8 @@ import { Activity, ShieldCheck, Zap, Server } from "lucide-react";
 
 export function SystemStatusHud() {
   return (
-    <div className="w-full bg-[#050c18]/80 backdrop-blur-md border-y border-white/10 py-2.5 px-4 text-xs font-mono text-[--muted]">
-      <div className="max-w-[--max-width] mx-auto flex flex-wrap justify-between items-center gap-4">
+    <div className="w-full bg-[#050c18]/80 backdrop-blur-md border-y border-white/10 py-2 text-xs font-mono text-[--muted]">
+      <div className="max-w-[--max-width] mx-auto px-4 sm:px-6 flex flex-wrap justify-between items-center gap-4">
         <div className="flex items-center gap-6 flex-wrap">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">

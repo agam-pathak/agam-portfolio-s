@@ -127,8 +127,8 @@ export function BackgroundScene({ theme }: BackgroundSceneProps) {
 
       <group ref={root}>
         <Float speed={2.2} rotationIntensity={0.8} floatIntensity={1.8}>
-          <mesh position={[-5.5, 2.5, -3.5]}>
-            <torusKnotGeometry args={[1.2, 0.3, 180, 24]} />
+          <mesh position={[-16, 4, -14]}>
+            <torusKnotGeometry args={[1.1, 0.28, 180, 24]} />
             <meshPhysicalMaterial
               color={palette.secondary}
               metalness={0.7}
@@ -140,32 +140,32 @@ export function BackgroundScene({ theme }: BackgroundSceneProps) {
         </Float>
 
         <Float speed={2.8} rotationIntensity={1.25} floatIntensity={2.4}>
-          <mesh position={[5.2, -1.2, -4.5]}>
-            <icosahedronGeometry args={[1.8, 0]} />
+          <mesh position={[16, -1.2, -14]}>
+            <icosahedronGeometry args={[1.6, 0]} />
             <meshStandardMaterial
               color={palette.point}
               wireframe
               transparent
-              opacity={theme === "light" ? 0.24 : 0.42}
+              opacity={theme === "light" ? 0.2 : 0.35}
             />
           </mesh>
         </Float>
 
         <Float speed={2.3} rotationIntensity={1.1} floatIntensity={2.1}>
-          <mesh position={[-6.5, -7.5, -5.5]}>
-            <octahedronGeometry args={[1.7, 0]} />
+          <mesh position={[-14, -8, -13]}>
+            <octahedronGeometry args={[1.5, 0]} />
             <meshStandardMaterial
               color={palette.tertiary}
               wireframe
               transparent
-              opacity={theme === "light" ? 0.22 : 0.36}
+              opacity={theme === "light" ? 0.18 : 0.3}
             />
           </mesh>
         </Float>
 
         <Float speed={1.9} rotationIntensity={0.7} floatIntensity={1.5}>
-          <mesh position={[6.8, -10.8, -7]}>
-            <dodecahedronGeometry args={[1.9, 0]} />
+          <mesh position={[14, -11, -13]}>
+            <dodecahedronGeometry args={[1.7, 0]} />
             <meshPhysicalMaterial
               color={palette.glass}
               transmission={0.9}
